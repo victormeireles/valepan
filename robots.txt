@@ -1,0 +1,4 @@
+# robots.txt do ValePan
+User-agent: *
+Allow: /
+Sitemap: https://www.valepan.com.br/sitemap.xml 

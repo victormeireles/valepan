@@ -208,4 +208,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Ajustar links do WhatsApp
     adjustWhatsAppLinks();
+
+    // Controle de altura do cabeçalho durante scroll
+    function handleHeaderOnScroll() {
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', function() {
+            // Mantém a altura consistente, apenas aplicando uma classe visual se necessário
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    handleHeaderOnScroll();
+
+    // Funcionalidade para as perguntas frequentes (FAQ)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            // Toggle da classe active no item do FAQ
+            const faqItem = question.parentElement;
+            
+            // Fecha todos os outros itens
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Abre/fecha o item atual
+            faqItem.classList.toggle('active');
+        });
+    });
 }); 
