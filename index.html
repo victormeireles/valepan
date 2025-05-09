@@ -90,6 +90,9 @@
       ]
     }
     </script>
+
+    <!-- Adicionar estas meta tags no head -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -125,7 +128,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1 id="hero-heading">ValePan - O Pão das Melhores Hamburguerias</h1>
-                <h2>Fornecendo qualidade premium desde 2010</h2>
+                <p class="hero-subtitle">Fornecendo qualidade premium desde 2010</p>
                 <p>Qualidade, consistência e sabor em cada mordida. Os pães preferidos pelas principais hamburguerias do Brasil, produzidos com os melhores ingredientes.</p>
                 <div class="cta-buttons">
                     <a href="#produtos" class="btn primary" rel="nofollow">Conheça Nossos Produtos</a>
@@ -147,23 +150,23 @@
                     <img src="assets/nossa_historia.webp" alt="Fábrica da ValePan em Resende" width="600" height="400" loading="lazy">
                 </div>
                 <div class="about-text">
-                    <h3>Tradição que você pode sentir</h3>
+                    <p class="highlight-title">Tradição que você pode sentir</p>
                     <p>A ValePan nasceu em 2010 em Resende, Rio de Janeiro, com uma missão clara: produzir <a href="#produtos">pães de alta qualidade para hamburguerias e restaurantes</a>, utilizando apenas ingredientes selecionados e processos padronizados.</p>
                     <p>Nossa obsessão pela qualidade nos levou a desenvolver receitas exclusivas que resultam em produtos de sabor incomparável. Hoje, nos orgulhamos de fornecer para as principais hamburguerias do Brasil, garantindo <a href="#qualidade">consistência e excelência em cada entrega</a>.</p>
                     <div class="about-highlights">
                         <div class="highlight">
                             <i class="fas fa-bread-slice" aria-hidden="true"></i>
-                            <h4>Receitas Exclusivas</h4>
+                            <strong class="highlight-title">Receitas Exclusivas</strong>
                             <p>Desenvolvidas e aperfeiçoadas ao longo dos anos</p>
                         </div>
                         <div class="highlight">
                             <i class="fas fa-award" aria-hidden="true"></i>
-                            <h4>Qualidade Superior</h4>
+                            <strong class="highlight-title">Qualidade Superior</strong>
                             <p>Ingredientes selecionados e processos padronizados</p>
                         </div>
                         <div class="highlight">
                             <i class="fas fa-utensils" aria-hidden="true"></i>
-                            <h4>Sabor Inigualável</h4>
+                            <strong class="highlight-title">Sabor Inigualável</strong>
                             <p>A combinação perfeita de tradição e tecnologia</p>
                         </div>
                     </div>
@@ -367,7 +370,7 @@
 
                 <div class="product-details">
                     <div class="product-details-col">
-                        <h3>Validade</h3>
+                        <strong class="details-title">Validade</strong>
                         <p><strong>Armazenamento:</strong></p>
                         <p>– Em temperatura ambiente: até 15 dias após fabricação</p>
                         <p>– Resfriado: até 15 dias após fabricação</p>
@@ -375,7 +378,7 @@
                         <p>Para mais informações sobre armazenamento e conservação, consulte nossa seção de <a href="#faq">Perguntas Frequentes</a>.</p>
                     </div>
                     <div class="product-details-col">
-                        <h3>Recomendação de Conservação</h3>
+                        <strong class="details-title">Recomendação de Conservação</strong>
                         <p><strong>Não Congelado:</strong></p>
                         <p>Conservar em local seco, fresco e livre de odores.</p>
                         <p><strong>Congelado:</strong></p>
@@ -527,7 +530,7 @@
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>Endereço</h3>
+                            <strong class="contact-label">Endereço</strong>
                             <p><span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                                 <span itemprop="streetAddress">Rua Luiz de Camões, nº 266, Alambari</span>, 
                                 <span itemprop="addressLocality">Resende</span>, 
@@ -542,7 +545,7 @@
                             <i class="fas fa-phone" aria-hidden="true"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>Telefone</h3>
+                            <strong class="contact-label">Telefone</strong>
                             <p><a href="tel:+5521998274577" itemprop="telephone">(21) 99827-4577</a></p>
                         </div>
                     </div>
@@ -551,7 +554,7 @@
                             <i class="fas fa-envelope" aria-hidden="true"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>Email</h3>
+                            <strong class="contact-label">Email</strong>
                             <p><a href="mailto:comercial@valepan.com" itemprop="email">comercial@valepan.com</a></p>
                         </div>
                     </div>
@@ -560,14 +563,14 @@
                             <i class="fas fa-clock" aria-hidden="true"></i>
                         </div>
                         <div class="contact-text">
-                            <h3>Horário Comercial</h3>
+                            <strong class="contact-label">Horário Comercial</strong>
                             <p><meta itemprop="openingHours" content="Mo-Fr 08:00-18:00">Segunda a Sexta: 8h às 18h</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form-container">
                     <div class="whatsapp-cta">
-                        <h3>Faça seu Pedido</h3>
+                        <strong class="cta-title">Faça seu Pedido</strong>
                         <p>Clique no botão abaixo para solicitar um orçamento diretamente pelo WhatsApp.</p>
                         <a href="https://wa.me/5521998274577?text=Olá,%20gostaria%20de%20informações%20sobre%20os%20produtos%20ValePan" class="btn primary btn-large whatsapp-btn" target="_blank">
                             <i class="fab fa-whatsapp"></i> Faça seu Pedido
@@ -686,7 +689,7 @@
                     <p>O pão das melhores hamburguerias do Brasil</p>
                 </div>
                 <div class="footer-links">
-                    <h3>Links Rápidos</h3>
+                    <strong class="footer-title">Links Rápidos</strong>
                     <ul>
                         <li><a href="#inicio">Início</a></li>
                         <li><a href="#sobre">Sobre Nós</a></li>
@@ -697,14 +700,14 @@
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h3>Contato</h3>
+                    <strong class="footer-title">Contato</strong>
                     <p><i class="fas fa-map-marker-alt"></i> Rua Luiz de Camões, nº 266, Alambari, Resende - RJ</p>
                     <p><i class="fas fa-phone-alt"></i> (21) 99827-4577</p>
                     <p><i class="fas fa-envelope"></i> comercial@valepan.com</p>
                     <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5521998274577?text=Olá,%20gostaria%20de%20falar%20sobre%20os%20produtos%20ValePan" target="_blank" aria-label="Contate-nos pelo WhatsApp">Envie mensagem via WhatsApp</a></p>
                 </div>
                 <div class="footer-social">
-                    <h3>Siga-nos</h3>
+                    <strong class="footer-title">Siga-nos</strong>
                     <div class="social-links">
                         <a href="https://www.instagram.com/valepan.oficial/" target="_blank" aria-label="Siga-nos no Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://wa.me/5521998274577" target="_blank" aria-label="Contate-nos pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>
