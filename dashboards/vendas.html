@@ -22,7 +22,7 @@
     <header class="app-header">
       <h1 class="brand"><span>Vale</span>pan Insights</h1>
       <div class="header-right">
-        <button id="period-btn" class="badge badge-interactive" title="Filtrar período">
+        <button id="period-btn" class="badge badge-interactive" title="Filtrar período" hidden>
           <span class="dot-indicator"></span>
           <span id="period-badge"></span>
           <span class="caret">▾</span>
@@ -53,7 +53,6 @@
         <h2 class="hero-title">Visão de vendas em outro nível</h2>
         <p class="hero-sub">Conecte-se com Google para liberar um dashboard moderno, rápido e encantador.</p>
         <div id="gsi-btn-landing" class="hero-login"></div>
-        <div class="hero-foot">Segurança por e‑mail autorizado. Sem backend, 100% no seu navegador.</div>
       </div>
     </section>
 
@@ -123,7 +122,7 @@
           <div class="eng-visual">
             <canvas id="chart-eng" height="160"></canvas>
             <div class="mini-badges">
-              <span class="badge">Freq. média (ativos, última janela): <strong id="eng-freq">—</strong>d</span>
+              <button id="btn-list-ativos" class="btn btn-ghost">Ver ativos</button>
               <button id="btn-list-quase" class="btn btn-ghost">Ver quase churn</button>
               <button id="btn-list-churn" class="btn btn-ghost">Ver inativos</button>
             </div>

@@ -26,6 +26,7 @@
   const presetLastMonth = document.getElementById("preset-last-month");
   const btnListQuase = document.getElementById('btn-list-quase');
   const btnListChurn = document.getElementById('btn-list-churn');
+  const btnListAtivos = document.getElementById('btn-list-ativos');
   const modal = document.getElementById('modal');
   const modalBody = document.getElementById('modal-body');
   const modalClose = document.getElementById('modal-close');
@@ -64,6 +65,15 @@
   let charts = { semanas: null, clientes: null };
   let autoFetchPending = false;
   const STORAGE_EMAIL_KEY = "vp_user_email";
+  let currentPeriod = { start: null, end: null };
+
+  // Função de modal acessível em todo o app (fora do onload)
+  function openModal(title, rows) {
+    if (!modal) return;
+    modalTitle.textContent = title;
+    modalBody.innerHTML = rows.map(r=>`<tr><td>${r.cliente}</td><td>${new Date(r.last).toLocaleDateString('pt-BR')}</td><td>${formatK(r.total)}</td></tr>`).join('');
+    modal.classList.remove('hidden');
+  }
 
   function setStatus(message) { statusEl.textContent = message; }
   function toCurrencyBRL(value) { return value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }); }
@@ -98,10 +108,11 @@
       // Registrar plugin de datalabels se existir
       try { if (window.Chart && window.ChartDataLabels) { window.Chart.register(window.ChartDataLabels); } } catch(_) {}
       // ID token para recuperar e-mail do usuário
+      const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
       google.accounts.id.initialize({
         client_id: cfg.CLIENT_ID,
-        auto_select: true,
-        use_fedcm_for_prompt: true,
+        auto_select: !isLocal,
+        use_fedcm_for_prompt: !isLocal,
         callback: (resp) => {
           try {
             const payload = parseJwt(resp.credential);
@@ -113,6 +124,7 @@
               landing.hidden = true; 
               appRoot.hidden = false; 
               statusContainer.hidden = false;
+              if (periodBtn) periodBtn.hidden = false;
               showLoading(true);
               autoFetchPending = true;
               if (tokenClient) tokenClient.requestAccessToken({ prompt: "", hint: userEmail });
@@ -129,7 +141,7 @@
         google.accounts.id.renderButton(host, { theme: "outline", size: "large", text: "signin_with", shape: "pill" });
       }
       // Sugere login imediatamente quando já há sessão Google
-      try { google.accounts.id.prompt(); } catch(_) {}
+      try { if (!isLocal) google.accounts.id.prompt(); } catch(_) {}
     }
     initGIS();
     // Botão redundante (header), caso queira permitir re-login
@@ -163,19 +175,37 @@
 
     // UI do filtro de período
     periodBtn?.addEventListener('click', ()=>{
+      // Preenche os inputs com o período atualmente selecionado sempre que abrir
+      if (periodPanel.hidden && currentPeriod.start && currentPeriod.end) {
+        periodStart.value = toISODateInput(currentPeriod.start);
+        periodEnd.value = toISODateInput(currentPeriod.end);
+      }
       periodPanel.hidden = !periodPanel.hidden;
     });
+    function toISODateInput(d){
+      const y = d.getFullYear();
+      const m = String(d.getMonth()+1).padStart(2,'0');
+      const day = String(d.getDate()).padStart(2,'0');
+      return `${y}-${m}-${day}`;
+    }
     presetThisMonth?.addEventListener('click', ()=>{
       const now = new Date();
-      const start = new Date(now.getFullYear(), now.getMonth(), 1);
-      const end = new Date(now.getFullYear(), now.getMonth(), now.getDate()-1, 23,59,59,999);
-      periodStart.valueAsDate = start; periodEnd.valueAsDate = end; 
+      const isFirstDay = now.getDate() === 1;
+      // Início: primeiro dia do mês atual (ou do mês passado se hoje for dia 1)
+      const start = isFirstDay
+        ? new Date(now.getFullYear(), now.getMonth()-1, 1)
+        : new Date(now.getFullYear(), now.getMonth(), 1);
+      // Fim: ontem (se for dia 1, ontem é último dia do mês anterior)
+      const end = new Date(now.getFullYear(), now.getMonth(), now.getDate()-1);
+      periodStart.value = toISODateInput(start);
+      periodEnd.value = toISODateInput(end);
     });
     presetLastMonth?.addEventListener('click', ()=>{
       const now = new Date();
       const start = new Date(now.getFullYear(), now.getMonth()-1, 1);
-      const end = new Date(now.getFullYear(), now.getMonth(), 0, 23,59,59,999);
-      periodStart.valueAsDate = start; periodEnd.valueAsDate = end; 
+      const end = new Date(now.getFullYear(), now.getMonth(), 0); // último dia do mês passado
+      periodStart.value = toISODateInput(start);
+      periodEnd.value = toISODateInput(end);
     });
     periodApply?.addEventListener('click', ()=>{
       try {
@@ -190,12 +220,6 @@
     });
 
     // Modal handlers
-    function openModal(title, rows) {
-      if (!modal) return;
-      modalTitle.textContent = title;
-      modalBody.innerHTML = rows.map(r=>`<tr><td>${r.cliente}</td><td>${new Date(r.last).toLocaleDateString('pt-BR')}</td><td>${formatK(r.total)}</td></tr>`).join('');
-      modal.classList.remove('hidden');
-    }
     modalClose?.addEventListener('click', ()=> modal?.classList.add('hidden'));
     modal?.addEventListener('click', (e)=> { if (e.target === modal) modal.classList.add('hidden'); });
   };
@@ -271,17 +295,26 @@
     // Card 1: Faturamento
     kpiFatValor.textContent = formatK(kpis.totalAtual);
     kpiFatVar.innerHTML = `<span class="${varPct>=0?'pos':'neg'}">${varPct >= 0 ? '+' : ''}${varPct.toFixed(1)}%</span> vs mês anterior`;
-    kpiFatProjLabel.textContent = `Projeção ${meta.nomeMes}`;
-    kpiFatProj.textContent = formatK(kpis.runRate || 0);
+    if (meta.showProjection && meta.projFat != null) {
+      kpiFatProjLabel.textContent = `Projeção ${meta.nomeMes}`;
+      kpiFatProj.textContent = formatK(meta.projFat);
+    } else {
+      kpiFatProjLabel.textContent = `Projeção`;
+      kpiFatProj.textContent = '—';
+    }
 
     // Card 2: Pedidos
     const pedidosAnterior = meta.pedidosAnterior || 0;
     const varPed = pedidosAnterior === 0 ? 0 : (kpis.pedidosAtual - pedidosAnterior)/pedidosAnterior*100;
     kpiPedValor.textContent = kpis.pedidosAtual.toLocaleString("pt-BR");
     kpiPedVar.innerHTML = `<span class="${varPed>=0?'pos':'neg'}">${varPed >= 0 ? '+' : ''}${varPed.toFixed(1)}%</span> vs mês anterior`;
-    kpiPedProjLabel.textContent = `Projeção ${meta.nomeMes}`;
-    const projPed = meta.avgPedidosDiario * meta.daysInMonth;
-    kpiPedProj.textContent = projPed.toLocaleString("pt-BR");
+    if (meta.showProjection && meta.projPed != null) {
+      kpiPedProjLabel.textContent = `Projeção ${meta.nomeMes}`;
+      kpiPedProj.textContent = Math.round(meta.projPed).toLocaleString('pt-BR');
+    } else {
+      kpiPedProjLabel.textContent = `Projeção`;
+      kpiPedProj.textContent = '—';
+    }
 
     // Card 3: Ticket
     const ticketAtual = kpis.pedidosAtual ? (kpis.totalAtual / kpis.pedidosAtual) : 0;
@@ -363,9 +396,14 @@
           } } }, 
           datalabels: {
             clamp: true, clip: true,
-            color: '#ffffff', font: { weight: '700' },
-            formatter: (v)=> `${formatK(v)}`,
-            anchor: 'end', align: 'right', offset: -8
+            color: '#0b0b0b', backgroundColor: 'rgba(255,255,255,0.85)', borderRadius: 4, padding: 4,
+            font: { weight: '800' },
+            formatter: (v, ctx)=> {
+              const pct = percents[ctx.dataIndex] ?? 0;
+              return `${formatK(v)} (${pct.toFixed(1)}%)`;
+            },
+            // âncora no fim da barra e alinhado para a esquerda para garantir que fique dentro
+            anchor: 'end', align: 'left', offset: 6
           }
         },
         scales: { x: { grace: '10%', ticks: { callback: v => formatK(v) } } }
@@ -394,8 +432,16 @@
     // Run-rate (projeção pelo ritmo médio diário)
     const daysInMonth = new Date(curStart.getFullYear(), curStart.getMonth()+1, 0).getDate();
     const curDays = Math.max(1, Math.ceil((curEnd - new Date(curStart.getFullYear(), curStart.getMonth(), 1)) / (24*60*60*1000)) + 1);
-    const avgDaily = curDays > 0 ? totalAtual / curDays : 0;
-    const runRate = avgDaily * daysInMonth;
+    // Projeção pela regra solicitada
+    const prevFullStart = new Date(curStart.getFullYear(), curStart.getMonth()-1, 1);
+    const prevFullEnd = new Date(curStart.getFullYear(), curStart.getMonth(), 0, 23,59,59,999);
+    const rowsPrevFull = rows.filter(r => r.data >= prevFullStart && r.data <= prevFullEnd);
+    const prevFullTotal = rowsPrevFull.reduce((a,r)=>a+r.valor,0);
+    const prevFullOrders = rowsPrevFull.length;
+    const nowRef = new Date();
+    const showProjection = curStart.getDate() === 1 && curStart.getMonth() === nowRef.getMonth() && curStart.getFullYear() === nowRef.getFullYear();
+    const projFat = (showProjection && totalAnterior>0) ? totalAtual * (prevFullTotal / totalAnterior) : null;
+    const projPed = (showProjection && rowsAnterior.length>0) ? pedidosAtual * (prevFullOrders / rowsAnterior.length) : null;
 
     // YTD e YoY
     const startYTD = new Date(curEnd.getFullYear(), 0, 1);
@@ -406,7 +452,7 @@
     const ytdPrev = rows.filter(r => r.data >= startYTDPrev && r.data <= endYTDPrev).reduce((a,r)=>a+r.valor,0);
     const yoyPct = ytdPrev === 0 ? 0 : (ytd - ytdPrev) / ytdPrev * 100;
 
-    const kpis = { totalAtual, totalAnterior, pedidosAtual, clientesAtual, runRate, ytd, yoyPct };
+    const kpis = { totalAtual, totalAnterior, pedidosAtual, clientesAtual, ytd, yoyPct };
 
     // Séries por semana (últimas 8 semanas terminando na última data)
     function weekKeyStart(date) {
@@ -426,7 +472,17 @@
     }
     const weeksSorted = Array.from(totalsByWeek.entries()).sort((a,b)=>a[0].localeCompare(b[0]));
     const last8 = weeksSorted.slice(-8);
-    const labelsWeeks = last8.map(([wk]) => wk.slice(5));
+    function formatDDMM(d){
+      const dd = String(d.getDate()).padStart(2,'0');
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      return `${dd}/${mm}`;
+    }
+    const labelsWeeks = last8.map(([wk]) => {
+      const [y,m,d] = wk.split('-').map(Number);
+      const start = new Date(y, m-1, d);
+      const end = new Date(y, m-1, d + 6);
+      return `${formatDDMM(start)}–${formatDDMM(end)}`;
+    });
     const valuesWeeks = last8.map(([,v]) => v);
     const ticketWeeks = last8.map(([wk]) => {
       const ord = ordersByWeek.get(wk) || 0; return ord ? (totalsByWeek.get(wk)/ord) : 0;
@@ -469,30 +525,35 @@
       if (cur || prev) variations.push({ cliente:c, cur, prev, delta, pct });
     }
     variations.sort((a,b)=>b.delta-a.delta);
-    const rankUp = variations.slice(0,3);
-    const rankDown = variations.slice(-3).reverse();
+    const rankUp = variations.slice(0,5);
+    const rankDown = variations.slice(-5).reverse();
 
-    // Engajamento (recência/frequência)
+    // Engajamento redefinido:
+    // - Ativos: clientes que compraram no período
+    // - Inativos: não compraram no período, mas compraram nos 30 dias anteriores ao início do período
+    // - Quase churn: não compraram no período, mas compraram entre 31 e 60 dias antes do início do período
     const msDay = 24*60*60*1000;
+    const startMinus30 = new Date(curStart.getTime() - 30*msDay);
+    const startMinus60 = new Date(curStart.getTime() - 60*msDay);
+    const dayBeforeStart = new Date(curStart.getTime() - 1*msDay);
+    const startMinus31 = new Date(curStart.getTime() - 31*msDay);
+
+    const setAtivos = new Set(rowsAtual.map(r=>r.cliente));
+    const setPrev30 = new Set(rows.filter(r => r.data >= startMinus30 && r.data <= dayBeforeStart).map(r=>r.cliente));
+    const setPrev31to60 = new Set(rows.filter(r => r.data >= startMinus60 && r.data <= startMinus31).map(r=>r.cliente));
+
+    const ativos = setAtivos.size;
+    let inativos = 0; let quase = 0;
+    for (const c of setPrev30) if (!setAtivos.has(c)) quase++;
+    for (const c of setPrev31to60) if (!setAtivos.has(c)) inativos++;
+
+    // Métricas auxiliares (freq/recência médias) mantidas simples
     const lastByClient = new Map();
-    const datesByClient = new Map();
     for (const r of rows) {
-      const arr = datesByClient.get(r.cliente) || [];
-      arr.push(r.data); datesByClient.set(r.cliente, arr);
       const prev = lastByClient.get(r.cliente); if (!prev || r.data>prev) lastByClient.set(r.cliente, r.data);
     }
-    let ativos=0, quase=0, churn=0, freqSum=0, freqCount=0, recSum=0, recCount=0;
-    for (const [cliente, last] of lastByClient.entries()) {
-      const diff = Math.floor((b.lastDate - last)/msDay);
-      if (diff <= 14) ativos++; else if (diff <= 42) quase++; else churn++;
-      recSum += diff; recCount++;
-      const arr = (datesByClient.get(cliente)||[]).sort((a,b)=>a-b);
-      if (arr.length>1) {
-        let sum=0; for (let i=1;i<arr.length;i++) sum += Math.floor((arr[i]-arr[i-1])/msDay);
-        freqSum += sum/(arr.length-1); freqCount++;
-      }
-    }
-    const engajamento = { ativos, quase, churn, freqMedia: freqCount? (freqSum/freqCount):0, recenciaMedia: recCount? (recSum/recCount):0 };
+    let recSum=0, recCount=0; for (const d of lastByClient.values()) { recSum += Math.floor((curEnd - d)/msDay); recCount++; }
+    const engajamento = { ativos, quase, churn: inativos, freqMedia: 0, recenciaMedia: recCount? (recSum/recCount):0 };
 
     const labelPeriodo = `${String(curStart.getDate()).padStart(2,'0')}/${String(curStart.getMonth()+1).padStart(2,'0')}–${String(curEnd.getDate()).padStart(2,'0')}/${String(curEnd.getMonth()+1).padStart(2,'0')}/${curEnd.getFullYear()}`;
     const labelAnterior = `${String(prevStart.getDate()).padStart(2,'0')}/${String(prevStart.getMonth()+1).padStart(2,'0')}–${String(prevEnd.getDate()).padStart(2,'0')}/${String(prevEnd.getMonth()+1).padStart(2,'0')}/${prevEnd.getFullYear()}`;
@@ -503,9 +564,9 @@
     const avgPedidosDiario = curDays > 0 ? rowsAtual.length / curDays : 0;
     const daysSinceYearStart = Math.floor((curEnd - new Date(curEnd.getFullYear(),0,1)) / (24*60*60*1000)) + 1;
     const avgDiarioYTD = daysSinceYearStart>0 ? (ytd / daysSinceYearStart) : 0;
-    const meta = { nomeMes, anoAtual: curEnd.getFullYear(), anoAnterior: curEnd.getFullYear()-1, pedidosAnterior, clientesAnterior, daysInMonth, daysInYear: 365 + ( (new Date(curEnd.getFullYear(),1,29).getMonth()===1)?1:0 ), avgPedidosDiario, avgDiarioYTD, ytdPrev };
+    const meta = { nomeMes, anoAtual: curEnd.getFullYear(), anoAnterior: curEnd.getFullYear()-1, pedidosAnterior, clientesAnterior, daysInMonth, daysInYear: 365 + ( (new Date(curEnd.getFullYear(),1,29).getMonth()===1)?1:0 ), avgPedidosDiario, avgDiarioYTD, ytdPrev, showProjection, projFat, projPed };
 
-    return { rowsAtual, rowsAnterior, kpis, weeks, labels: { atual: labelPeriodo, anterior: labelAnterior }, badge: labelPeriodo, novosRecorrentes, rankUp, rankDown, engajamento, meta };
+    return { rowsAtual, rowsAnterior, kpis, weeks, labels: { atual: labelPeriodo, anterior: labelAnterior }, badge: labelPeriodo, novosRecorrentes, rankUp, rankDown, engajamento, meta, curStart, curEnd, sets: { ativos: setAtivos, prev30: setPrev30, prev31to60: setPrev31to60 } };
   }
 
   async function fetchAndRender() {
@@ -514,8 +575,8 @@
       if (!userEmail) {
         try { const saved = localStorage.getItem(STORAGE_EMAIL_KEY); if (saved) { userEmail = saved; } } catch(_) {}
       }
-      if (userEmail && landing && !landing.hidden) {
-        landing.hidden = true; appRoot.hidden = false; statusContainer.hidden = false; showLoading(true);
+       if (userEmail && landing && !landing.hidden) {
+        landing.hidden = true; appRoot.hidden = false; statusContainer.hidden = false; if (periodBtn) periodBtn.hidden = false; showLoading(true);
       }
       const values = await fetchSheetValues(cfg.SPREADSHEET_ID, cfg.RANGE);
       if (!values.length) { setStatus("Sem dados na planilha."); return; }
@@ -524,6 +585,9 @@
 
       const period = computePeriod(rows);
       periodBadge.textContent = `Período: ${period.badge}`;
+      // Mantém período atual para reabrir o painel já preenchido
+      currentPeriod.start = period.curStart;
+      currentPeriod.end = period.curEnd;
       renderKPIs({ ...period.kpis }, period.meta);
       renderCharts(period);
       renderTable(period.rowsAtual);
@@ -578,26 +642,37 @@
         });
       }
       // Botões para listar clientes
-      function buildList(filterFn){
-        // Mapa cliente -> { total, last }
+      function buildMapTotalELast(dataset){
         const map = new Map();
-        for (const r of rows) {
+        for (const r of dataset) {
           const cur = map.get(r.cliente) || { total:0, last: new Date(0) };
           cur.total += r.valor; if (r.data > cur.last) cur.last = r.data; map.set(r.cliente, cur);
         }
-        const list = Array.from(map.entries())
-          .map(([cliente,v])=>({ cliente, total:v.total, last:v.last, diff: Math.floor((period.meta ? new Date(period.labels.atual.split('–')[1].split('/').reverse().join('-')) : new Date()) - v.last)/(24*60*60*1000) }))
-          .filter(filterFn)
-          .sort((a,b)=>b.total-a.total);
-        return list;
+        return map;
       }
+      btnListAtivos?.addEventListener('click', ()=>{
+        const rowsCur = period.rowsAtual;
+        const mapAll = buildMapTotalELast(rowsCur);
+        const list = Array.from(new Set(rowsCur.map(r=>r.cliente)))
+          .map(c=> ({ cliente:c, total: mapAll.get(c)?.total||0, last: mapAll.get(c)?.last||new Date(0) }))
+          .sort((a,b)=> b.last - a.last);
+        openModal('Ativos (compraram no período)', list);
+      });
       btnListQuase?.addEventListener('click', ()=>{
-        const list = buildList(x=> x.diff>14 && x.diff<=42);
-        openModal('Quase churn', list);
+        const mapAll = buildMapTotalELast(rows);
+        const list = Array.from(period.sets.prev30)
+          .filter(c=> !period.sets.ativos.has(c))
+          .map(c=> ({ cliente:c, total: mapAll.get(c)?.total||0, last: mapAll.get(c)?.last||new Date(0) }))
+          .sort((a,b)=> b.last - a.last);
+        openModal('Quase churn (últimos 30 dias antes do período)', list);
       });
       btnListChurn?.addEventListener('click', ()=>{
-        const list = buildList(x=> x.diff>42);
-        openModal('Inativos', list);
+        const mapAll = buildMapTotalELast(rows);
+        const list = Array.from(period.sets.prev31to60)
+          .filter(c=> !period.sets.ativos.has(c))
+          .map(c=> ({ cliente:c, total: mapAll.get(c)?.total||0, last: mapAll.get(c)?.last||new Date(0) }))
+          .sort((a,b)=> b.last - a.last);
+        openModal('Inativos (31–60 dias antes do período)', list);
       });
 
       document.getElementById('insights').hidden = false;
