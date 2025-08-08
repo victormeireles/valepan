@@ -1,4 +1,5 @@
 # robots.txt do ValePan
 User-agent: *
+Disallow: /dashboards/
 Allow: /
-Sitemap: https://www.valepan.com.br/sitemap.xml 
+Sitemap: https://www.valepan.com.br/sitemap.xml
