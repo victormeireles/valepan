@@ -81,7 +81,7 @@
     if (value === null || value === undefined || isNaN(value)) return "—";
     const thousands = value / 1000;
     const decimals = thousands >= 100 ? 0 : thousands >= 10 ? 1 : 2;
-    const str = thousands.toLocaleString("en-US", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    const str = thousands.toLocaleString("pt-BR", { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
     return `${str}k`;
   }
   function setTextById(id, text) { const el = document.getElementById(id); if (el) el.textContent = text; }
@@ -637,7 +637,7 @@
         if (charts.eng) charts.eng.destroy?.();
         charts.eng = new Chart(ctxEng, {
           type: 'bar',
-          data: { labels: ['Ativos','Quase churn','Inativos'], datasets: [{ data: [eng.ativos, eng.quase, eng.churn], backgroundColor: ['#00d3a7','#ffb84d','#ff6b6b'] }] },
+          data: { labels: ['Ativos','Quase inativo','Inativos'], datasets: [{ data: [eng.ativos, eng.quase, eng.churn], backgroundColor: ['#00d3a7','#ffb84d','#ff6b6b'] }] },
           options: { plugins: { legend: { display: false }, datalabels: { anchor: 'end', align: 'end', color: '#cfe2ff' } }, scales: { y: { ticks: { precision:0 } } } }
         });
       }
@@ -664,7 +664,7 @@
           .filter(c=> !period.sets.ativos.has(c))
           .map(c=> ({ cliente:c, total: mapAll.get(c)?.total||0, last: mapAll.get(c)?.last||new Date(0) }))
           .sort((a,b)=> b.last - a.last);
-        openModal('Quase churn (últimos 30 dias antes do período)', list);
+        openModal('Quase inativo (últimos 30 dias antes do período)', list);
       });
       btnListChurn?.addEventListener('click', ()=>{
         const mapAll = buildMapTotalELast(rows);
