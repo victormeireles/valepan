@@ -45,6 +45,26 @@
             <button id="period-reset" class="btn btn-ghost">Padrão</button>
           </div>
         </div>
+
+        <!-- Filtro de Cliente -->
+        <button id="client-btn" class="badge badge-interactive" title="Filtrar cliente" hidden>
+          <span class="dot-indicator"></span>
+          <span id="client-badge">Clientes: Todos</span>
+          <span class="caret">▾</span>
+        </button>
+        <div id="client-panel" class="period-panel" hidden>
+          <div class="period-row">
+            <label>Buscar</label>
+            <input type="text" id="client-search" placeholder="Digite para filtrar" />
+          </div>
+          <div class="table-scroll" style="max-height:240px; border:1px solid var(--panel-border); border-radius:10px;">
+            <ul id="client-list" style="list-style:none; margin:0; padding:6px 8px; display:grid; gap:6px;"></ul>
+          </div>
+          <div class="period-actions">
+            <button id="client-apply" class="btn">Aplicar</button>
+            <button id="client-clear" class="btn btn-ghost">Limpar</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -56,9 +76,7 @@
       </div>
     </section>
 
-    <section class="status" id="status" hidden>
-      <span id="status-text"></span>
-    </section>
+    
 
     <main id="app" class="container" hidden>
       <section class="kpis" id="kpis" hidden>
@@ -99,7 +117,10 @@
         </div>
         <div class="card">
           <h3>Top clientes</h3>
-          <canvas id="chart-clientes" height="120"></canvas>
+          <div class="topcli">
+            <div class="chart-donut"><canvas id="chart-clientes"></canvas></div>
+            <ul id="topcli-legend" class="topcli-legend"></ul>
+          </div>
         </div>
       </section>
 
@@ -118,14 +139,9 @@
           </div>
         </div>
         <div class="card">
-          <h3>Engajamento</h3>
+          <h3>Engajamento (últimas 2 semanas)</h3>
           <div class="eng-visual">
             <canvas id="chart-eng" height="160"></canvas>
-            <div class="mini-badges">
-              <button id="btn-list-ativos" class="btn btn-ghost">Ver ativos</button>
-              <button id="btn-list-quase" class="btn btn-ghost">Ver quase inativo</button>
-              <button id="btn-list-churn" class="btn btn-ghost">Ver inativos</button>
-            </div>
           </div>
         </div>
       </section>
