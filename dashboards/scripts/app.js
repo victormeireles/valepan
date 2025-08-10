@@ -402,6 +402,7 @@
     const { weeks } = period;
     if (charts.semanas) charts.semanas.destroy();
     const semCanvas = document.getElementById("chart-semanas");
+    const isMobile = window.matchMedia('(max-width: 640px)').matches;
     charts.semanas = new Chart(semCanvas, {
       type: "bar",
       data: { labels: weeks.labels, datasets: [
@@ -416,7 +417,10 @@
           tooltip: { callbacks: { label: (ctx) => `Faturamento: ${formatK(ctx.parsed.y)}` } }, 
           datalabels: { clamp: true, clip: false, formatter: (v)=> formatK(v), color: '#cfe2ff', anchor: 'end', align: 'end', offset: -2 } 
         }, 
-        scales: { y: { grace: '10%', ticks: { callback: v => formatK(v) } } } 
+        scales: { 
+          y: { grace: '10%', ticks: { callback: v => formatK(v) } },
+          x: { grid: { display: false }, ticks: { display: !isMobile } }
+        } 
       }
     });
 
@@ -443,6 +447,15 @@
     };
 
     // Top clientes (período atual) – gráfico de rosca (Top 5 + "Outros")
+    // Atualiza título com período selecionado
+    try {
+      const h3 = document.getElementById('title-top-clientes');
+      if (h3) {
+        const from = `${String(period.curStart.getDate()).padStart(2,'0')}/${String(period.curStart.getMonth()+1).padStart(2,'0')}`;
+        const to = `${String(period.curEnd.getDate()).padStart(2,'0')}/${String(period.curEnd.getMonth()+1).padStart(2,'0')}`;
+        h3.textContent = `Top clientes (${from} à ${to})`;
+      }
+    } catch(_) {}
     // Top clientes (rosca Top 5 + Outros)
     const allCli = groupByClient(period.rowsAtual);
     const top5 = allCli.slice(0, 5);
@@ -465,7 +478,7 @@
         cutout: '68%',
         plugins: { 
           legend: { display: false }, 
-          subtitle: { display: true, text: 'Clique para filtrar por cliente (Topo 5 + Outros)', color: '#9fb0c7', font: { size: 11, weight: '600' } },
+          subtitle: { display: true, text: 'Clique para filtrar por cliente (Top 5 + Outros)', color: '#9fb0c7', font: { size: 11, weight: '600' } },
           tooltip: { callbacks: { label: (ctx) => {
             const v = ctx.parsed; const pct = (v/totalPeriodo*100)||0;
             return `${ctx.label}: ${formatK(v)} (${pct.toFixed(1)}%)`;
@@ -681,7 +694,7 @@
     const avgPedidosDiario = curDays > 0 ? rowsAtual.length / curDays : 0;
     const daysSinceYearStart = Math.floor((curEnd - new Date(curEnd.getFullYear(),0,1)) / (24*60*60*1000)) + 1;
     const avgDiarioYTD = daysSinceYearStart>0 ? (ytd / daysSinceYearStart) : 0;
-    const meta = { nomeMes, anoAtual: curEnd.getFullYear(), anoAnterior: curEnd.getFullYear()-1, pedidosAnterior, clientesAnterior, daysInMonth, daysInYear: 365 + ( (new Date(curEnd.getFullYear(),1,29).getMonth()===1)?1:0 ), avgPedidosDiario, avgDiarioYTD, ytdPrev, showProjection, projFat, projPed, compareLabel };
+    const meta = { nomeMes, anoAtual: curEnd.getFullYear(), anoAnterior: curEnd.getFullYear()-1, pedidosAnterior, clientesAnterior, daysInMonth, daysInYear: 365 + ( (new Date(curEnd.getFullYear(),1,29).getMonth()===1)?1:0 ), avgPedidosDiario, avgDiarioYTD, ytdPrev, showProjection, projFat, projPed, compareLabel, prevStart, prevEnd };
 
     return { rowsAtual, rowsAnterior, kpis, weeks, labels: { atual: labelPeriodo, anterior: labelAnterior }, badge: labelPeriodo, novosRecorrentes, rankUp, rankDown, engajamento, meta, curStart, curEnd, sets: { ativos: setAtivosSemNovos, quaseInativos: setQuase, inativos: setInativos, novos: setNovos } };
   }
@@ -743,6 +756,20 @@
       const upEl = document.getElementById('rank-up');
       const dnEl = document.getElementById('rank-down');
       upEl.innerHTML = ''; dnEl.innerHTML = '';
+      // Atualiza título com os períodos comparados (usando meta.prevStart/meta.prevEnd)
+      try {
+        const tv = document.getElementById('title-variacao');
+        if (tv && period.meta) {
+          const curFrom = `${String(period.curStart.getDate()).padStart(2,'0')}/${String(period.curStart.getMonth()+1).padStart(2,'0')}`;
+          const curTo = `${String(period.curEnd.getDate()).padStart(2,'0')}/${String(period.curEnd.getMonth()+1).padStart(2,'0')}`;
+          const ps = period.meta.prevStart; const pe = period.meta.prevEnd;
+          if (ps && pe) {
+            const prevFrom = `${String(ps.getDate()).padStart(2,'0')}/${String(ps.getMonth()+1).padStart(2,'0')}`;
+            const prevTo = `${String(pe.getDate()).padStart(2,'0')}/${String(pe.getMonth()+1).padStart(2,'0')}`;
+            tv.textContent = `Variação por cliente (${curFrom}–${curTo} vs ${prevFrom}–${prevTo})`;
+          }
+        }
+      } catch(_) {}
       for (const r of period.rankUp) {
         const li = document.createElement('li');
         li.innerHTML = `<span>${r.cliente}</span><span>+${formatK(r.delta)} (${Math.round(r.pct||0)}%)</span>`;
