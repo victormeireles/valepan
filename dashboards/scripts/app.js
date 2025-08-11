@@ -119,10 +119,11 @@
       try { if (window.Chart && window.ChartDataLabels) { window.Chart.register(window.ChartDataLabels); } } catch(_) {}
       // ID token para recuperar e-mail do usuário
       const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
       google.accounts.id.initialize({
         client_id: cfg.CLIENT_ID,
-        auto_select: !isLocal,
-        use_fedcm_for_prompt: !isLocal,
+        auto_select: isIOS ? false : !isLocal,
+        use_fedcm_for_prompt: isIOS ? false : !isLocal,
         callback: (resp) => {
           try {
             const payload = parseJwt(resp.credential);
@@ -137,7 +138,7 @@
               if (periodBtn) periodBtn.hidden = false;
               showLoading(true);
               autoFetchPending = true;
-              if (tokenClient) tokenClient.requestAccessToken({ prompt: "", hint: userEmail });
+              if (tokenClient) tokenClient.requestAccessToken({ prompt: isIOS ? 'consent' : "", hint: userEmail });
               else setStatus("Login realizado. Preparando leitura...");
             }
           } catch (e) {
@@ -151,7 +152,7 @@
         google.accounts.id.renderButton(host, { theme: "outline", size: "large", text: "signin_with", shape: "pill" });
       }
       // Sugere login imediatamente quando já há sessão Google
-      try { if (!isLocal) google.accounts.id.prompt(); } catch(_) {}
+      try { if (!isLocal && !isIOS) google.accounts.id.prompt(); } catch(_) {}
     }
     initGIS();
     // Botão redundante (header), caso queira permitir re-login
@@ -177,7 +178,8 @@
     });
     // Se o usuário já logou e permitiu, faça a leitura automática
     if (autoFetchPending) {
-      tokenClient.requestAccessToken({ prompt: "", hint: userEmail || undefined });
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+      tokenClient.requestAccessToken({ prompt: isIOS ? 'consent' : "", hint: userEmail || undefined });
     }
 
     // Removido botão de carregar dados do layout
