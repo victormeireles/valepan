@@ -119,7 +119,10 @@
       try { if (window.Chart && window.ChartDataLabels) { window.Chart.register(window.ChartDataLabels); } } catch(_) {}
       // ID token para recuperar e-mail do usuário
       const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
+      // Detecção mais robusta do iOS
+      const isIOS = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) || 
+                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                    /iPhone|iPad|iPod|iOS/i.test(navigator.userAgent);
       google.accounts.id.initialize({
         client_id: cfg.CLIENT_ID,
         auto_select: isIOS ? false : !isLocal,
@@ -159,47 +162,99 @@
         
         if (btnStep1) {
           btnStep1.addEventListener('click', ()=>{
+            console.log('iOS Step 1: Iniciando fluxo de login...');
+            btnStep1.textContent = 'Carregando...';
+            btnStep1.disabled = true;
+            
             try {
               google.accounts.id.prompt((notification)=>{
-                console.log('ID prompt resultado:', notification);
-                // Se o login foi bem-sucedido, pode pular para o passo 2
-                if (notification && (notification.isDisplayed || userEmail)) {
+                console.log('iOS Step 1: ID prompt resultado:', notification);
+                console.log('iOS Step 1: userEmail atual:', userEmail);
+                
+                // Reset do botão
+                btnStep1.textContent = 'Entrar (iOS - Passo 1)';
+                btnStep1.disabled = false;
+                
+                // Verifica se o login foi bem-sucedido
+                if (notification && (notification.isDisplayed || notification.isSkippedMoment || userEmail)) {
+                  console.log('iOS Step 1: Login bem-sucedido, mostrando Passo 2');
                   if (btnStep1) btnStep1.style.display = 'none';
                   if (btnStep2) btnStep2.style.display = 'inline-block';
+                  // Mostra texto de ajuda
+                  const helpText = document.getElementById('ios-help-text');
+                  if (helpText) helpText.style.display = 'block';
+                } else if (notification && notification.isDismissedMoment) {
+                  console.log('iOS Step 1: Login foi cancelado pelo usuário');
+                  alert('Login cancelado. Tente novamente.');
                 } else {
-                  // Se não conseguiu fazer login, ainda mostra o passo 2 para tentar
+                  console.log('iOS Step 1: Login não concluído, ainda mostrando Passo 2 após delay');
+                  // Ainda mostra o passo 2 para dar uma segunda chance
                   setTimeout(() => {
                     if (btnStep1) btnStep1.style.display = 'none';
                     if (btnStep2) btnStep2.style.display = 'inline-block';
-                  }, 1000);
+                    // Mostra texto de ajuda
+                    const helpText = document.getElementById('ios-help-text');
+                    if (helpText) helpText.style.display = 'block';
+                  }, 1500);
                 }
               });
             } catch(e) {
-              console.error('Erro no primeiro popup:', e);
+              console.error('iOS Step 1: Erro no primeiro popup:', e);
+              btnStep1.textContent = 'Entrar (iOS - Passo 1)';
+              btnStep1.disabled = false;
+              alert('Erro no login (Passo 1): ' + e.message);
+              
               // Se falhar, ainda mostra o segundo botão após um delay
               setTimeout(() => {
                 if (btnStep1) btnStep1.style.display = 'none';
                 if (btnStep2) btnStep2.style.display = 'inline-block';
-              }, 1000);
+                // Mostra texto de ajuda
+                const helpText = document.getElementById('ios-help-text');
+                if (helpText) helpText.style.display = 'block';
+              }, 1500);
             }
           });
         }
         
         if (btnStep2) {
           btnStep2.addEventListener('click', ()=>{
+            console.log('iOS Step 2: Iniciando autorização de dados...');
+            console.log('iOS Step 2: userEmail:', userEmail);
+            console.log('iOS Step 2: tokenClient:', !!tokenClient);
+            
+            btnStep2.textContent = 'Carregando...';
+            btnStep2.disabled = true;
+            
             try {
-              if (tokenClient) {
-                tokenClient.requestAccessToken({ 
-                  prompt: 'consent', 
-                  hint: userEmail || undefined 
-                });
+              if (!tokenClient) {
+                console.error('iOS Step 2: tokenClient não inicializado');
+                alert('Erro: Sistema não inicializado. Recarregue a página.');
+                btnStep2.textContent = 'Autorizar dados (iOS - Passo 2)';
+                btnStep2.disabled = false;
+                return;
               }
+              
+              if (!userEmail) {
+                console.warn('iOS Step 2: userEmail não disponível, tentando mesmo assim');
+              }
+              
+              tokenClient.requestAccessToken({ 
+                prompt: 'consent', 
+                hint: userEmail || undefined 
+              });
+              
+              // Reset do botão será feito no callback do tokenClient
             } catch(e) {
-              console.error('Erro no segundo popup:', e);
+              console.error('iOS Step 2: Erro no segundo popup:', e);
+              btnStep2.textContent = 'Autorizar dados (iOS - Passo 2)';
+              btnStep2.disabled = false;
+              alert('Erro na autorização (Passo 2): ' + e.message);
             }
           });
         }
-      } catch(_) {}
+      } catch(globalError) {
+        console.error('iOS Setup: Erro global no setup dos botões iOS:', globalError);
+      }
       // Sugere login imediatamente quando já há sessão Google
       try { if (!isLocal && !isIOS) google.accounts.id.prompt(); } catch(_) {}
     }
@@ -220,15 +275,36 @@
       client_id: cfg.CLIENT_ID,
       scope: "https://www.googleapis.com/auth/spreadsheets.readonly openid email profile",
       callback: (tokenResponse) => {
+        // Reset dos botões iOS se estiverem em uso
+        const btnStep2 = document.getElementById('btn-login-ios-step2');
+        if (btnStep2 && btnStep2.textContent === 'Carregando...') {
+          btnStep2.textContent = 'Autorizar dados (iOS - Passo 2)';
+          btnStep2.disabled = false;
+        }
+        
+        console.log('Token obtido com sucesso:', !!tokenResponse.access_token);
         accessToken = tokenResponse.access_token;
         setStatus("Carregando dados...");
         fetchAndRender().finally(()=>showLoading(false));
+      },
+      error_callback: (error) => {
+        console.error('Erro no tokenClient:', error);
+        // Reset dos botões iOS em caso de erro
+        const btnStep2 = document.getElementById('btn-login-ios-step2');
+        if (btnStep2) {
+          btnStep2.textContent = 'Autorizar dados (iOS - Passo 2)';
+          btnStep2.disabled = false;
+        }
+        alert('Erro na autorização: ' + (error.message || 'Erro desconhecido'));
       }
     });
     // Se o usuário já logou e permitiu, faça a leitura automática
     if (autoFetchPending) {
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes('Mac') && 'ontouchend' in document);
-      tokenClient.requestAccessToken({ prompt: isIOS ? 'consent' : "", hint: userEmail || undefined });
+      // Usa a mesma detecção robusta de iOS
+      const isIOSAuto = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) || 
+                        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                        /iPhone|iPad|iPod|iOS/i.test(navigator.userAgent);
+      tokenClient.requestAccessToken({ prompt: isIOSAuto ? 'consent' : "", hint: userEmail || undefined });
     }
 
     // Removido botão de carregar dados do layout
