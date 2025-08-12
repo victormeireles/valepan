@@ -132,10 +132,11 @@
             const allowed = gateAfterLogin();
             if (allowed) {
               // Esconde landing imediatamente e mostra o app com overlay
-              landing.hidden = true; 
-              appRoot.hidden = false; 
+              if (landing) landing.hidden = true; 
+              if (appRoot) appRoot.hidden = false; 
               if (statusContainer) statusContainer.hidden = false;
               if (periodBtn) periodBtn.hidden = false;
+              if (clientBtn) clientBtn.hidden = false;
               showLoading(true);
               autoFetchPending = true;
               if (tokenClient) tokenClient.requestAccessToken({ prompt: isIOS ? 'consent' : "", hint: userEmail });
@@ -151,6 +152,54 @@
       if (host) {
         google.accounts.id.renderButton(host, { theme: "outline", size: "large", text: "signin_with", shape: "pill" });
       }
+      // Botão alternativo para iOS: fluxo em duas etapas
+      try {
+        const btnStep1 = document.getElementById('btn-login-ios-step1');
+        const btnStep2 = document.getElementById('btn-login-ios-step2');
+        
+        if (btnStep1) {
+          btnStep1.addEventListener('click', ()=>{
+            try {
+              google.accounts.id.prompt((notification)=>{
+                console.log('ID prompt resultado:', notification);
+                // Se o login foi bem-sucedido, pode pular para o passo 2
+                if (notification && (notification.isDisplayed || userEmail)) {
+                  if (btnStep1) btnStep1.style.display = 'none';
+                  if (btnStep2) btnStep2.style.display = 'inline-block';
+                } else {
+                  // Se não conseguiu fazer login, ainda mostra o passo 2 para tentar
+                  setTimeout(() => {
+                    if (btnStep1) btnStep1.style.display = 'none';
+                    if (btnStep2) btnStep2.style.display = 'inline-block';
+                  }, 1000);
+                }
+              });
+            } catch(e) {
+              console.error('Erro no primeiro popup:', e);
+              // Se falhar, ainda mostra o segundo botão após um delay
+              setTimeout(() => {
+                if (btnStep1) btnStep1.style.display = 'none';
+                if (btnStep2) btnStep2.style.display = 'inline-block';
+              }, 1000);
+            }
+          });
+        }
+        
+        if (btnStep2) {
+          btnStep2.addEventListener('click', ()=>{
+            try {
+              if (tokenClient) {
+                tokenClient.requestAccessToken({ 
+                  prompt: 'consent', 
+                  hint: userEmail || undefined 
+                });
+              }
+            } catch(e) {
+              console.error('Erro no segundo popup:', e);
+            }
+          });
+        }
+      } catch(_) {}
       // Sugere login imediatamente quando já há sessão Google
       try { if (!isLocal && !isIOS) google.accounts.id.prompt(); } catch(_) {}
     }
@@ -243,10 +292,17 @@
       periodStart.value = toISODateInput(start);
       periodEnd.value = toISODateInput(end);
     });
+    // Parser seguro (local) para yyyy-mm-dd, evitando offset de timezone
+    function parseDateLocalFromInput(iso) {
+      if (!iso || typeof iso !== 'string') return null;
+      const [y, m, d] = iso.split('-').map(Number);
+      if (!y || !m || !d) return null;
+      return new Date(y, m - 1, d);
+    }
     periodApply?.addEventListener('click', ()=>{
       try {
-        const s = periodStart.value ? new Date(periodStart.value) : null;
-        const e = periodEnd.value ? new Date(periodEnd.value) : null;
+        const s = periodStart.value ? parseDateLocalFromInput(periodStart.value) : null;
+        const e = periodEnd.value ? parseDateLocalFromInput(periodEnd.value) : null;
         if (s && e && s>e) { alert('Data inicial deve ser menor que final'); return; }
         customPeriod.start = s; customPeriod.end = e; periodPanel.hidden = true; showLoading(true); fetchAndRender().finally(()=>showLoading(false));
       } catch(_){}
@@ -383,7 +439,7 @@
   function renderTable(rows) {
     const tbody = document.querySelector("#sales-table tbody");
     tbody.innerHTML = "";
-    const sorted = [...rows].sort((a,b) => b.data - a.data).slice(0, 200);
+    const sorted = [...rows].sort((a,b) => b.data - a.data);
     for (const r of sorted) {
       const tr = document.createElement("tr");
       const tdData = document.createElement("td");
@@ -396,6 +452,22 @@
       tr.replaceChildren(tdData, tdCli, tdVal);
       tbody.appendChild(tr);
     }
+    // Filtro de busca por cliente (instantâneo)
+    try {
+      const search = document.getElementById('sales-search');
+      if (search && !search._bound) {
+        search._bound = true;
+        search.addEventListener('input', ()=>{
+          const term = search.value.trim().toLowerCase();
+          const rowsEl = Array.from(tbody.querySelectorAll('tr'));
+          if (!term) { rowsEl.forEach(tr=> tr.style.display=''); return; }
+          rowsEl.forEach(tr=>{
+            const name = (tr.children[1]?.textContent || '').toLowerCase();
+            tr.style.display = name.includes(term) ? '' : 'none';
+          });
+        });
+      }
+    } catch(_) {}
     tableWrap.hidden = false;
   }
 
@@ -708,7 +780,12 @@
         try { const saved = localStorage.getItem(STORAGE_EMAIL_KEY); if (saved) { userEmail = saved; } } catch(_) {}
       }
       if (userEmail && landing && !landing.hidden) {
-        landing.hidden = true; appRoot.hidden = false; statusContainer.hidden = false; if (periodBtn) periodBtn.hidden = false; showLoading(true);
+        if (landing) landing.hidden = true; 
+        if (appRoot) appRoot.hidden = false; 
+        if (statusContainer) statusContainer.hidden = false; 
+        if (periodBtn) periodBtn.hidden = false;
+        if (clientBtn) clientBtn.hidden = false; 
+        showLoading(true);
       }
       const values = await fetchSheetValues(cfg.SPREADSHEET_ID, cfg.RANGE);
       if (!values.length) { setStatus("Sem dados na planilha."); return; }
@@ -720,7 +797,7 @@
         if (clientList && clientList.childElementCount === 0) {
           const all = Array.from(new Set(rows.map(r=>r.cliente))).sort((a,b)=> a.localeCompare(b));
           clientList.innerHTML = all.map(name=> `<li data-name="${name}"><label style="display:flex;align-items:center;gap:8px;"><input type="checkbox" value="${name}"><span>${name}</span></label></li>`).join('');
-          clientBtn.hidden = false;
+          if (clientBtn) clientBtn.hidden = false;
         }
       } catch(_) {}
 
