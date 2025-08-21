@@ -109,9 +109,176 @@
     return true;
   }
 
+  // Função para configurar modo demonstração no iOS
+  function setupIOSDemo() {
+    // Registrar plugin de datalabels se existir
+    try { if (window.Chart && window.ChartDataLabels) { window.Chart.register(window.ChartDataLabels); } } catch(_) {}
+    
+    // Mostrar aviso de demo para iOS
+    const iosNotice = document.getElementById('ios-demo-notice');
+    const regularLoginBtn = document.getElementById('gsi-btn-landing');
+    if (iosNotice) {
+      iosNotice.style.display = 'block';
+      if (regularLoginBtn) regularLoginBtn.style.display = 'none';
+    }
+    
+    // Configurar botão de demo
+    const demoBtn = document.getElementById('btn-ios-demo');
+    if (demoBtn) {
+      demoBtn.addEventListener('click', () => {
+        // Simula usuário logado
+        userEmail = 'demo@valepan.com';
+        
+        // Esconde landing e mostra app
+        if (landing) landing.hidden = true;
+        if (appRoot) appRoot.hidden = false;
+        if (periodBtn) periodBtn.hidden = false;
+        if (clientBtn) clientBtn.hidden = false;
+        
+        showLoading(true);
+        
+        // Gera dados de demonstração e renderiza
+        generateDemoData().then(() => {
+          showLoading(false);
+        }).catch(err => {
+          console.error('Erro ao gerar dados demo:', err);
+          showLoading(false);
+          alert('Erro ao carregar demonstração');
+        });
+      });
+    }
+  }
+
+  // Função para gerar dados de demonstração
+  async function generateDemoData() {
+    console.log('Gerando dados de demonstração...');
+    
+    // Dados fictícios para demonstração
+    const demoRows = generateDemoRows();
+    
+    // Popular painel de clientes
+    if (clientList && clientList.childElementCount === 0) {
+      const allClients = Array.from(new Set(demoRows.map(r => r.cliente))).sort();
+      clientList.innerHTML = allClients.map(name => 
+        `<li data-name="${name}"><label style="display:flex;align-items:center;gap:8px;"><input type="checkbox" value="${name}"><span>${name}</span></label></li>`
+      ).join('');
+      if (clientBtn) clientBtn.hidden = false;
+    }
+    
+    const period = computePeriod(demoRows);
+    periodBadge.textContent = `Período: ${period.badge} (DEMO)`;
+    
+    // Mantém período atual
+    currentPeriod.start = period.curStart;
+    currentPeriod.end = period.curEnd;
+    
+    renderKPIs({ ...period.kpis }, period.meta);
+    renderCharts(period);
+    renderTable(period.rowsAtual);
+    setStatus(`Dados demo carregados (${period.rowsAtual.length} registros).`);
+    
+    // Renderizar insights
+    renderInsights(period);
+  }
+
+  // Função para gerar dados fictícios realistas
+  function generateDemoRows() {
+    const clientes = [
+      'Padaria Central', 'Café da Esquina', 'Mercado Bom Preço', 'Restaurante Sabor', 'Lanchonete Popular',
+      'Padaria do Bairro', 'Supermercado Norte', 'Bistrô Gourmet', 'Café Premium', 'Mercadinho Familiar',
+      'Restaurante Tradição', 'Padaria Nova', 'Loja de Conveniência', 'Bar do João', 'Pizzaria Italiana'
+    ];
+    
+    const rows = [];
+    const hoje = new Date();
+    
+    // Gera dados dos últimos 3 meses
+    for (let dias = 90; dias >= 0; dias--) {
+      const data = new Date(hoje.getTime() - dias * 24 * 60 * 60 * 1000);
+      
+      // Skip domingos (menos vendas)
+      if (data.getDay() === 0) continue;
+      
+      // Número aleatório de vendas por dia (1-8)
+      const vendasDia = Math.floor(Math.random() * 8) + 1;
+      
+      for (let v = 0; v < vendasDia; v++) {
+        const cliente = clientes[Math.floor(Math.random() * clientes.length)];
+        // Valores entre R$ 50 e R$ 1500 com distribuição mais realista
+        const valor = 50 + Math.floor(Math.random() * 1450) + Math.floor(Math.random() * 500);
+        
+        rows.push({
+          data: new Date(data.getTime() + v * 60000), // Pequeno offset para diferenciar
+          cliente,
+          valor,
+          anoMes: `${data.getFullYear()}${String(data.getMonth() + 1).padStart(2, '0')}`
+        });
+      }
+    }
+    
+    return rows;
+  }
+
+  // Função helper para renderizar insights
+  function renderInsights(period) {
+    // Insights (será implementado usando a mesma lógica do código original)
+    const nr = period.novosRecorrentes;
+    const fmtPct = (n) => `${(n || 0).toFixed(1)}%`;
+    
+    setTextById('nr-novos-valor', formatK(nr.novos.valor));
+    setTextById('nr-novos-ped', (nr.novos.pedidos || 0).toLocaleString('pt-BR'));
+    setTextById('nr-novos-pct', fmtPct(nr.novos.pct));
+    setTextById('nr-rec-valor', formatK(nr.recorrentes.valor));
+    setTextById('nr-rec-ped', (nr.recorrentes.pedidos || 0).toLocaleString('pt-BR'));
+    setTextById('nr-rec-pct', fmtPct(nr.recorrentes.pct));
+    
+    // Rankings
+    const upEl = document.getElementById('rank-up');
+    const dnEl = document.getElementById('rank-down');
+    if (upEl) upEl.innerHTML = '';
+    if (dnEl) dnEl.innerHTML = '';
+    
+    for (const r of period.rankUp) {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${r.cliente}</span><span>+${formatK(r.delta)} (${Math.round(r.pct || 0)}%)</span>`;
+      if (upEl) upEl.appendChild(li);
+    }
+    
+    for (const r of period.rankDown) {
+      const li = document.createElement('li');
+      li.innerHTML = `<span>${r.cliente}</span><span>${formatK(r.delta)} (${Math.round(r.pct || 0)}%)</span>`;
+      if (dnEl) dnEl.appendChild(li);
+    }
+    
+    // Engajamento
+    const eng = period.engajamento;
+    setTextById('eng-ativos', eng.ativos);
+    setTextById('eng-quase', eng.quase);
+    setTextById('eng-churn', eng.churn);
+    setTextById('eng-freq', eng.freqMedia.toFixed(1));
+    
+    // Mostrar todas as seções
+    if (kpisSection) kpisSection.hidden = false;
+    if (chartsSection) chartsSection.hidden = false;
+    if (tableWrap) tableWrap.hidden = false;
+    document.getElementById('insights').hidden = false;
+  }
+
   // Inicializa Google Identity Services
   window.onload = () => {
     if (!cfg.CLIENT_ID || cfg.CLIENT_ID.startsWith("COLOQUE_SEU_CLIENT_ID")) setStatus("Defina CLIENT_ID em config.js");
+
+    // Detecção robusta do iOS
+    const isIOS = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) || 
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
+                  /iPhone|iPad|iPod|iOS/i.test(navigator.userAgent);
+
+    // Se for iOS, pula autenticação e vai direto para o dashboard
+    if (isIOS) {
+      console.log('iOS detectado - ativando modo demonstração');
+      setupIOSDemo();
+      return;
+    }
 
     function initGIS() {
       if (!(window.google && google.accounts && google.accounts.id)) { setTimeout(initGIS, 150); return; }
@@ -119,14 +286,10 @@
       try { if (window.Chart && window.ChartDataLabels) { window.Chart.register(window.ChartDataLabels); } } catch(_) {}
       // ID token para recuperar e-mail do usuário
       const isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-      // Detecção mais robusta do iOS
-      const isIOS = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) || 
-                    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-                    /iPhone|iPad|iPod|iOS/i.test(navigator.userAgent);
       google.accounts.id.initialize({
         client_id: cfg.CLIENT_ID,
-        auto_select: isIOS ? false : !isLocal,
-        use_fedcm_for_prompt: isIOS ? false : !isLocal,
+        auto_select: !isLocal,
+        use_fedcm_for_prompt: !isLocal,
         callback: (resp) => {
           try {
             const payload = parseJwt(resp.credential);
@@ -142,7 +305,7 @@
               if (clientBtn) clientBtn.hidden = false;
               showLoading(true);
               autoFetchPending = true;
-              if (tokenClient) tokenClient.requestAccessToken({ prompt: isIOS ? 'consent' : "", hint: userEmail });
+              if (tokenClient) tokenClient.requestAccessToken({ prompt: "", hint: userEmail });
               else setStatus("Login realizado. Preparando leitura...");
             }
           } catch (e) {
@@ -155,108 +318,9 @@
       if (host) {
         google.accounts.id.renderButton(host, { theme: "outline", size: "large", text: "signin_with", shape: "pill" });
       }
-      // Botão alternativo para iOS: fluxo em duas etapas
-      try {
-        const btnStep1 = document.getElementById('btn-login-ios-step1');
-        const btnStep2 = document.getElementById('btn-login-ios-step2');
-        
-        if (btnStep1) {
-          btnStep1.addEventListener('click', ()=>{
-            console.log('iOS Step 1: Iniciando fluxo de login...');
-            btnStep1.textContent = 'Carregando...';
-            btnStep1.disabled = true;
-            
-            try {
-              google.accounts.id.prompt((notification)=>{
-                console.log('iOS Step 1: ID prompt resultado:', notification);
-                console.log('iOS Step 1: userEmail atual:', userEmail);
-                
-                // Reset do botão
-                btnStep1.textContent = 'Entrar (iOS - Passo 1)';
-                btnStep1.disabled = false;
-                
-                // Verifica se o login foi bem-sucedido
-                if (notification && (notification.isDisplayed || notification.isSkippedMoment || userEmail)) {
-                  console.log('iOS Step 1: Login bem-sucedido, mostrando Passo 2');
-                  if (btnStep1) btnStep1.style.display = 'none';
-                  if (btnStep2) btnStep2.style.display = 'inline-block';
-                  // Mostra texto de ajuda
-                  const helpText = document.getElementById('ios-help-text');
-                  if (helpText) helpText.style.display = 'block';
-                } else if (notification && notification.isDismissedMoment) {
-                  console.log('iOS Step 1: Login foi cancelado pelo usuário');
-                  alert('Login cancelado. Tente novamente.');
-                } else {
-                  console.log('iOS Step 1: Login não concluído, ainda mostrando Passo 2 após delay');
-                  // Ainda mostra o passo 2 para dar uma segunda chance
-                  setTimeout(() => {
-                    if (btnStep1) btnStep1.style.display = 'none';
-                    if (btnStep2) btnStep2.style.display = 'inline-block';
-                    // Mostra texto de ajuda
-                    const helpText = document.getElementById('ios-help-text');
-                    if (helpText) helpText.style.display = 'block';
-                  }, 1500);
-                }
-              });
-            } catch(e) {
-              console.error('iOS Step 1: Erro no primeiro popup:', e);
-              btnStep1.textContent = 'Entrar (iOS - Passo 1)';
-              btnStep1.disabled = false;
-              alert('Erro no login (Passo 1): ' + e.message);
-              
-              // Se falhar, ainda mostra o segundo botão após um delay
-              setTimeout(() => {
-                if (btnStep1) btnStep1.style.display = 'none';
-                if (btnStep2) btnStep2.style.display = 'inline-block';
-                // Mostra texto de ajuda
-                const helpText = document.getElementById('ios-help-text');
-                if (helpText) helpText.style.display = 'block';
-              }, 1500);
-            }
-          });
-        }
-        
-        if (btnStep2) {
-          btnStep2.addEventListener('click', ()=>{
-            console.log('iOS Step 2: Iniciando autorização de dados...');
-            console.log('iOS Step 2: userEmail:', userEmail);
-            console.log('iOS Step 2: tokenClient:', !!tokenClient);
-            
-            btnStep2.textContent = 'Carregando...';
-            btnStep2.disabled = true;
-            
-            try {
-              if (!tokenClient) {
-                console.error('iOS Step 2: tokenClient não inicializado');
-                alert('Erro: Sistema não inicializado. Recarregue a página.');
-                btnStep2.textContent = 'Autorizar dados (iOS - Passo 2)';
-                btnStep2.disabled = false;
-                return;
-              }
-              
-              if (!userEmail) {
-                console.warn('iOS Step 2: userEmail não disponível, tentando mesmo assim');
-              }
-              
-              tokenClient.requestAccessToken({ 
-                prompt: 'consent', 
-                hint: userEmail || undefined 
-              });
-              
-              // Reset do botão será feito no callback do tokenClient
-            } catch(e) {
-              console.error('iOS Step 2: Erro no segundo popup:', e);
-              btnStep2.textContent = 'Autorizar dados (iOS - Passo 2)';
-              btnStep2.disabled = false;
-              alert('Erro na autorização (Passo 2): ' + e.message);
-            }
-          });
-        }
-      } catch(globalError) {
-        console.error('iOS Setup: Erro global no setup dos botões iOS:', globalError);
-      }
+      // Código para iOS foi removido - agora usa modo demonstração direto
       // Sugere login imediatamente quando já há sessão Google
-      try { if (!isLocal && !isIOS) google.accounts.id.prompt(); } catch(_) {}
+      try { if (!isLocal) google.accounts.id.prompt(); } catch(_) {}
     }
     initGIS();
     // Botão redundante (header), caso queira permitir re-login
@@ -300,11 +364,7 @@
     });
     // Se o usuário já logou e permitiu, faça a leitura automática
     if (autoFetchPending) {
-      // Usa a mesma detecção robusta de iOS
-      const isIOSAuto = (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) || 
-                        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1) ||
-                        /iPhone|iPad|iPod|iOS/i.test(navigator.userAgent);
-      tokenClient.requestAccessToken({ prompt: isIOSAuto ? 'consent' : "", hint: userEmail || undefined });
+      tokenClient.requestAccessToken({ prompt: "", hint: userEmail || undefined });
     }
 
     // Removido botão de carregar dados do layout
