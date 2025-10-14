@@ -1,731 +1,704 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Meta para velocidade em dispositivos móveis -->
-    <meta name="theme-color" content="#ffffff">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ValePan - Pães Premium para Hamburguerias | Desde 2010</title>
-    <meta name="description" content="ValePan: fornecedor especializado em pães para hamburguerias gourmet. Qualidade premium e entregas em todo Brasil desde 2010.">
-    <meta name="keywords" content="pão para hamburgueria, fornecedor de pães para hamburguerias, pão de hambúrguer gourmet, brioche bun, pretzel bun, pão para hambúrguer artesanal, pão para smash burger, pão para restaurantes, buns para hamburgueria, pão australiano, hambúrguer gourmet, ValePan">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="ValePan">
-    
-    <!-- Meta link para robots.txt -->
-    <link rel="robots" href="/robots.txt" type="text/plain">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.valepan.com.br/">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.valepan.com.br/">
-    <meta property="og:title" content="ValePan - Pães Premium para Hamburguerias">
-    <meta property="og:description" content="ValePan: fornecedor especializado em pães para hamburguerias gourmet. Qualidade premium e entregas em todo Brasil desde 2010.">
-    <meta property="og:image" content="https://www.valepan.com.br/assets/logo.webp">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ValePan - Pães Premium para Hamburguerias | RJ, SP e MG</title>
+<meta name="description" content="Pães gourmet para hamburguerias desde 1991. Brioche, Pretzel, Australian Bun com qualidade premium e entrega em RJ, SP e MG.">
+<meta name="keywords" content="pães para hamburguerias, brioche, pretzel, australian bun, pães gourmet, valepan, resende rj">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.valepan.com.br/">
-    <meta property="twitter:title" content="ValePan - Pães Premium para Hamburguerias">
-    <meta property="twitter:description" content="ValePan: fornecedor especializado em pães para hamburguerias gourmet. Qualidade premium e entregas em todo Brasil desde 2010.">
-    <meta property="twitter:image" content="https://www.valepan.com.br/assets/logo.webp">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="assets/favicon.webp" type="image/png">
-    <link rel="shortcut icon" href="assets/favicon.webp" type="image/png">
-    <link rel="apple-touch-icon" href="assets/favicon.webp">
-    <meta name="msapplication-TileImage" content="assets/favicon.webp">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- JSON-LD for LocalBusiness -->
-    <script type="application/ld+json">
+<!-- Geolocalização -->
+<meta name="geo.region" content="BR-RJ" />
+<meta name="geo.placename" content="Resende" />
+<meta name="geo.position" content="-22.4697;-44.4467" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://valepan.com/">
+<meta property="og:title" content="ValePan - O Pão das Melhores Hamburguerias">
+<meta property="og:description" content="Fornecendo qualidade premium desde 1991. Pães artesanais para hamburguerias em RJ, SP e MG.">
+<meta property="og:image" content="https://valepan.com/assets/logo/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ValePan - Pães Premium para Hamburguerias">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://valepan.com/">
+<meta property="twitter:title" content="ValePan - O Pão das Melhores Hamburguerias">
+<meta property="twitter:description" content="Fornecendo qualidade premium desde 1991">
+<meta property="twitter:image" content="https://valepan.com/assets/logo/og-image.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://valepan.com/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="assets/logo/valepan-logo.svg">
+
+<!-- Preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.googletagmanager.com">
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Styles -->
+<link rel="stylesheet" href="styles.css">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Schema.org Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "ValePan",
+  "description": "Pães Premium para Hamburguerias",
+  "url": "https://valepan.com",
+  "telephone": "+5524999784591",
+  "email": "comercial@valepan.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Luiz de Camões, nº 266",
+    "addressLocality": "Resende",
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "foundingDate": "1991",
+  "sameAs": [
+    "https://instagram.com/valepan.oficial"
+  ]
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "ValePan",
-      "url": "https://www.valepan.com.br",
-      "logo": "https://www.valepan.com.br/assets/logo.webp",
-      "image": "https://www.valepan.com.br/assets/logo.webp",
-      "description": "A ValePan é o principal fornecedor de pães para hamburguerias no Brasil, oferecendo produtos de qualidade premium desde 2010.",
-      "priceRange": "$$",
-      "telephone": "+5524999784591",
-      "email": "comercial@valepan.com",
-      "currenciesAccepted": "BRL",
-      "paymentAccepted": "Dinheiro, Cartão de Crédito, Transferência Bancária, Pix",
-      "openingHours": "Mo-Fr 08:00-18:00",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Rua Luiz de Camões, nº 266, Alambari",
-        "addressLocality": "Resende",
-        "addressRegion": "RJ",
-        "postalCode": "27537-500",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "-22.428904577808",
-        "longitude": "-44.45965612463063"
-      },
-      "hasMap": "https://www.google.com/maps/place/R.+Luiz+de+Cam%C3%B5es,+266+-+Alambari,+Resende+-+RJ,+27537-500",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+5524999784591",
-        "contactType": "customer service",
-        "email": "comercial@valepan.com",
-        "availableLanguage": "Portuguese"
-      },
-      "sameAs": [
-        "https://www.instagram.com/valepan.oficial/",
-        "https://wa.me/5524999784591"
-      ]
+      "@type": "Question",
+      "name": "Qual é o prazo de entrega dos pães?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O prazo de entrega varia de acordo com a região. Para grandes centros urbanos, conseguimos entregar em até 48 horas após a confirmação do pedido. Para regiões mais distantes, o prazo pode ser de 3 a 5 dias úteis. Entre em contato conosco para verificar o prazo específico para sua localidade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual é a quantidade mínima para pedidos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trabalhamos com pedidos a partir de 1 caixa (48 unidades para a maioria dos nossos produtos). Para hamburguerias e restaurantes que consomem grandes volumes, oferecemos condições especiais e descontos progressivos para pedidos maiores."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como devo armazenar os pães?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para maximizar a durabilidade, recomendamos que os pães sejam armazenados em freezer a -18°C, onde podem durar até 90 dias. Se precisar de utilização em curto prazo, mantenha em local seco e arejado em temperatura ambiente por até 5 dias, ou sob refrigeração por até 15 dias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "É possível personalizar os pães com a marca da minha hamburgueria?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim! Oferecemos serviço de personalização para pedidos acima de 300 unidades. Podemos gravar sua marca no topo do pão ou criar formatos especiais. Entre em contato conosco para discutir as possibilidades e custos de personalização para sua hamburgueria."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais são as formas de pagamento aceitas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aceitamos diversas formas de pagamento: PIX, transferência bancária, boleto e cartão de crédito (em até 3x sem juros). Para clientes recorrentes, oferecemos a possibilidade de pagamento a prazo mediante avaliação cadastral."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Os pães contêm conservantes artificiais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. Nossos pães são produzidos com ingredientes selecionados e utilizamos processos naturais de fermentação que garantem maior durabilidade sem a necessidade de conservantes artificiais. Isso contribui para o sabor autêntico e a qualidade premium que só a ValePan oferece."
+      }
     }
-    </script>
-
-    <!-- Adicionar estas meta tags no head -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  ]
+}
+</script>
 </head>
 <body>
-    <!-- Cabeçalho -->
-    <header id="header" role="banner">
-        <div class="container">
-            <div class="logo">
-                <a href="/" aria-label="ValePan - Página Inicial">
-                    <img src="assets/logo.webp" alt="ValePan Logo" width="75" height="75">
-                </a>
-            </div>
-            <nav role="navigation" aria-label="Menu principal">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#produtos">Produtos</a></li>
-                    <li><a href="#qualidade">Qualidade</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li class="cta-button"><a href="https://wa.me/5524999784591?text=Olá,%20gostaria%20de%20informações%20sobre%20os%20produtos%20ValePan" target="_blank" rel="noopener noreferrer" aria-label="Faça seu pedido pelo WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i> Faça seu Pedido</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+
+<!-- Header Fixo -->
+<header class="site-header" id="header">
+  <div class="header-container">
+    <a href="#inicio" class="header-logo">
+      <img src="assets/logo/valepan-logo.svg" alt="ValePan Logo" width="40" height="40">
+      <span>VALEPAN</span>
+    </a>
+    <nav class="header-nav" id="nav">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#qualidade">Qualidade</a>
+      <a href="#contato">Contato</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="header-cta" target="_blank" rel="noopener">
+      Faça seu Pedido
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- Seção Hero -->
+<section class="section hero-section" id="inicio">
+  <video autoplay muted loop playsinline class="hero-video" poster="assets/slides/01-abertura/hero-bg.webp">
+    <source src="assets/slides/01-abertura/hero-bg.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-brand">
+      <img src="assets/logo/valepan-logo.svg" alt="Valepan" class="hero-logo" width="120" height="120">
+      <h2 class="hero-brand-name">VALEPAN</h2>
+    </div>
+    <h1 class="hero-title">Hambúrguer bom começa pelo pão</h1>
+    <p class="hero-subtitle">Fornecendo qualidade premium desde 1991</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="btn btn-primary" target="_blank" rel="noopener">Faça seu Pedido</a>
+      <a href="#produtos" class="btn btn-secondary">Conheça Nossos Produtos</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Role para descobrir</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>
+
+<!-- Seção Problema/Solução -->
+<section class="section problem-solution">
+  <div class="container">
+    <div class="split-layout">
+      <div class="split-image">
+        <img src="assets/slides/01-abertura/pao-ruim.jpg" alt="Pão de má qualidade" loading="lazy">
+      </div>
+      <div class="split-content">
+        <p class="quote-large">"O pão é só um detalhe…"</p>
+        <p class="quote-large highlight">até o dia em que ele estraga o lanche.</p>
+      </div>
+    </div>
+    <div class="solution-layout">
+      <div class="solution-content">
+        <h2 class="section-title">Com o pão certo...</h2>
+        <p class="section-subtitle">cada lanche é uma experiência.</p>
+      </div>
+      <div class="solution-video">
+        <video muted loop playsinline class="video-vertical" data-autoplay>
+          <source src="assets/slides/01-abertura/montagem-lanche.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Nossa História -->
+<section class="section story-section" id="sobre">
+  <div class="story-bg">
+    <img src="assets/slides/02-quem-somos/valepan-team.webp" alt="Equipe ValePan - Fabricante de pães premium para hamburguerias em Resende-RJ" loading="lazy">
+    <div class="story-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="story-content">
+      <h2 class="section-title-light">De uma padaria de bairro a referência em panificação.</h2>
+      <p class="story-text">Fundada em 1991 em Resende/RJ, a Valepan cresceu e hoje abastece as melhores hamburguerias de <strong>RJ, SP e MG</strong>.</p>
+      <div class="story-values">
+        <div class="value-item">
+          <span class="value-icon">✓</span>
+          <span>Receitas Exclusivas</span>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="inicio" class="hero" aria-labelledby="hero-heading">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 id="hero-heading">ValePan - O Pão das Melhores Hamburguerias</h1>
-                <p class="hero-subtitle">Fornecendo qualidade premium desde 2010</p>
-                <p>Qualidade, consistência e sabor em cada mordida. Os pães preferidos pelas principais hamburguerias do Brasil, produzidos com os melhores ingredientes.</p>
-                <div class="cta-buttons">
-                    <a href="#produtos" class="btn primary" rel="nofollow">Conheça Nossos Produtos</a>
-                    <a href="#contato" class="btn secondary" rel="nofollow">Entre em Contato</a>
-                </div>
-            </div>
+        <div class="value-item">
+          <span class="value-icon">✓</span>
+          <span>Qualidade Superior</span>
         </div>
-    </section>
-
-    <!-- Sobre Nós -->
-    <section id="sobre" class="about" aria-labelledby="about-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="about-heading">Nossa História</h2>
-                <p>Desde 2010 desenvolvendo pães premium para as melhores hamburguerias artesanais do Brasil</p>
-            </div>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="assets/nossa_historia.webp" alt="Fábrica da ValePan em Resende" width="600" height="400" loading="lazy">
-                </div>
-                <div class="about-text">
-                    <p class="highlight-title">Tradição que você pode sentir</p>
-                    <p>A ValePan nasceu em 2010 em Resende, Rio de Janeiro, com uma missão clara: produzir <a href="#produtos">pães de alta qualidade para hamburguerias e restaurantes</a>, utilizando apenas ingredientes selecionados e processos padronizados.</p>
-                    <p>Nossa obsessão pela qualidade nos levou a desenvolver receitas exclusivas que resultam em produtos de sabor incomparável. Hoje, nos orgulhamos de fornecer para as principais hamburguerias do Brasil, garantindo <a href="#qualidade">consistência e excelência em cada entrega</a>.</p>
-                    <div class="about-highlights">
-                        <div class="highlight">
-                            <i class="fas fa-bread-slice" aria-hidden="true"></i>
-                            <strong class="highlight-title">Receitas Exclusivas</strong>
-                            <p>Desenvolvidas e aperfeiçoadas ao longo dos anos</p>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-award" aria-hidden="true"></i>
-                            <strong class="highlight-title">Qualidade Superior</strong>
-                            <p>Ingredientes selecionados e processos padronizados</p>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-utensils" aria-hidden="true"></i>
-                            <strong class="highlight-title">Sabor Inigualável</strong>
-                            <p>A combinação perfeita de tradição e tecnologia</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="value-item">
+          <span class="value-icon">✓</span>
+          <span>Sabor Inigualável</span>
         </div>
-    </section>
+      </div>
+      <p class="story-slogan">Acreditamos em uma coisa:</p>
+      <p class="quote-large-light">"Hambúrguer bom começa pelo pão."</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Produtos em Destaque -->
-    <section id="produtos" class="products" aria-labelledby="products-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="products-heading">Pães Gourmet para Hamburguerias</h2>
-                <p>Linha completa de pães artesanais para hambúrguer - brioche, pretzel e australian bun com qualidade premium e consistência em cada entrega</p>
-            </div>
-
-            <div class="product-catalog" itemscope itemtype="https://schema.org/ItemList">
-                <meta itemprop="numberOfItems" content="9">
-                <div class="catalog-row">
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="1">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/BRIOCHE-BUN.webp" alt="Pão brioche para hambúrguer gourmet - BRIOCHE BUN ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">BRIOCHE BUN</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 60g<br>
-                                Diâmetro: 10 a 10,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 48 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>Nosso pão brioche premium para hambúrguer gourmet, com massa amarelada e sabor amanteigado. Textura macia que não desintegra durante o preparo, perfeito para hambúrgueres artesanais e especiais. Produzido com ovos naturais que garantem a camada brilhosa característica e aroma inconfundível.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="2">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/australiano-bun.webp" alt="Pão australiano para hambúrguer premium - AUSTRALIAN BUN ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">AUSTRALIAN BUN</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 60g<br>
-                                Diâmetro: 10 a 10,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 48 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>Autêntico pão australiano para hambúrguer gourmet, com massa levemente amarronzada e sabor adocicado com toque de cacau e malte. Decorado com farinha de milho para textura especial, é a escolha ideal para hambúrgueres especiais que necessitam de um pão com personalidade e sabor diferenciado.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="catalog-row">
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="3">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/prime.webp" alt="Pão Prime Bun para hambúrguer premium - ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">Prime Bun</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 60g<br>
-                                Diâmetro: 10 a 10,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 48 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>O Prime Bun é nossa versão premium do pão tradicional para hambúrguer gourmet, com massa amarelada e sabor amanteigado exclusivo. Acabamento caramelizado e decorado com gergelim branco selecionado. Perfeito para hambúrgueres premium que combinam com um pão que realça o sabor da carne sem competir com o protagonista do lanche.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="4">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/SMART-PRETZEL.webp" alt="Pão pretzel para hambúrguer gourmet - PRETZEL BUN ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">Pretzel Bun</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 60g<br>
-                                Diâmetro: 10 a 10,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 48 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>Nosso autêntico pretzel bun para hambúrgueres sofisticados, com massa de sabor característico e textura externa caramelizada com corte em cruz. A casca levemente crocante contrasta com o interior macio, criando uma experiência gastronômica única. A opção ideal para hamburguerias que buscam um diferencial para seus lanches especiais.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="catalog-row">
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="5">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/standard.webp" alt="Pão Standard Bun para hambúrguer tradicional - ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">Standard Bun</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 60g<br>
-                                Diâmetro: 10 a 10,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 48 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>O pão Standard Bun é a escolha clássica para hambúrgueres tradicionais, com massa branca de textura perfeita e sabor equilibrado. Preparado com ovos para garantir uma superfície brilhosa e decorado com sementes de gergelim branco. Combina perfeitamente com qualquer tipo de hambúrguer, sendo a base ideal para receitas clássicas e criações inovadoras.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="6">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/smash-brioche.webp" alt="Pão Smash Brioche para hambúrguer smash - ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">Smash Brioche</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 50g<br>
-                                Diâmetro: 9 a 9,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 60 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>Desenvolvido especialmente para smash burgers, nosso Smash Brioche possui o tamanho ideal para este estilo de hambúrguer prensado. Com massa amarelada de sabor amanteigado e textura que absorve sucos da carne sem desmanchar. A casca brilhosa característica do brioche complementa perfeitamente hambúrgueres smash, criando uma experiência sensorial completa.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="catalog-row">
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="7">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/SMART-CLASSIC.webp" alt="Pão Smash Classic para hambúrguer smash tradicional - ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">Smash Classic</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 50g<br>
-                                Diâmetro: 9 a 9,5cm<br>
-                                Pacote: 4 unidades<br>
-                                Caixa: 60 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>Versão clássica do pão para smash burger, nosso Smash Classic é a escolha tradicional para hambúrgueres prensados. Com massa branca de textura resistente e sabor neutro, foi desenvolvido para destacar o sabor da carne e demais ingredientes. Seu tamanho compacto é perfeito para hambúrgueres smash de estilo americano, permitindo a proporção ideal entre pão e carne.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="8">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/MINI.webp" alt="Pão Mini Brioche para mini hambúrgueres gourmet - ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">Mini Brioche</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 25g<br>
-                                Diâmetro: 6 a 6,5cm<br>
-                                Pacote: 12 unidades<br>
-                                Caixa: 144 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>Nossa versão miniatura do brioche tradicional, perfeita para sliders e mini hambúrgueres gourmet. Mantém todas as características do brioche original: massa amarelada, sabor amanteigado e superfície brilhosa. Ideal para festas, eventos, entradas em restaurantes e hamburguerias que oferecem porções degustação ou combos variados de mini hambúrgueres.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="catalog-row">
-                    <div class="catalog-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/Product">
-                        <meta itemprop="position" content="9">
-                        <div class="catalog-image">
-                            <img src="assets/catalogo/HD-BRIOCHE.webp" alt="Pão HD Brioche Bread para hambúrgueres especiais artesanais - ValePan" width="300" height="200" loading="lazy" itemprop="image">
-                        </div>
-                        <div class="catalog-info">
-                            <h3 itemprop="name">HD Brioche Bread</h3>
-                            <div class="product-specs">
-                                <p itemprop="description">Peso: 70g<br>
-                                Diâmetro: 16 a 17cm<br>
-                                Pacote: 5 unidades<br>
-                                Caixa: 40 unidades</p>
-                            </div>
-                            <div class="product-desc">
-                                <p>O HD Brioche Bread é nosso pão especial de formato alongado, desenvolvido para hambúrgueres artesanais no estilo hot dog gourmet. Com massa amarelada de sabor amanteigado e superfície brilhosa, este pão versátil permite a criação de receitas diferenciadas que fogem do formato tradicional do hambúrguer. Perfeito para hamburguerias que buscam inovar e surpreender seus clientes com apresentações criativas.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="catalog-divider"></div>
-
-                <div class="product-details">
-                    <div class="product-details-col">
-                        <strong class="details-title">Validade</strong>
-                        <p><strong>Armazenamento:</strong></p>
-                        <p>– Em temperatura ambiente: até 15 dias após fabricação</p>
-                        <p>– Resfriado: até 15 dias após fabricação</p>
-                        <p>– Congelado: até 90 dias após fabricação</p>
-                        <p>Para mais informações sobre armazenamento e conservação, consulte nossa seção de <a href="#faq">Perguntas Frequentes</a>.</p>
-                    </div>
-                    <div class="product-details-col">
-                        <strong class="details-title">Recomendação de Conservação</strong>
-                        <p><strong>Não Congelado:</strong></p>
-                        <p>Conservar em local seco, fresco e livre de odores.</p>
-                        <p><strong>Congelado:</strong></p>
-                        <p>Após descongelado consumir em até 5 dias, não recongelar após o uso.</p>
-                    </div>
-                </div>
-
-                <div class="product-order">
-                    <a href="https://wa.me/5524999784591?text=Olá,%20gostaria%20de%20informações%20sobre%20os%20produtos%20ValePan" class="btn" target="_blank">Fazer Pedido</a>
-                </div>
-            </div>
+<!-- Seção Equipe -->
+<section class="section team-section">
+  <div class="container">
+    <h2 class="section-title-center">Quem Faz Acontecer</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-image">
+          <img src="assets/slides/02-quem-somos/fellipe-portrait.webp" alt="Fellipe Schocair" loading="lazy">
         </div>
-    </section>
-
-    <!-- Por que Escolher o ValePan -->
-    <section id="qualidade" class="quality" aria-labelledby="quality-heading">
-        <div class="container">
-            <div class="quality-content">
-                <div class="quality-text">
-                    <h2 id="quality-heading">Por que Escolher os Pães ValePan?</h2>
-                    <div class="quality-feature" itemscope itemtype="https://schema.org/ItemList">
-                        <meta itemprop="numberOfItems" content="4">
-                        <div class="quality-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="1">
-                            <div class="quality-icon">
-                                <i class="fas fa-industry" aria-hidden="true"></i>
-                            </div>
-                            <h3 itemprop="name">Produção Industrial</h3>
-                            <p itemprop="description">Nossas instalações industriais são equipadas com a mais alta tecnologia para garantir uma produção em larga escala sem comprometer a qualidade.</p>
-                        </div>
-                        <div class="quality-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="2">
-                            <div class="quality-icon">
-                                <i class="fas fa-balance-scale" aria-hidden="true"></i>
-                            </div>
-                            <h3 itemprop="name">Padrão Consistente</h3>
-                            <p itemprop="description">Nosso processo produtivo garante que cada unidade de pão mantenha o mesmo padrão de qualidade, tamanho e sabor, ideal para redes de hamburguerias.</p>
-                        </div>
-                        <div class="quality-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="3">
-                            <div class="quality-icon">
-                                <i class="fas fa-award" aria-hidden="true"></i>
-                            </div>
-                            <h3 itemprop="name">Tecnologia Avançada</h3>
-                            <p itemprop="description">Utilizamos equipamentos de última geração e processos automatizados para garantir eficiência e qualidade em toda nossa linha de produção.</p>
-                        </div>
-                        <div class="quality-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                            <meta itemprop="position" content="4">
-                            <div class="quality-icon">
-                                <i class="fas fa-truck" aria-hidden="true"></i>
-                            </div>
-                            <h3 itemprop="name">Logística Eficiente</h3>
-                            <p itemprop="description">Nosso sistema logístico garante que seus produtos cheguem frescos e no prazo, mantendo a integridade e qualidade de nossos pães.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="production-video">
-                    <h2>NOSSA PRODUÇÃO</h2>
-                    <video controls preload="metadata" width="100%" loading="lazy">
-                        <source src="assets/processo-producao.mp4" type="video/mp4">
-                        Seu navegador não suporta o elemento de vídeo.
-                    </video>
-                </div>
-            </div>
+        <div class="team-info">
+          <h3 class="team-name">Fellipe Schocair</h3>
+          <p class="team-role">Sócio • Comercial & Operações</p>
+          <p class="team-bio">Chegou para transformar o comercial e as operações. Hoje, como sócio, lidera a equipe que <strong>quadruplicou o crescimento</strong> da Valepan.</p>
         </div>
-    </section>
-
-    <!-- Depoimentos -->
-    <section id="depoimentos" class="testimonials" aria-labelledby="testimonials-heading">
-        <div class="container">
-            <h2 id="testimonials-heading">O que Nossos Clientes Dizem</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial-item" itemscope itemtype="https://schema.org/Review">
-                    <meta itemprop="datePublished" content="2023-03-15">
-                    <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                        <meta itemprop="ratingValue" content="5">
-                        <meta itemprop="bestRating" content="5">
-                    </div>
-                    <div class="testimonial-content" itemprop="reviewBody">
-                        <p>"Os pães da ValePan revolucionaram nossa hamburgueria. A consistência e qualidade são incomparáveis, nossos clientes sempre elogiam o sabor!"</p>
-                        <div class="testimonial-author">
-                            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <strong itemprop="name">Carlos Silva</strong>
-                                <span itemprop="jobTitle">Proprietário da Burger House</span>
-                            </div>
-                            <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                                <meta itemprop="name" content="Pães para Hambúrguer ValePan">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item" itemscope itemtype="https://schema.org/Review">
-                    <meta itemprop="datePublished" content="2023-02-20">
-                    <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
-                        <meta itemprop="ratingValue" content="5">
-                        <meta itemprop="bestRating" content="5">
-                    </div>
-                    <div class="testimonial-content" itemprop="reviewBody">
-                        <p>"Desde que começamos a usar os pães da ValePan, percebemos um aumento significativo na satisfação dos clientes. Um diferencial para nosso negócio!"</p>
-                        <div class="testimonial-author">
-                            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <strong itemprop="name">Ana Rodrigues</strong>
-                                <span itemprop="jobTitle">Chef do Beef & Grill</span>
-                            </div>
-                            <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                                <meta itemprop="name" content="Pães para Hambúrguer ValePan">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="team-card">
+        <div class="team-image">
+          <img src="assets/slides/02-quem-somos/victor-g4.webp" alt="Victor Meireles" loading="lazy">
         </div>
-    </section>
-
-    <!-- Clientes -->
-    <section id="clientes" class="clients" aria-labelledby="clients-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="clients-heading">Quem Confia em Nossos Produtos</h2>
-            </div>
-            <div class="client-grid">
-                <div class="client-item">
-                    <img src="assets/cliente-logo1.webp" alt="Logo Rede Graal cliente valepan" width="150" height="100" loading="lazy">
-                </div>
-                <div class="client-item">
-                    <img src="assets/cliente-logo2.webp" alt="Logo Bread Maker cliente valepan" width="150" height="100" loading="lazy">
-                </div>
-                <div class="client-item">
-                    <img src="assets/cliente-logo3.webp" alt="Logo Rede Royal cliente valepan" width="150" height="100" loading="lazy">
-                </div>
-                <div class="client-item">
-                    <img src="assets/cliente-logo4.webp" alt="Logo Milani cliente valepan" width="150" height="100" loading="lazy">
-                </div>
-                <div class="client-item">
-                    <img src="assets/cliente-logo5.webp" alt="Logo Aman Cliente ValePan" width="150" height="100" loading="lazy">
-                </div>
-            </div>
+        <div class="team-info">
+          <h3 class="team-name">Victor Meireles</h3>
+          <p class="team-role">Sócio • Financeiro & Processos • Mentor G4 Educação</p>
+          <p class="team-bio">Com passagens por C&A, Dafiti e EMS, é mentor do G4 Educação.</p>
+          <p class="team-quote">"Hoje aplico o mesmo rigor que usei em empresas bilionárias para otimizar... <strong>pão</strong>."</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Entre em Contato -->
-    <section id="contato" class="contact" aria-labelledby="contact-heading" itemscope itemtype="https://schema.org/LocalBusiness">
-        <div class="container">
-            <h2 id="contact-heading">Entre em Contato com a ValePan</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-text">
-                            <strong class="contact-label">Endereço</strong>
-                            <p><span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-                                <span itemprop="streetAddress">Rua Luiz de Camões, nº 266, Alambari</span>, 
-                                <span itemprop="addressLocality">Resende</span>, 
-                                <span itemprop="addressRegion">RJ</span>
-                                <meta itemprop="postalCode" content="27537-500">
-                                <meta itemprop="addressCountry" content="BR">
-                            </span></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-text">
-                            <strong class="contact-label">Telefone</strong>
-                            <p><a href="tel:+5524999784591" itemprop="telephone">(21) 99827-4577</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-text">
-                            <strong class="contact-label">Email</strong>
-                            <p><a href="mailto:comercial@valepan.com" itemprop="email">comercial@valepan.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock" aria-hidden="true"></i>
-                        </div>
-                        <div class="contact-text">
-                            <strong class="contact-label">Horário Comercial</strong>
-                            <p><meta itemprop="openingHours" content="Mo-Fr 08:00-18:00">Segunda a Sexta: 8h às 18h</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-container">
-                    <div class="whatsapp-cta">
-                        <strong class="cta-title">Faça seu Pedido</strong>
-                        <p>Clique no botão abaixo para solicitar um orçamento diretamente pelo WhatsApp.</p>
-                        <a href="https://wa.me/5524999784591?text=Olá,%20gostaria%20de%20informações%20sobre%20os%20produtos%20ValePan" class="btn primary btn-large whatsapp-btn" target="_blank">
-                            <i class="fab fa-whatsapp"></i> Faça seu Pedido
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.794713898832!2d-44.45965612463063!3d-22.428904577808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9ebd5dbccda2e9%3A0xe74a5cd7f42bf279!2sR.%20Luiz%20de%20Cam%C3%B5es%2C%20266%20-%20Alambari%2C%20Resende%20-%20RJ%2C%2027537-500!5e0!3m2!1spt-BR!2sbr!4v1686950485201!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Localização da ValePan em Resende, RJ"></iframe>
+<!-- Seção Qualidade -->
+<section class="section quality-section" id="qualidade">
+  <div class="container">
+    <h2 class="section-title-center">Qualidade depende de padrão.</h2>
+    <p class="section-subtitle-center">O pão tem que chegar igual em todas as lojas, suportar calor, molho, montagem e ainda entregar sabor.</p>
+    
+    <div class="quality-content">
+      <div class="quality-text">
+        <h3 class="quality-headline">Não é sorte. Não é intuição.</h3>
+        <p class="quality-highlight">É <strong>PROCESSO + CONTROLE</strong>.</p>
+        <p class="quality-description">"O pão da primeira fornada é igual ao da milésima."</p>
+        <p class="quality-insight">"Porque quem trabalha com hambúrguer sabe: se o pão muda, o lanche muda — e o cliente sente."</p>
+      </div>
+      <div class="quality-media">
+        <video muted loop playsinline class="quality-video" data-autoplay poster="assets/slides/03-essencia/paes-saindo-do-forno.mp4">
+          <source src="assets/slides/03-essencia/paes-saindo-do-forno.mp4" type="video/mp4">
+        </video>
+      </div>
     </div>
 
-    <!-- Perguntas Frequentes -->
-    <section id="faq" class="faq" aria-labelledby="faq-heading">
-        <div class="container">
-            <div class="section-header">
-                <h2 id="faq-heading">Perguntas Frequentes</h2>
-                <p>Veja abaixo as dúvidas mais comuns sobre nossos pães e serviços</p>
-            </div>
-            
-            <div class="faq-container" itemscope itemtype="https://schema.org/FAQPage">
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="faq-question">
-                        <h3 itemprop="name">Qual é o prazo de entrega dos pães?</h3>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text">
-                            <p>O prazo de entrega varia de acordo com a região. Para grandes centros urbanos, conseguimos entregar em até 48 horas após a confirmação do pedido. Para regiões mais distantes, o prazo pode ser de 3 a 5 dias úteis. <a href="#contato">Entre em contato conosco</a> para verificar o prazo específico para sua localidade.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="faq-question">
-                        <h3 itemprop="name">Qual é a quantidade mínima para pedidos?</h3>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text">
-                            <p>Trabalhamos com pedidos a partir de 1 caixa (48 unidades para a maioria dos nossos produtos). Para hamburguerias e restaurantes que consomem grandes volumes, oferecemos condições especiais e descontos progressivos para pedidos maiores.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="faq-question">
-                        <h3 itemprop="name">Como devo armazenar os pães?</h3>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text">
-                            <p>Para maximizar a durabilidade, recomendamos que os pães sejam armazenados em freezer a -18°C, onde podem durar até 90 dias. Se precisar de utilização em curto prazo, mantenha em local seco e arejado em temperatura ambiente por até 5 dias, ou sob refrigeração por até 15 dias.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="faq-question">
-                        <h3 itemprop="name">É possível personalizar os pães com a marca da minha hamburgueria?</h3>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text">
-                            <p>Sim! Oferecemos serviço de personalização para pedidos acima de 300 unidades. Podemos gravar sua marca no topo do pão ou criar formatos especiais. Entre em contato conosco para discutir as possibilidades e custos de personalização para sua hamburgueria.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="faq-question">
-                        <h3 itemprop="name">Quais são as formas de pagamento aceitas?</h3>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text">
-                            <p>Aceitamos diversas formas de pagamento: PIX, transferência bancária, boleto e cartão de crédito (em até 3x sem juros). Para clientes recorrentes, oferecemos a possibilidade de pagamento a prazo mediante avaliação cadastral.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <div class="faq-question">
-                        <h3 itemprop="name">Os pães contêm conservantes artificiais?</h3>
-                        <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
-                    </div>
-                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <div itemprop="text">
-                            <p>Não. Nossos pães são produzidos com ingredientes selecionados e utilizamos processos naturais de fermentação que garantem maior durabilidade sem a necessidade de conservantes artificiais. Isso contribui para o sabor autêntico e a qualidade premium que só a ValePan oferece.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="logistics-info">
+      <div class="logistics-image">
+        <img src="assets/slides/03-essencia/frota-distribuidor-parceiro.webp" alt="Frota de distribuição ValePan - Entrega de pães para hamburguerias em RJ, SP e MG" loading="lazy">
+      </div>
+      <div class="logistics-text">
+        <h3 class="logistics-title">Distribuidores parceiros que garantem <span class="highlight-gold">pão fresco na porta</span> da sua hamburgueria.</h3>
+        <div class="logistics-regions">
+          <div class="region-badge">
+            <span class="region-abbr">RJ</span>
+            <span class="region-name">Rio de Janeiro</span>
+          </div>
+          <div class="region-badge">
+            <span class="region-abbr">SP</span>
+            <span class="region-name">São Paulo</span>
+          </div>
+          <div class="region-badge">
+            <span class="region-abbr">MG</span>
+            <span class="region-name">Minas Gerais</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Chamada para Ação Final -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Experimente a Diferença da ValePan</h2>
-                <p>O pão das melhores hamburguerias à sua disposição. Consulte nossos preços para atacado.</p>
-                <a href="https://wa.me/5524999784591?text=Olá,%20gostaria%20de%20informações%20sobre%20os%20produtos%20ValePan" class="btn primary btn-large" target="_blank"><i class="fab fa-whatsapp"></i> Solicite um Orçamento</a>
-            </div>
+<!-- Seção Produtos -->
+<section class="section products-section" id="produtos">
+  <div class="container">
+    <div class="products-intro">
+      <h2 class="section-title-center">Pães Gourmet para Hamburguerias</h2>
+      <p class="section-subtitle-center">Linha completa de pães artesanais para hambúrguer com qualidade premium e consistência em cada entrega.</p>
+    </div>
+
+    <!-- Produtos em Destaque -->
+    <div class="products-featured">
+      <div class="product-card featured">
+        <div class="product-image">
+          <img src="assets/slides/04-produtos/brioche-card.webp" alt="Pão de Hambúrguer Brioche artesanal - ValePan" loading="lazy">
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/logo.webp" alt="ValePan Logo">
-                    <p>O pão das melhores hamburguerias do Brasil</p>
-                </div>
-                <div class="footer-links">
-                    <strong class="footer-title">Links Rápidos</strong>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#produtos">Produtos</a></li>
-                        <li><a href="#qualidade">Qualidade</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <strong class="footer-title">Contato</strong>
-                    <p><i class="fas fa-map-marker-alt"></i> Rua Luiz de Camões, nº 266, Alambari, Resende - RJ</p>
-                    <p><i class="fas fa-phone-alt"></i> (21) 99827-4577</p>
-                    <p><i class="fas fa-envelope"></i> comercial@valepan.com</p>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5524999784591?text=Olá,%20gostaria%20de%20falar%20sobre%20os%20produtos%20ValePan" target="_blank" aria-label="Contate-nos pelo WhatsApp">Envie mensagem via WhatsApp</a></p>
-                </div>
-                <div class="footer-social">
-                    <strong class="footer-title">Siga-nos</strong>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/valepan.oficial/" target="_blank" aria-label="Siga-nos no Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/5524999784591" target="_blank" aria-label="Contate-nos pelo WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                    <p class="instagram-handle">@valepan.oficial</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 ValePan - Todos os direitos reservados</p>
-                <p>Fornecendo para as melhores hamburguerias desde 2010</p>
-            </div>
+        <div class="product-info">
+          <h3 class="product-name">Hambúrguer Brioche</h3>
+          <p class="product-description">Pão macio, levemente amanteigado, pincelado, com textura leve e sabor delicado.</p>
+          <div class="product-badge">Entregamos já cortado</div>
+          <ul class="product-specs">
+            <li><strong>Peso:</strong> 60g · 65g · 75g</li>
+            <li><strong>Diâmetro:</strong> 11cm · 12cm · 13cm</li>
+            <li><strong>Altura:</strong> 5–6cm</li>
+          </ul>
+          <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Hambúrguer%20Brioche." class="btn btn-outline" target="_blank" rel="noopener">Solicitar Orçamento</a>
         </div>
-    </footer>
+      </div>
 
-    <a href="#header" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+      <div class="product-card featured reverse">
+        <div class="product-image">
+          <img src="assets/slides/04-produtos/gergelim-card.webp" alt="Pão de Hambúrguer com Gergelim artesanal - ValePan" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Hambúrguer Gergelim</h3>
+          <p class="product-description">Pão macio, levemente adocicado, finalizado com sementes de gergelim para aroma e crocância.</p>
+          <div class="product-badge">Entregamos já cortado</div>
+          <ul class="product-specs">
+            <li><strong>Peso:</strong> 50g · 60g · 65g · 75g</li>
+            <li><strong>Diâmetro:</strong> 10cm · 11cm · 12cm · 13cm</li>
+            <li><strong>Altura:</strong> 5–6cm</li>
+          </ul>
+          <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Hambúrguer%20Gergelim." class="btn btn-outline" target="_blank" rel="noopener">Solicitar Orçamento</a>
+        </div>
+      </div>
+    </div>
 
-    <script src="script.js"></script>
+    <!-- Grid de Demais Produtos -->
+    <h3 class="products-grid-title">E tem mais...</h3>
+    <div class="products-grid">
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/brioche-gergelim-card.webp" alt="Pão Brioche com Gergelim para Hambúrguer - ValePan" loading="lazy">
+        <h4>Brioche Gergelim</h4>
+        <p>Combinação perfeita de brioche com gergelim.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/tradicional-card.webp" alt="Pão Tradicional para Hambúrguer - ValePan" loading="lazy">
+        <h4>Tradicional</h4>
+        <p>Clássico pão para hambúrguer, perfeito para qualquer receita.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/royal-card.webp" alt="Pão Brioche Royal Premium - ValePan" loading="lazy">
+        <h4>Brioche Royal</h4>
+        <p>Premium com acabamento especial.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/premium-card.webp" alt="Pão Brioche Premium para Hambúrguer - ValePan" loading="lazy">
+        <h4>Brioche Premium</h4>
+        <p>Versão premium do nosso brioche.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/australiano-card.webp" alt="Pão Australiano para Hambúrguer - ValePan" loading="lazy">
+        <h4>Australiano</h4>
+        <p>Sabor diferenciado com toque de cacau.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/pretzel-card.webp" alt="Pão Pretzel para Hambúrguer - ValePan" loading="lazy">
+        <h4>Pretzel</h4>
+        <p>Autêntico pretzel com casca caramelizada.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/duo-card.webp" alt="Pão Brioche Duo para Hambúrguer - ValePan" loading="lazy">
+        <h4>Brioche Duo</h4>
+        <p>Perfeito para lanches duplos.</p>
+      </div>
+      <div class="product-card-small">
+        <img src="assets/slides/04-produtos/smash-card.webp" alt="Pão Brioche Smash para Smash Burger - ValePan" loading="lazy">
+        <h4>Brioche Smash</h4>
+        <p>Tamanho ideal para smash burgers.</p>
+      </div>
+    </div>
+
+    <!-- Informações de Validade -->
+    <div class="product-info-boxes">
+      <div class="info-box">
+        <h4>Validade</h4>
+        <p><strong>Temperatura ambiente:</strong> até 15 dias após fabricação</p>
+        <p><strong>Resfriado:</strong> até 15 dias após fabricação</p>
+        <p><strong>Congelado:</strong> até 90 dias após fabricação</p>
+      </div>
+      <div class="info-box">
+        <h4>Recomendação de Conservação</h4>
+        <p><strong>Não Congelado:</strong> Conservar em local seco, fresco e livre de odores.</p>
+        <p><strong>Congelado:</strong> Após descongelado consumir em até 5 dias, não recongelar após o uso.</p>
+      </div>
+    </div>
+
+    <div class="products-cta">
+      <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20conhecer%20toda%20a%20linha%20de%20produtos%20ValePan." class="btn btn-primary-large" target="_blank" rel="noopener">Solicite um Catálogo Completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Depoimentos -->
+<section class="section testimonials-section">
+  <div class="container">
+    <h2 class="section-title-center">O que Nossos Clientes Dizem</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Os pães da ValePan revolucionaram nossa hamburgueria. A consistência e qualidade são incomparáveis, nossos clientes sempre elogiam o sabor!</p>
+        <div class="testimonial-author">
+          <strong>Patrick Bartholazi</strong>
+          <span>Proprietário da B3X Burger</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text">Desde que começamos a usar os pães da ValePan, percebemos um aumento significativo na satisfação dos clientes. Um diferencial para nosso negócio!</p>
+        <div class="testimonial-author">
+          <strong>Ana Rodrigues</strong>
+          <span>Chef do Beef & Grill</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Clientes -->
+<section class="section clients-section">
+  <div class="container">
+    <h3 class="section-subtitle-center">Quem Confia em Nossos Produtos</h3>
+    <div class="clients-grid">
+      <div class="client-logo">
+        <img src="assets/logo/graal-logo.webp" alt="Rede Graal" loading="lazy">
+      </div>
+      <div class="client-logo">
+        <img src="assets/logo/breadmaker-logo.webp" alt="Bread Maker" loading="lazy">
+      </div>
+      <div class="client-logo">
+        <img src="assets/logo/royal-logo.webp" alt="Rede Royal" loading="lazy">
+      </div>
+      <div class="client-logo">
+        <img src="assets/logo/milani-logo.webp" alt="Milani" loading="lazy">
+      </div>
+      <div class="client-logo">
+        <img src="assets/logo/aman-logo.webp" alt="Aman" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção FAQ -->
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <h2 class="section-title-center">Perguntas Frequentes</h2>
+    <p class="section-subtitle-center">Veja abaixo as dúvidas mais comuns sobre nossos pães e serviços</p>
+    
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Qual é o prazo de entrega dos pães?</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>O prazo de entrega varia de acordo com a região. Para grandes centros urbanos, conseguimos entregar em até 48 horas após a confirmação do pedido. Para regiões mais distantes, o prazo pode ser de 3 a 5 dias úteis. Entre em contato conosco para verificar o prazo específico para sua localidade.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Qual é a quantidade mínima para pedidos?</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Trabalhamos com pedidos a partir de 1 caixa (48 unidades para a maioria dos nossos produtos). Para hamburguerias e restaurantes que consomem grandes volumes, oferecemos condições especiais e descontos progressivos para pedidos maiores.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Como devo armazenar os pães?</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Para maximizar a durabilidade, recomendamos que os pães sejam armazenados em freezer a -18°C, onde podem durar até 90 dias. Se precisar de utilização em curto prazo, mantenha em local seco e arejado em temperatura ambiente por até 5 dias, ou sob refrigeração por até 15 dias.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>É possível personalizar os pães com a marca da minha hamburgueria?</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Sim! Oferecemos serviço de personalização para pedidos acima de 300 unidades. Podemos gravar sua marca no topo do pão ou criar formatos especiais. Entre em contato conosco para discutir as possibilidades e custos de personalização para sua hamburgueria.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Quais são as formas de pagamento aceitas?</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Aceitamos diversas formas de pagamento: PIX, transferência bancária, boleto e cartão de crédito (em até 3x sem juros). Para clientes recorrentes, oferecemos a possibilidade de pagamento a prazo mediante avaliação cadastral.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" type="button">
+          <span>Os pães contêm conservantes artificiais?</span>
+          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Não. Nossos pães são produzidos com ingredientes selecionados e utilizamos processos naturais de fermentação que garantem maior durabilidade sem a necessidade de conservantes artificiais. Isso contribui para o sabor autêntico e a qualidade premium que só a ValePan oferece.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção Contato -->
+<section class="section contact-section" id="contato">
+  <div class="container">
+    <h2 class="section-title-center">Entre em Contato com a ValePan</h2>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-details">
+            <h3>Endereço</h3>
+            <p>Rua Luiz de Camões, nº 266<br>Alambari, Resende - RJ</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-details">
+            <h3>Telefone</h3>
+            <p><a href="https://wa.me/5524999784591" target="_blank" rel="noopener">(24) 99978-4591</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <p><a href="mailto:comercial@valepan.com">comercial@valepan.com</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🕒</div>
+          <div class="contact-details">
+            <h3>Horário Comercial</h3>
+            <p>Segunda a Sexta: 8h às 18h</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-cta-box">
+        <h3>Faça seu Pedido</h3>
+        <p>Clique no botão abaixo para solicitar um orçamento diretamente pelo WhatsApp.</p>
+        <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Enviar Mensagem via WhatsApp
+        </a>
+        <div class="contact-social">
+          <p>Siga-nos no Instagram</p>
+          <a href="https://instagram.com/valepan.oficial" target="_blank" rel="noopener">@valepan.oficial</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="section cta-final-section">
+  <div class="container">
+    <h2 class="cta-title">Experimente a Diferença da ValePan</h2>
+    <p class="cta-subtitle">O pão das melhores hamburguerias à sua disposição.</p>
+    <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn btn-primary-large" target="_blank" rel="noopener">Solicite um Orçamento</a>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <img src="assets/logo/valepan-logo-full.svg" alt="ValePan Logo" class="footer-logo" width="180" height="60">
+        <p class="footer-tagline">O pão das melhores hamburguerias do Brasil</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/valepan.oficial" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#qualidade">Qualidade</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <ul>
+          <li>📍 Rua Luiz de Camões, nº 266<br>&nbsp;&nbsp;&nbsp;&nbsp;Alambari, Resende - RJ</li>
+          <li>📱 <a href="https://wa.me/5524999784591" target="_blank" rel="noopener">(24) 99978-4591</a></li>
+          <li>✉️ <a href="mailto:comercial@valepan.com">comercial@valepan.com</a></li>
+        </ul>
+        <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan." class="footer-whatsapp-btn" target="_blank" rel="noopener">Envie mensagem via WhatsApp</a>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 ValePan - Todos os direitos reservados</p>
+      <p>Fornecendo para as melhores hamburguerias desde 1991</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Botão WhatsApp Flutuante -->
+<a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="whatsapp-tooltip">Falar no WhatsApp</span>
+</a>
+
+<!-- Botão Voltar ao Topo -->
+<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+
 </body>
-</html> 
+</html>

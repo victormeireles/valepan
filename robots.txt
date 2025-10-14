@@ -1,5 +1,23 @@
-# robots.txt do ValePan
+# ValePan - Robots.txt
+
 User-agent: *
-Disallow: /dashboards/
 Allow: /
-Sitemap: https://www.valepan.com.br/sitemap.xml
+Disallow: /media/
+
+# Sitemap
+Sitemap: https://valepan.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /
+

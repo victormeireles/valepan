@@ -1,101 +1,209 @@
-# ValePan - Landing Page
+# ValePan - Website Oficial
 
-Uma landing page profissional para a fábrica de pães ValePan, destacando seus produtos para hamburguerias, história e compromisso com a qualidade.
+Landing page profissional da ValePan, fornecedora de pães premium para hamburguerias.
 
-## Visão Geral do Projeto
+## 🚀 Sobre o Site
 
-Esta é uma landing page moderna e responsiva para a ValePan, uma fábrica de pães localizada em Resende, Rio de Janeiro, especializada no fornecimento para as melhores hamburguerias do Brasil. O site foi projetado para destacar a qualidade dos produtos, mostrar o processo de fabricação com alta tecnologia e facilitar o contato com potenciais clientes.
+Site moderno e responsivo desenvolvido para apresentar os produtos e serviços da ValePan, com foco em conversão através de CTAs direcionados para WhatsApp.
 
-## Características
+## ✨ Funcionalidades
 
-- Design responsivo (compatível com dispositivos móveis e desktop)
-- Layout moderno e profissional
-- Navegação suave com rolagem
-- Seção de produtos com apresentação detalhada
-- Slider de depoimentos de clientes
-- Formulário de contato
-- Integração com WhatsApp para pedidos diretos
-- Animações sutis para melhorar a experiência do usuário
-- Otimizado para SEO
+- **Design Responsivo**: Otimizado para desktop, tablet e mobile
+- **Navegação Suave**: Scroll suave entre seções com menu fixo
+- **FAQ Interativo**: Acordeão com as principais dúvidas
+- **CTAs Integrados**: Todos os botões direcionam para WhatsApp comercial
+- **SEO Otimizado**: Meta tags completas e Schema markup
+- **Performance**: Lazy loading de imagens e vídeos otimizados
+- **Google Analytics**: Integração pronta para GA4
 
-## Estrutura do Projeto
+## 📋 Seções do Site
+
+1. **Hero** - Vídeo de fundo + slogan + CTAs
+2. **Nossa História** - Fundação, missão e valores
+3. **Equipe** - Perfis dos sócios
+4. **Por Que Escolher** - 4 pilares da empresa
+5. **Qualidade** - Processos e padrões
+6. **Produtos** - Linha completa de pães
+7. **Depoimentos** - Feedback de clientes
+8. **Clientes** - Logos de parceiros
+9. **FAQ** - Perguntas frequentes
+10. **Contato** - Informações e CTA para WhatsApp
+
+## 🛠️ Tecnologias
+
+- HTML5 semântico
+- CSS3 (Grid, Flexbox, Custom Properties, Animations)
+- JavaScript Vanilla (ES6+)
+- Google Fonts (Bebas Neue, Inter)
+- Google Analytics 4
+
+## 📱 Contatos Configurados
+
+- **WhatsApp**: (24) 99978-4591
+- **Email**: comercial@valepan.com
+- **Instagram**: @valepan.oficial
+- **Endereço**: Rua Luiz de Camões, nº 266, Alambari, Resende - RJ
+
+## 🎨 Paleta de Cores
+
+- **Vinho**: #4a0b16 (cor principal)
+- **Dourado**: #c7a64d (destaque)
+- **Tinta**: #111111 (texto)
+- **Papel**: #ffffff (fundo)
+- **Cinza**: #f4f4f5 (neutro)
+
+## 🚀 Como Usar
+
+### Desenvolvimento Local
+
+1. Clone ou baixe os arquivos
+2. Abra `index.html` em um navegador moderno
+3. Ou use um servidor local:
+   ```bash
+   # Python
+   python -m http.server 8000
+   
+   # Node.js (http-server)
+   npx http-server
+   ```
+
+### Deploy
+
+#### Opção 1: Vercel (Recomendado)
+1. Instale o Vercel CLI: `npm i -g vercel`
+2. Na pasta do projeto: `vercel`
+3. Siga as instruções
+
+#### Opção 2: Netlify
+1. Arraste a pasta para [netlify.com/drop](https://app.netlify.com/drop)
+2. Site publicado instantaneamente
+
+#### Opção 3: cPanel / FTP
+1. Faça upload de todos os arquivos via FTP
+2. Aponte o domínio para a pasta
+3. Pronto!
+
+## ⚙️ Configurações Importantes
+
+### Google Analytics
+
+Substitua `G-XXXXXXXXXX` no `index.html` (linha 42) pelo seu ID do GA4:
+
+```html
+<script async src="https://www.googletagmanager.com/gtag/js?id=SEU-ID-AQUI"></script>
+<script>
+  gtag('config', 'SEU-ID-AQUI');
+</script>
+```
+
+### WhatsApp
+
+Todos os links de WhatsApp estão configurados para: `5524999784591`
+
+Para alterar, busque e substitua no `index.html`:
+```
+https://wa.me/5524999784591
+```
+
+### Meta Tags (SEO)
+
+Atualize no `<head>` do `index.html`:
+- Title tag (linha 6)
+- Meta description (linha 7)
+- Open Graph tags (linhas 11-15)
+
+## 📂 Estrutura de Arquivos
 
 ```
-valepan-landing-page/
-├── index.html          # Estrutura principal da página
-├── styles.css          # Estilos e layout
-├── script.js           # Funcionalidades e interações
-└── assets/             # Pasta com todas as imagens
-    ├── logo.png
-    ├── hero-bg.jpg
-    ├── sobre-nos.jpg
-    ├── qualidade.jpg
-    ├── cta-bg.jpg
-    ├── pao-hamburger.jpg
-    ├── pao-brioche.jpg
-    ├── pretzel.jpg
-    ├── pao-forma.jpg
-    ├── cliente1.jpg
-    ├── cliente2.jpg
-    ├── cliente3.jpg
-    ├── cliente-logo1.png
-    ├── cliente-logo2.png
-    ├── cliente-logo3.png
-    ├── cliente-logo4.png
-    └── cliente-logo5.png
+site-valepan/
+├── index.html           # Página principal
+├── styles.css           # Estilos
+├── script.js            # JavaScript
+├── README.md            # Este arquivo
+└── assets/
+    ├── logo/
+    │   ├── valepan-logo.svg
+    │   └── valepan-logo-full.svg
+    └── slides/
+        ├── 01-abertura/
+        ├── 02-quem-somos/
+        ├── 03-essencia/
+        ├── 04-produtos/
+        └── 06-encerramento/
 ```
 
-## Requisitos
+## 🔧 Personalização
 
-Para visualizar o site em sua máquina local, você precisa de:
+### Adicionar Nova Seção
 
-1. Um navegador web moderno (Chrome, Firefox, Safari ou Edge)
-2. As imagens listadas acima na pasta `/assets` (você pode substituí-las por suas próprias imagens)
+1. Adicione no `index.html`:
+```html
+<section class="section nova-secao" id="nova">
+  <div class="container">
+    <!-- conteúdo -->
+  </div>
+</section>
+```
 
-## Instalação e Uso
+2. Adicione no menu (`header-nav`):
+```html
+<a href="#nova">Nova Seção</a>
+```
 
-1. Clone este repositório ou baixe os arquivos
-2. Certifique-se de ter todas as imagens necessárias na pasta `assets/`
-3. Abra o arquivo `index.html` em seu navegador
+3. Adicione estilos no `styles.css`
 
-## Personalização
+### Alterar Cores
 
-Para personalizar o site para sua própria empresa:
+Edite as variáveis CSS no `styles.css` (linhas 6-11):
 
-1. **Conteúdo**: Edite o arquivo `index.html` para atualizar textos, descrições e informações de contato.
-2. **Estilos**: Modifique as variáveis de cores no início do arquivo `styles.css` para adaptar à sua identidade visual.
-3. **Imagens**: Substitua as imagens na pasta `assets/` mantendo os mesmos nomes ou atualizando as referências no HTML e CSS.
-4. **Links**: Atualize os links de redes sociais e WhatsApp com seus próprios links.
+```css
+:root {
+  --wine: #4a0b16;      /* Cor principal */
+  --gold: #c7a64d;      /* Destaque */
+  --ink: #111111;       /* Texto */
+  --paper: #ffffff;     /* Fundo */
+  --gray: #f4f4f5;      /* Neutro */
+}
+```
 
-## Cores e Fontes
+## 📊 Performance
 
-O site utiliza a seguinte paleta de cores:
-- Cor primária: #e67e22 (laranja)
-- Cor secundária: #d35400 (laranja escuro)
-- Cor escura: #2c3e50 (azul escuro)
-- Cor mais escura: #1a252f (quase preto)
-- Cor clara: #ecf0f1 (cinza muito claro)
+- **Lazy Loading**: Imagens e vídeos carregam sob demanda
+- **Intersection Observer**: Vídeos só tocam quando visíveis
+- **CSS otimizado**: Sem frameworks desnecessários
+- **JavaScript puro**: Sem dependências externas
 
-Fontes:
-- Títulos: Playfair Display (fonte elegante e sofisticada)
-- Corpo: Montserrat (fonte limpa e moderna)
+## ♿ Acessibilidade
 
-## Compatibilidade
+- Navegação por teclado funcional
+- Atributos ARIA apropriados
+- Contraste de cores adequado (WCAG AA)
+- Suporte a `prefers-reduced-motion`
+- Estrutura semântica HTML5
 
-Esta landing page foi projetada e testada para funcionar nos seguintes navegadores:
-- Google Chrome
-- Mozilla Firefox
-- Safari
-- Microsoft Edge
+## 🐛 Troubleshooting
 
-O layout é totalmente responsivo e se adapta a diferentes tamanhos de tela, desde smartphones até grandes monitores.
+**Vídeos não carregam?**
+- Verifique se os arquivos estão nos caminhos corretos
+- Formatos suportados: MP4 (H.264)
+- Considere hospedar vídeos no Vimeo/YouTube se forem muito grandes
 
-## Contato
+**Menu mobile não abre?**
+- Verifique se o `script.js` está carregando
+- Confira o console do navegador para erros
 
-Para mais informações ou ajuda com personalização, entre em contato com:
-- Email: [seu-email@exemplo.com]
-- WhatsApp: [seu-número]
+**Smooth scroll não funciona?**
+- Alguns navegadores antigos não suportam `scroll-behavior: smooth`
+- O JavaScript faz fallback automático
 
-## Licença
+## 📧 Suporte
 
-Este projeto está disponível para uso livre pela ValePan. 
+Para dúvidas sobre o site, entre em contato:
+- Email: comercial@valepan.com
+- WhatsApp: (24) 99978-4591
+
+---
+
+**ValePan** — *Hambúrguer bom começa pelo pão* 🍔
+
+© 2025 ValePan - Todos os direitos reservados
