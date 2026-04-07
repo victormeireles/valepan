@@ -1,0 +1,101 @@
+/**
+ * Estilos complementares da landing new-index.html
+ * (Tailwind via CDN; tokens em assets/js/tailwind-config.js)
+ */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+/* Título só para leitores de ecrã (se a utilitária Tailwind sr-only não carregar) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Navbar mais opaco depois de sair da hero (classe aplicada via new-index.js) */
+#site-nav-mobile.nav-past-hero,
+#site-nav-desktop.nav-past-hero,
+#site-nav.nav-past-hero {
+  background-color: rgba(255, 248, 247, 0.94) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  backdrop-filter: blur(14px) saturate(1.15);
+  box-shadow: 0 1px 0 rgba(35, 0, 4, 0.06);
+}
+
+html.dark #site-nav-mobile.nav-past-hero {
+  background-color: rgba(13, 13, 8, 0.9) !important;
+}
+
+html.dark #site-nav-desktop.nav-past-hero {
+  background-color: rgba(35, 0, 4, 0.88) !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+html.dark #site-nav.nav-past-hero {
+  background-color: rgba(35, 0, 4, 0.88) !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+
+/* Shimmer (inspirado em shimmer-button — HTML estático) */
+@keyframes shimmer2 {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: -200% 0%;
+  }
+}
+
+.btn-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer2 2s infinite linear;
+}
+
+.btn-shimmer-whatsapp {
+  background-image: linear-gradient(110deg, #ffd573, 45%, #fff8e8, 55%, #ffd573);
+  border: 1px solid rgba(119, 90, 0, 0.45);
+  color: #251a00;
+}
+
+.btn-shimmer-whatsapp:hover {
+  filter: brightness(1.04);
+}
+
+.btn-shimmer-catalog {
+  background-image: linear-gradient(
+    110deg,
+    rgba(255, 248, 247, 0.16),
+    45%,
+    rgba(255, 255, 255, 0.42),
+    55%,
+    rgba(255, 248, 247, 0.16)
+  );
+  border: 2px solid rgba(255, 248, 247, 0.5);
+  color: #fff8f7;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.btn-shimmer-catalog:hover {
+  filter: brightness(1.08);
+}
+
+.btn-shimmer:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 2px;
+}
+
+.btn-shimmer-catalog:focus-visible {
+  outline-color: rgba(255, 248, 247, 0.85);
+}
