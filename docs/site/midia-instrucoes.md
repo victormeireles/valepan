@@ -1,25 +1,25 @@
 # Mídia — Apresentação Valepan
 
-Substitua os placeholders abaixo em `apresentacao-valepan/assets/slides/` mantendo os nomes sugeridos. Resoluções mínimas: 1920×1080 (16:9). Formatos: JPG de alta qualidade (85%+) e MP4 H.264 para vídeos.
+Substitua os placeholders abaixo nos caminhos indicados. Resoluções mínimas: 1920×1080 (16:9). Formatos: JPG de alta qualidade (85%+) e MP4 H.264 para vídeos.
 
-## 01 — Abertura (3 slides)
+## 01 — Abertura / hero do site
 
 ### Slide 1 - Hero
-**Local:** `assets/slides/01-abertura/hero-bg.jpg`
+**Local:** `assets/img/hero/hero-bg.webp` (poster) e `assets/img/hero/hero-bg.mp4` (vídeo de fundo no `index.html`)
 - **Tipo:** Foto JPG (horizontal 1920x1080 ou superior, alta qualidade 90%+)
 - **Conteúdo:** Foto de pães Valepan com gergelim e outros tipos. Close/macro mostrando textura e detalhes dos pães.
 - **Enquadramento:** Horizontal, pode ser levemente de cima (bird's eye) ou lateral.
 - **Tratamento:** Cores vibrantes, bem iluminada. A imagem receberá overlay vinho/dourado + efeito Ken Burns (zoom lento).
 
 ### Slide 2 - Problema
-**Local:** `assets/slides/01-abertura/pao-ruim.jpg`
+**Local:** `assets/img/hero/pao-ruim.jpg`
 - **Tipo:** Foto JPG (1920x1080+, pode ser 3:2 ou 4:3)
 - **Conteúdo:** Pão de má qualidade - pode ser mal cortado, esfarelando, encharcado, ou desmontando o lanche.
 - **Enquadramento:** Close 3/4, foco no problema, fundo neutro ou desfocado.
 - **Iluminação:** Natural ou estúdio, contraste médio-alto para destacar o defeito.
 
 ### Slide 3 - Solução (Vídeo vertical)
-**Local:** `assets/slides/01-abertura/montagem-lanche.mp4`
+**Local:** `assets/img/hero/montagem-lanche.mp4`
 - **Tipo:** Vídeo MP4 VERTICAL (9:16 - formato stories/reels)
 - **Resolução:** 1080x1920 (vertical)
 - **Duração:** 6-12s em loop

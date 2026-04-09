@@ -233,7 +233,7 @@ ffmpeg -i input.mp4 -ss 00:00:03 -vframes 1 poster.jpg
 **1. Cloudinary (Recomendado para produção)**
 ```html
 <!-- Antes -->
-<video src="assets/slides/01-abertura/hero-bg.mp4"></video>
+<video src="assets/img/hero/hero-bg.mp4"></video>
 
 <!-- Depois -->
 <video src="https://res.cloudinary.com/valepan/video/upload/q_auto/hero-bg.mp4"></video>
