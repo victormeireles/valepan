@@ -6,7 +6,7 @@ Este guia explica como substituir o site atual da ValePan (valepan.com) pelo nov
 
 Antes de fazer o deploy, confira:
 
-- [ ] Google Analytics ID configurado no `index.html` (linha 42)
+- [ ] Google Analytics ID configurado: **mesmo** ID em `assets/js/analytics.js` e no `<script async src="...gtag/js?id=...">` no `index.html`
 - [ ] Todos os links de WhatsApp testados (5524999784591)
 - [ ] Todas as imagens otimizadas
 - [ ] Vídeos comprimidos (ou hospedados externamente)
@@ -36,15 +36,14 @@ Antes de fazer o deploy, confira:
 2. Navegue até `public_html`
 3. **DELETE todos os arquivos antigos** (menos `.htaccess` se tiver configurações importantes)
 4. Clique em **Upload**
-5. Selecione todos os arquivos da pasta `site-valepan`:
-   - index.html
-   - styles.css
-   - script.js
-   - README.md
+5. Selecione todos os arquivos da pasta do site (ex.: `site-valepan` ou raiz do repositório):
+   - `index.html` (home unificada: Tailwind CDN + `assets/css/new-index.css`, `assets/css/clientes-marquee.css`, `assets/js/tailwind-config.js`, `assets/js/analytics.js`, `assets/js/new-index-unificado.js`, `assets/js/hero-glsl-hills-unificado.js`)
+   - `styles.css` e `script.js` — **opcionais** (a home atual não depende deles; mantenha só se outra página usar)
+   - README.md (opcional)
    - robots.txt
    - sitemap.xml
    - .htaccess
-   - pasta `assets/` (completa)
+   - pasta `assets/` (completa, incluindo `assets/data/`, imagens, vídeos, logos)
 6. Aguarde o upload completar
 
 **Opção B: Via FTP (FileZilla)**
@@ -191,7 +190,7 @@ Similar ao Vercel:
 - Acesse [analytics.google.com](https://analytics.google.com)
 - Crie propriedade GA4
 - Copie o ID (G-XXXXXXXXXX)
-- Atualize no `index.html`
+- Atualize no `index.html` (tag async gtag) e em `assets/js/analytics.js` com o **mesmo** ID
 - Aguarde 24h para dados aparecerem
 
 ### 2. Google Search Console

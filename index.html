@@ -1,62 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html class="scroll-smooth" lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ValePan - Pães Premium para Hamburguerias | RJ, SP e MG</title>
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Valepan - Pães Premium para Hamburguerias | RJ, SP e MG</title>
 <meta name="description" content="Pães gourmet para hamburguerias desde 1991. Brioche, Pretzel, Australian Bun com qualidade premium e entrega em RJ, SP e MG.">
 <meta name="keywords" content="pães para hamburguerias, brioche, pretzel, australian bun, pães gourmet, valepan, resende rj">
-
-<!-- Geolocalização -->
-<meta name="geo.region" content="BR-RJ" />
-<meta name="geo.placename" content="Resende" />
-<meta name="geo.position" content="-22.4697;-44.4467" />
-
-<!-- Open Graph / Facebook -->
+<meta name="geo.region" content="BR-RJ">
+<meta name="geo.placename" content="Resende">
+<meta name="geo.position" content="-22.4697;-44.4467">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://valepan.com/">
-<meta property="og:title" content="ValePan - Hambúrguer bom começa pelo pão">
+<meta property="og:title" content="Valepan - Hambúrguer bom começa pelo pão">
 <meta property="og:description" content="Fornecendo qualidade premium desde 1991. Pães artesanais para hamburguerias em RJ, SP e MG.">
 <meta property="og:image" content="https://valepan.com/assets/logo/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="ValePan - Pães Premium para Hamburguerias">
-
-<!-- Twitter -->
+<meta property="og:image:alt" content="Valepan - Pães Premium para Hamburguerias">
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://valepan.com/">
-<meta property="twitter:title" content="ValePan - Hambúrguer bom começa pelo pão">
+<meta property="twitter:title" content="Valepan - Hambúrguer bom começa pelo pão">
 <meta property="twitter:description" content="Fornecendo qualidade premium desde 1991">
 <meta property="twitter:image" content="https://valepan.com/assets/logo/og-image.png">
-
-<!-- Canonical -->
 <link rel="canonical" href="https://valepan.com/">
-
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="assets/logo/valepan-logo.svg">
-
-<!-- Preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://www.googletagmanager.com">
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
-<!-- Styles -->
-<link rel="stylesheet" href="styles.css">
-
-<!-- Google Analytics -->
+<!--
+  Home produção: index.html | CSS: assets/css/new-index.css, clientes-marquee.css
+  JS: tailwind-config.js, analytics.js, new-index-unificado.js, hero-glsl-hills-unificado.js | Vídeo: assets/slides/01-abertura/hero-bg.mp4
+-->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/new-index.css">
+<link rel="stylesheet" href="assets/css/clientes-marquee.css">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- Schema.org Markup -->
+<script src="assets/js/analytics.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -79,8 +63,6 @@
   ]
 }
 </script>
-
-<!-- FAQ Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,614 +70,594 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Qual é o prazo de entrega dos pães?",
+      "name": "Qual a validade dos pães?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "O prazo de entrega varia de acordo com a região. Para grandes centros urbanos, conseguimos entregar em até 48 horas após a confirmação do pedido. Para regiões mais distantes, o prazo pode ser de 3 a 5 dias úteis. Entre em contato conosco para verificar o prazo específico para sua localidade."
+        "text": "21 dias em temperatura ambiente. 90 dias congelado + 5 dias após descongelar."
       }
     },
     {
       "@type": "Question",
-      "name": "Qual é a quantidade mínima para pedidos?",
+      "name": "Como é a entrega de caminhão?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Trabalhamos com pedidos a partir de 1 caixa (48 unidades para a maioria dos nossos produtos). Para hamburguerias e restaurantes que consomem grandes volumes, oferecemos condições especiais e descontos progressivos para pedidos maiores."
+        "text": "Carga batida (sem paletizar)."
       }
     },
     {
       "@type": "Question",
-      "name": "Como devo armazenar os pães?",
+      "name": "Como é a paletização?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Para maximizar a durabilidade, recomendamos que os pães sejam armazenados em freezer a -18°C, onde podem durar até 90 dias. Se precisar de utilização em curto prazo, mantenha em local seco e arejado em temperatura ambiente por até 5 dias, ou sob refrigeração por até 15 dias."
+        "text": "No pallet, cada andar com 6 caixas — total de 42 a 48 caixas por pallet."
       }
     },
     {
       "@type": "Question",
-      "name": "É possível personalizar os pães com a marca da minha hamburgueria?",
+      "name": "Quantas unidades vêm em cada caixa?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Sim! Oferecemos serviço de personalização para pedidos acima de 300 unidades. Podemos gravar sua marca no topo do pão ou criar formatos especiais. Entre em contato conosco para discutir as possibilidades e custos de personalização para sua hamburgueria."
+        "text": "No geral, a caixa possui 48 pães; na gramatura 50 g vêm 60 unidades."
       }
     },
     {
       "@type": "Question",
-      "name": "Quais são as formas de pagamento aceitas?",
+      "name": "Qual o prazo de entrega (lead time)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Aceitamos diversas formas de pagamento: PIX, transferência bancária, boleto e cartão de crédito (em até 3x sem juros). Para clientes recorrentes, oferecemos a possibilidade de pagamento a prazo mediante avaliação cadastral."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Os pães contêm conservantes artificiais?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Não. Nossos pães são produzidos com ingredientes selecionados e utilizamos processos naturais de fermentação que garantem maior durabilidade sem a necessidade de conservantes artificiais. Isso contribui para o sabor autêntico e a qualidade premium que só a ValePan oferece."
+        "text": "Para distribuidoras: 2 dias úteis. Para hamburgueria: depende da sua região — consulte o comercial."
       }
     }
   ]
 }
 </script>
 </head>
-<body>
-
-<!-- Header Fixo -->
-<header class="site-header" id="header">
-  <div class="header-container">
-    <a href="#inicio" class="header-logo">
-      <img src="assets/logo/valepan-logo.svg" alt="ValePan Logo" width="40" height="40">
-      <span>VALEPAN</span>
-    </a>
-    <nav class="header-nav" id="nav">
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre Nós</a>
-      <a href="#produtos">Produtos</a>
-      <a href="#qualidade">Qualidade</a>
-      <a href="#contato">Contato</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="header-cta" target="_blank" rel="noopener">
-      Faça seu Pedido
-    </a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<div class="mx-auto w-full max-w-lg min-h-[max(884px,100dvh)] shadow-2xl lg:mx-0 lg:max-w-none lg:min-h-0 lg:shadow-none">
+<header id="site-nav" class="fixed top-0 left-0 right-0 z-50 w-full bg-[#fff8f7]/18 backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 dark:bg-[#230004]/22 supports-[backdrop-filter]:bg-[#fff8f7]/12 supports-[backdrop-filter]:dark:bg-[#230004]/16">
+<div class="mx-auto flex w-full max-w-lg items-center justify-between gap-3 px-6 py-4 lg:max-w-[1440px] lg:px-8 lg:py-6">
+<div class="flex min-w-0 items-center gap-3">
+<button type="button" class="-m-2 rounded-lg p-2 text-primary md:hidden" aria-label="Menu (em breve)"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+<a href="#inicio" class="flex min-w-0 items-center gap-2 text-xl font-extrabold uppercase tracking-tighter text-[#230004] dark:text-[#fff8f7] lg:text-2xl lg:font-black lg:normal-case lg:tracking-tighter lg:text-[#230004] lg:dark:text-[#775a00]"><img src="assets/logo/valepan-logo.svg" alt="" width="32" height="32" decoding="async" class="h-8 w-8 shrink-0 lg:h-9 lg:w-9"><span class="truncate">Valepan</span></a>
+</div>
+<nav class="hidden flex-1 justify-center md:flex" aria-label="Principal">
+<div class="flex items-center gap-8">
+<a class="font-['Manrope'] font-bold text-sm tracking-tight uppercase text-[#230004]/80 dark:text-[#fff8f7]/80 hover:text-[#775a00] transition-colors duration-300" href="#inicio">Início</a>
+<a class="font-['Manrope'] font-bold text-sm tracking-tight uppercase text-[#230004]/80 dark:text-[#fff8f7]/80 hover:text-[#775a00] transition-colors duration-300" href="#sobre">Sobre</a>
+<a class="font-['Manrope'] font-bold text-sm tracking-tight uppercase text-[#230004]/80 dark:text-[#fff8f7]/80 hover:text-[#775a00] transition-colors duration-300" href="#produtos">Produtos</a>
+<a class="font-['Manrope'] font-bold text-sm tracking-tight uppercase text-[#230004]/80 dark:text-[#fff8f7]/80 hover:text-[#775a00] transition-colors duration-300" href="#logistica">Logística</a>
+<a class="font-['Manrope'] font-bold text-sm tracking-tight uppercase text-[#230004]/80 dark:text-[#fff8f7]/80 hover:text-[#775a00] transition-colors duration-300" href="#faq">FAQ</a>
+<a class="font-['Manrope'] font-bold text-sm tracking-tight uppercase text-[#230004]/80 dark:text-[#fff8f7]/80 hover:text-[#775a00] transition-colors duration-300" href="#contato">Contato</a>
+</div>
+</nav>
+<a href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Valepan%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="product-reveal-card__btn product-reveal-card__btn--primary shrink-0" target="_blank" rel="noopener"><span class="lg:hidden">Pedir</span><span class="hidden lg:inline">Fazer pedido</span></a>
+</div>
 </header>
-
 <main>
-
-<!-- Seção Hero -->
-<section class="section hero-section" id="inicio">
-  <video autoplay muted loop playsinline class="hero-video" poster="assets/slides/01-abertura/hero-bg.webp">
-    <source src="assets/slides/01-abertura/hero-bg.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-brand">
-      <img src="assets/logo/valepan-logo.svg" alt="Valepan" class="hero-logo" width="120" height="120">
-      <h2 class="hero-brand-name">VALEPAN</h2>
-    </div>
-    <h1 class="hero-title">Hambúrguer bom começa pelo pão</h1>
-    <p class="hero-subtitle">Fornecendo qualidade premium desde 1991</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="btn btn-primary" target="_blank" rel="noopener">Faça seu Pedido</a>
-      <a href="#produtos" class="btn btn-secondary">Conheça Nossos Produtos</a>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <span>Role para descobrir</span>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="6 9 12 15 18 9"></polyline>
-    </svg>
-  </div>
+<!-- Hero -->
+<section id="inicio" class="relative flex min-h-[100dvh] items-center justify-center overflow-hidden lg:items-center">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<video class="absolute inset-0 z-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto" poster="assets/slides/01-abertura/hero-bg.webp" aria-hidden="true">
+<source src="assets/slides/01-abertura/hero-bg.mp4" type="video/mp4">
+</video>
+<div class="hero-gl-layer absolute inset-0 z-[1] pointer-events-none opacity-70 mix-blend-soft-light" aria-hidden="true">
+<canvas id="hero-gl-canvas" class="block h-full w-full"></canvas>
+</div>
+<div class="absolute inset-0 z-[2] bg-gradient-to-t from-primary/75 via-primary/30 to-transparent pointer-events-none lg:bg-gradient-to-r lg:from-primary/65 lg:via-primary/28 lg:to-transparent"></div>
+</div>
+<div class="relative z-10 mx-auto w-full max-w-5xl px-6 pb-28 pt-28 text-center sm:pt-32 lg:px-8 lg:pb-24">
+<div class="mx-auto max-w-4xl text-on-primary lg:text-white">
+<p class="mb-5 text-[10px] font-bold uppercase tracking-widest text-[#ffd573]/95 sm:text-xs lg:mb-6 lg:text-sm">Fornecendo qualidade desde 1991</p>
+<h1 class="mb-6 font-headline lg:mb-8">
+<span class="block font-light italic tracking-tight text-3xl leading-snug sm:text-4xl md:text-5xl lg:text-6xl">Hambúrguer bom começa</span>
+<span class="mt-1 block text-5xl font-extrabold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl lg:mt-2 lg:text-8xl">pelo pão.</span>
+</h1>
+<p class="mx-auto mb-10 max-w-md text-sm leading-relaxed text-[#ebe0e1] sm:text-base lg:mb-12 lg:max-w-xl lg:text-white/75 md:text-lg">
+Pães premium para hamburguerias de alto padrão.
+</p>
+<div class="mx-auto flex w-full max-w-sm flex-col items-stretch gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-4">
+<a href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Valepan%20e%20gostaria%20de%20um%20or%C3%A7amento." class="btn-shimmer btn-shimmer-whatsapp inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-3 font-bold sm:w-auto sm:min-w-[240px] sm:rounded-md sm:px-8 sm:py-4" target="_blank" rel="noopener">
+<span class="material-symbols-outlined" aria-hidden="true">chat_bubble</span>
+Faça um orçamento
+</a>
+<a href="#produtos" class="btn-shimmer btn-shimmer-catalog inline-flex min-h-12 w-full items-center justify-center rounded-lg px-6 py-3 font-bold sm:w-auto sm:min-w-[240px] sm:rounded-md sm:px-8 sm:py-4">
+Ver catálogo
+</a>
+</div>
+</div>
+</div>
 </section>
-
-<!-- Seção Problema/Solução -->
-<section class="section problem-solution">
-  <div class="container">
-    <div class="split-layout">
-      <div class="split-image">
-        <img src="assets/slides/01-abertura/pao-ruim.jpg" alt="Pão de má qualidade" loading="lazy">
-      </div>
-      <div class="split-content">
-        <p class="quote-large">"O pão é só um detalhe…"</p>
-        <p class="quote-large highlight">até o dia em que ele estraga o lanche.</p>
-      </div>
-    </div>
-    <div class="solution-layout">
-      <div class="solution-content">
-        <h2 class="section-title">Com o pão certo...</h2>
-        <p class="section-subtitle">cada lanche é uma experiência.</p>
-      </div>
-      <div class="solution-video">
-        <video muted loop playsinline class="video-vertical" data-autoplay>
-          <source src="assets/slides/01-abertura/montagem-lanche.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-  </div>
+<!-- 3) Faixa de logos -->
+<section class="overflow-hidden border-y border-outline-variant/10 bg-surface-container-low py-12 lg:py-16" aria-labelledby="titulo-parceiros">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<h2 id="titulo-parceiros" class="sr-only">Marcas parceiras</h2>
+<p class="mb-10 text-center text-sm font-bold uppercase tracking-widest text-on-surface-variant">Quem confia no nosso padrão</p>
+<div class="clientes-marquee" aria-label="Logotipos de clientes Valepan">
+<div class="clientes-marquee__blur clientes-marquee__blur--left" aria-hidden="true">
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+</div>
+<div class="clientes-marquee__blur clientes-marquee__blur--right" aria-hidden="true">
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+<span class="clientes-marquee__blur-layer"></span>
+</div>
+<div class="clientes-marquee__viewport">
+<div class="clientes-marquee__track">
+<div class="clientes-marquee__group">
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-1-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt="Logo da Academia Militar das Agulhas Negras (AMAN)"></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-2-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt="Logo da hamburgueria Sampa Burger, São Paulo — SP"></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-3-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt="Logo da hamburgueria Santowich, Rio de Janeiro — RJ"></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-4-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt="Logo da hamburgueria Mariazinha, São José dos Campos — SP"></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-5-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt="Logo da Rede Graal"></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-6-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt="Logo da hamburgueria Sanduba do Careca"></div>
+</div>
+<div class="clientes-marquee__group" aria-hidden="true">
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-1-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt=""></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-2-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt=""></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-3-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt=""></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-4-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt=""></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-5-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt=""></div>
+<div class="clientes-marquee__logo"><img src="assets/logo/cliente-6-logo.webp" width="180" height="80" loading="lazy" decoding="async" alt=""></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- Seção Nossa História -->
-<section class="section story-section" id="sobre">
-  <div class="story-bg">
-    <img src="assets/slides/02-quem-somos/valepan-team.webp" alt="Equipe ValePan - Fabricante de pães premium para hamburguerias em Resende-RJ" loading="lazy">
-    <div class="story-overlay"></div>
-  </div>
-  <div class="container">
-    <div class="story-content">
-      <h2 class="section-title-light">De uma padaria de bairro a referência em panificação.</h2>
-      <p class="story-text">Fundada em 1991 em Resende/RJ, a Valepan cresceu e hoje abastece as melhores hamburguerias de <strong>RJ, SP e MG</strong>.</p>
-      <div class="story-values">
-        <div class="value-item">
-          <span class="value-icon">✓</span>
-          <span>Receitas Exclusivas</span>
-        </div>
-        <div class="value-item">
-          <span class="value-icon">✓</span>
-          <span>Qualidade Superior</span>
-        </div>
-        <div class="value-item">
-          <span class="value-icon">✓</span>
-          <span>Sabor Inigualável</span>
-        </div>
-      </div>
-      <p class="story-slogan">Acreditamos em uma coisa:</p>
-      <p class="quote-large-light">"Hambúrguer bom começa pelo pão."</p>
-    </div>
-  </div>
+<!-- 4) Seção problema/solução (layout “diced hero”, mobile e desktop) -->
+<section id="problema" class="problema-diced bg-primary text-[#fff8f7]" aria-labelledby="problema-heading">
+<div class="problema-diced__shell mx-auto flex w-full max-w-[1536px] flex-col items-stretch justify-center gap-0 px-6 py-14 lg:flex-row lg:items-stretch lg:gap-0 lg:px-8 lg:py-24">
+<div class="problema-diced__copy flex max-w-full flex-1 flex-col justify-center pb-10 text-center lg:max-w-[50%] lg:pb-0 lg:pr-8 lg:text-left">
+<p class="problema-diced__kicker mb-3 text-sm font-semibold tracking-wide text-[#ebe0e1]/95">O pão é só um detalhe…</p>
+<h2 id="problema-heading" class="problema-diced__title font-headline text-4xl font-extrabold leading-[1.18] tracking-tight sm:text-5xl lg:text-[2.75rem] xl:text-6xl">
+<span class="problema-diced__title-gradient">Até estragar o lanche</span>
+</h2>
+<hr class="problema-diced__sep mx-auto my-5 border-0 lg:mx-0" aria-hidden="true">
+<p class="problema-diced__body mx-auto max-w-xl text-base leading-relaxed text-[#ebe0e1]/90 lg:mx-0 lg:max-w-none">
+Você investe no melhor blend de carnes, no queijo premiado e no molho secreto. Mas se o pão esfarelar ou chegar amassado, a experiência do seu cliente termina ali.
+</p>
+<div class="problema-diced__cta mt-8 flex justify-center lg:justify-start">
+<a href="#produtos" class="problema-diced__chronicle chronicle-btn">
+<span class="chronicle-btn__layer"><em class="chronicle-btn__text">Conheça nossos produtos</em></span>
+<span class="chronicle-btn__layer chronicle-btn__layer--ghost" aria-hidden="true"><em class="chronicle-btn__text">Conheça nossos produtos</em></span>
+</a>
+</div>
+</div>
+<div class="problema-diced__visual flex w-full flex-1 flex-col items-stretch lg:max-w-[50%] lg:pl-8">
+<div class="problema-diced__grid" role="img" aria-label="Colagem de situações em que o pão compromete o lanche">
+<div class="problema-diced__cell">
+<span class="problema-diced__label">Corte traidor</span>
+<img src="assets/img/problema-solucao/problema-corte-traidor.webp" alt="Pão com corte que compromete a montagem" width="800" height="800" loading="lazy" decoding="async" class="problema-diced__img warped-image bottom-right">
+</div>
+<div class="problema-diced__cell">
+<span class="problema-diced__label">Pão covarde</span>
+<img src="assets/img/problema-solucao/problema-pao-covarde.webp" alt="Pão sem estrutura para o recheio" width="800" height="800" loading="lazy" decoding="async" class="problema-diced__img warped-image bottom-left">
+</div>
+<div class="problema-diced__cell">
+<span class="problema-diced__label problema-diced__label--bottom">Pão dramático</span>
+<img src="assets/img/problema-solucao/problema-pao-dramatico.webp" alt="Pão que rouba a cena do hambúrguer" width="800" height="800" loading="lazy" decoding="async" class="problema-diced__img warped-image top-right">
+</div>
+<div class="problema-diced__cell">
+<span class="problema-diced__label problema-diced__label--bottom">Pão esponja</span>
+<img src="assets/img/problema-solucao/problema-pao-esponja.webp" alt="Miolo esponjoso demais para o sanduíche" width="800" height="800" loading="lazy" decoding="async" class="problema-diced__img warped-image top-left">
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- Seção Equipe -->
-<section class="section team-section">
-  <div class="container">
-    <h2 class="section-title-center">Quem Faz Acontecer</h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-image">
-          <img src="assets/slides/02-quem-somos/fellipe-portrait.webp" alt="Fellipe Schocair" loading="lazy">
-        </div>
-        <div class="team-info">
-          <h3 class="team-name">Fellipe Schocair</h3>
-          <p class="team-role">Sócio • Comercial & Operações</p>
-          <p class="team-bio">Chegou para transformar o comercial e as operações. Hoje, como sócio, lidera a equipe que <strong>quadruplicou o crescimento</strong> da Valepan.</p>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-image">
-          <img src="assets/slides/02-quem-somos/victor-g4.webp" alt="Victor Meireles" loading="lazy">
-        </div>
-        <div class="team-info">
-          <h3 class="team-name">Victor Meireles</h3>
-          <p class="team-role">Sócio • Financeiro & Processos • Mentor G4 Educação</p>
-          <p class="team-bio">Com passagens por C&A, Dafiti e EMS, é mentor do G4 Educação.</p>
-          <p class="team-quote">"Hoje aplico o mesmo rigor que usei em empresas bilionárias para otimizar... <strong>pão</strong>."</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Qualidade -->
-<section class="section quality-section" id="qualidade">
-  <div class="container">
-    <h2 class="section-title-center">Qualidade depende de padrão.</h2>
-    <p class="section-subtitle-center">O pão tem que chegar igual em todas as lojas, suportar calor, molho, montagem e ainda entregar sabor.</p>
-    
-    <div class="quality-content">
-      <div class="quality-text">
-        <h3 class="quality-headline">Não é sorte. Não é intuição.</h3>
-        <p class="quality-highlight">É <strong>PROCESSO + CONTROLE</strong>.</p>
-        <p class="quality-description">"O pão da primeira fornada é igual ao da milésima."</p>
-        <p class="quality-insight">"Porque quem trabalha com hambúrguer sabe: se o pão muda, o lanche muda — e o cliente sente."</p>
-      </div>
-      <div class="quality-media">
-        <video muted loop playsinline class="quality-video" data-autoplay poster="assets/slides/03-essencia/paes-saindo-do-forno.mp4">
-          <source src="assets/slides/03-essencia/paes-saindo-do-forno.mp4" type="video/mp4">
-        </video>
-      </div>
-    </div>
-
-    <div class="logistics-info">
-      <div class="logistics-image">
-        <img src="assets/slides/03-essencia/frota-distribuidor-parceiro.webp" alt="Frota de distribuição ValePan - Entrega de pães para hamburguerias em RJ, SP e MG" loading="lazy">
-      </div>
-      <div class="logistics-text">
-        <h3 class="logistics-title">Distribuidores parceiros que garantem <span class="highlight-gold">pão fresco na porta</span> da sua hamburgueria.</h3>
-        <div class="logistics-regions">
-          <div class="region-badge">
-            <span class="region-abbr">RJ</span>
-            <span class="region-name">Rio de Janeiro</span>
-          </div>
-          <div class="region-badge">
-            <span class="region-abbr">SP</span>
-            <span class="region-name">São Paulo</span>
-          </div>
-          <div class="region-badge">
-            <span class="region-abbr">MG</span>
-            <span class="region-name">Minas Gerais</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Produtos -->
-<section class="section products-section" id="produtos">
-  <div class="container">
-    <div class="products-intro">
-      <h2 class="section-title-center">Pães Gourmet para Hamburguerias</h2>
-      <p class="section-subtitle-center">Linha completa de pães artesanais para hambúrguer com qualidade premium e consistência em cada entrega.</p>
-    </div>
-
-    <!-- Produtos em Destaque -->
-    <div class="products-featured">
-      <div class="product-card featured">
-        <div class="product-image">
-          <img src="assets/slides/04-produtos/brioche-card.webp" alt="Pão de Hambúrguer Brioche artesanal - ValePan" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Hambúrguer Brioche</h3>
-          <p class="product-description">Pão macio, levemente amanteigado, pincelado, com textura leve e sabor delicado.</p>
-          <div class="product-badge">Entregamos já cortado</div>
-          <ul class="product-specs">
-            <li><strong>Peso:</strong> 60g · 65g · 75g</li>
-            <li><strong>Diâmetro:</strong> 11cm · 12cm · 13cm</li>
-            <li><strong>Altura:</strong> 5–6cm</li>
-          </ul>
-          <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Hambúrguer%20Brioche." class="btn btn-outline" target="_blank" rel="noopener">Solicitar Orçamento</a>
-        </div>
-      </div>
-
-      <div class="product-card featured reverse">
-        <div class="product-image">
-          <img src="assets/slides/04-produtos/gergelim-card.webp" alt="Pão de Hambúrguer com Gergelim artesanal - ValePan" loading="lazy">
-        </div>
-        <div class="product-info">
-          <h3 class="product-name">Hambúrguer Gergelim</h3>
-          <p class="product-description">Pão macio, levemente adocicado, finalizado com sementes de gergelim para aroma e crocância.</p>
-          <div class="product-badge">Entregamos já cortado</div>
-          <ul class="product-specs">
-            <li><strong>Peso:</strong> 50g · 60g · 65g · 75g</li>
-            <li><strong>Diâmetro:</strong> 10cm · 11cm · 12cm · 13cm</li>
-            <li><strong>Altura:</strong> 5–6cm</li>
-          </ul>
-          <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Hambúrguer%20Gergelim." class="btn btn-outline" target="_blank" rel="noopener">Solicitar Orçamento</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Grid de Demais Produtos -->
-    <h3 class="products-grid-title">E tem mais...</h3>
-    <div class="products-grid">
-      <div class="product-card-small">
-        <img src="assets/slides/04-produtos/brioche-gergelim-card.webp" alt="Pão Brioche com Gergelim para Hambúrguer - ValePan" loading="lazy">
-        <h4>Brioche Gergelim</h4>
-        <p>Combinação perfeita de brioche com gergelim.</p>
-      </div>
-      <div class="product-card-small">
-        <img src="assets/slides/04-produtos/tradicional-card.webp" alt="Pão Tradicional para Hambúrguer - ValePan" loading="lazy">
-        <h4>Tradicional</h4>
-        <p>Clássico pão para hambúrguer, perfeito para qualquer receita.</p>
-      </div>
-      <div class="product-card-small">
-        <img src="assets/slides/04-produtos/royal-card.webp" alt="Pão Brioche Royal Premium - ValePan" loading="lazy">
-        <h4>Brioche Royal</h4>
-        <p>Premium com acabamento especial.</p>
-      </div>
-      <div class="product-card-small">
-		  <img src="assets/slides/04-produtos/australiano-card.webp" alt="Pão Australiano para Hambúrguer - ValePan" loading="lazy">
-		  <h4>Australiano</h4>
-        <p>Sabor diferenciado com toque de cacau.</p>
-      </div>
-      <div class="product-card-small">
-		  <img src="assets/slides/04-produtos/duo-card.webp" alt="Pão Brioche Duo para Hambúrguer - ValePan" loading="lazy">
-		  <h4>Brioche Duo</h4>
-		  <p>Perfeito para lanches duplos.</p>
+<!-- 5) História, escala e qualidade (unificado: vídeo YouTube leve + texto) -->
+<section class="bg-surface py-20 text-on-surface lg:py-24" id="sobre" aria-labelledby="sobre-qualidade-heading">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto mb-12 max-w-3xl text-center lg:mb-16">
+<p class="mb-3 text-xs font-bold uppercase tracking-widest text-secondary">Desde 1991 · Resende, RJ</p>
+<h2 id="sobre-qualidade-heading" class="mb-6 font-headline text-3xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl md:text-5xl">De padaria de bairro à referência industrial</h2>
+<p class="text-base leading-relaxed text-on-surface-variant md:text-lg">
+Nascida em 1991, a Valepan une o cuidado do artesão à precisão da linha de produção para abastecer centenas de parceiros com o mesmo padrão, todos os dias.
+</p>
+</div>
+<div class="flex flex-col items-stretch gap-12 lg:flex-row lg:items-start lg:gap-14 xl:gap-16">
+<div class="mx-auto w-full max-w-md shrink-0 lg:mx-0 lg:max-w-none lg:w-[42%] xl:w-[40%]" data-video-root data-video-embed="https://www.youtube.com/embed/kyF4o5RU9co?rel=0&amp;playsinline=1&amp;modestbranding=1">
+<!--
+  VÍDEO: use sempre URL de incorporação (não o link de Shorts/watch).
+  Capa quadrada: assets/img/sobre/video-poster.webp (1:1 recomendado; object-cover centraliza o recorte).
+-->
+<button type="button" class="group relative w-full cursor-pointer overflow-hidden rounded-2xl text-left shadow-xl shadow-primary/10 ring-1 ring-outline-variant/40 transition-transform duration-300 motion-safe:hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-surface" data-video-open aria-haspopup="dialog" aria-expanded="false" aria-controls="sobre-video-dialog">
+<span class="block aspect-square w-full">
+<img src="assets/img/sobre/video-poster.webp" alt="Capa do vídeo institucional Valepan" width="1080" height="1080" loading="lazy" decoding="async" class="h-full w-full object-cover transition-[filter,transform] duration-300 motion-safe:group-hover:scale-[1.03] motion-safe:group-hover:brightness-95">
+<span class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true"></span>
+<span class="pointer-events-none absolute left-1/2 top-1/2 flex size-16 min-h-[44px] min-w-[44px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white/90 bg-white/15 backdrop-blur-md motion-safe:transition motion-safe:duration-300 motion-safe:group-hover:scale-105 motion-safe:group-hover:bg-white/25" aria-hidden="true">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="ml-0.5" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+</span>
+<span class="pointer-events-none absolute bottom-0 left-0 p-5 md:p-6">
+<span id="sobre-video-thumb-title" class="block text-lg font-bold text-white drop-shadow md:text-xl">Vídeo institucional</span>
+<span class="mt-0.5 block text-sm text-white/85 drop-shadow">Fábrica e padrão Valepan</span>
+</span>
+</span>
+<span class="sr-only">Reproduzir vídeo na página</span>
+</button>
+<p class="mt-3 text-center text-xs text-on-surface-variant">Toque para conhecer nossa fábrica</p>
+<div id="sobre-video-dialog" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 p-4 backdrop-blur-sm" data-video-dialog role="dialog" aria-modal="true" aria-labelledby="sobre-video-thumb-title" hidden>
+<button type="button" class="absolute inset-0 z-0 cursor-default border-0 bg-transparent" data-video-backdrop tabindex="-1" aria-label="Fechar vídeo"></button>
+<div class="relative z-10 w-full max-w-[min(100vw-2rem,22rem)] sm:max-w-sm">
+<button type="button" class="absolute -top-1 right-0 z-20 flex size-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-white/15 text-white transition-colors hover:bg-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:-right-2 sm:-top-12" data-video-close aria-label="Fechar reprodução">
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+</button>
+<div class="aspect-[9/16] max-h-[min(85vh,720px)] w-full overflow-hidden rounded-xl bg-black shadow-2xl ring-1 ring-white/10">
+<iframe class="h-full w-full" data-video-iframe title="Vídeo institucional Valepan" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="w-full max-w-xl text-on-surface-variant lg:max-w-none lg:flex-1">
+	<div class="flex flex-wrap items-end gap-3 sm:gap-5">
+		<div class="text-4xl font-black leading-none text-secondary sm:text-5xl md:text-6xl">150k</div>
+		<div class="pb-0.5 text-xs font-bold uppercase leading-tight tracking-tight text-primary sm:text-sm">
+		Pães produzidos<br>diariamente
+		</div>
 	</div>
-	<div class="product-card-small">
-		<img src="assets/slides/04-produtos/smash-card.webp" alt="Pão Brioche Smash para Smash Burger - ValePan" loading="lazy">
-        <h4>Brioche Smash</h4>
-        <p>Tamanho ideal para smash burgers.</p>
-	</div>
-	<div class="product-card-small">
-		<img src="assets/slides/04-produtos/hot-dog.png" alt="Pão para Hot Dog - ValePan" loading="lazy">
-	  <h4>Hot Dog</h4>
-	  <p>Hot dog classico com muito sabor e maciez.</p>
-	</div>
-	<div class="product-card-small">
-		<img src="assets/slides/04-produtos/hot-dog-brioche.png" alt="Pão para Hot Dog Brioche - ValePan" loading="lazy">
-	  <h4>Hot Dog Brioche</h4>
-	  <p>Versão bioche do nosso hot dog.</p>
-	</div>
-    </div>
+	<figure class="mt-4 border-l-4 border-secondary bg-surface-container-high py-4 pl-5 pr-4">
+		<blockquote class="text-base font-medium italic leading-relaxed text-primary md:text-lg">
+		“Se enfileirássemos nossa produção diária, cobriríamos o gramado de dois Maracanãs.”
+		</blockquote>
+	</figure>
+	<p class="mt-8 text-xs font-bold uppercase tracking-widest text-secondary">Não é sorte. Não é intuição.</p>
+<h3 class="mt-2 text-2xl font-extrabold text-primary md:text-3xl">É processo + controle</h3>
+<div class="mt-3 h-1 w-24 rounded-full bg-gradient-to-r from-secondary to-amber-200/80" aria-hidden="true"></div>
+<p class="mt-8 text-sm leading-relaxed md:text-base">
+	O pão tem que chegar igual em todas as lojas, suportar calor, molho, montagem e ainda entregar sabor.
+</p>
+<p class="mt-4 text-sm leading-relaxed md:text-base">
+Quem vive de hambúrguer sabe que quando o pão muda, o cliente percebe na hora
+</p>
 
-    <!-- Informações de Validade -->
-    <div class="product-info-boxes">
-      <div class="info-box">
-        <h4>Validade</h4>
-        <p><strong>Temperatura ambiente:</strong> até 15 dias após fabricação</p>
-        <p><strong>Resfriado:</strong> até 15 dias após fabricação</p>
-        <p><strong>Congelado:</strong> até 90 dias após fabricação</p>
-      </div>
-      <div class="info-box">
-        <h4>Recomendação de Conservação</h4>
-        <p><strong>Não Congelado:</strong> Conservar em local seco, fresco e livre de odores.</p>
-        <p><strong>Congelado:</strong> Após descongelado consumir em até 5 dias, não recongelar após o uso.</p>
-      </div>
-    </div>
 
-    <div class="products-cta">
-      <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20conhecer%20toda%20a%20linha%20de%20produtos%20ValePan." class="btn btn-primary-large" target="_blank" rel="noopener">Solicite um Catálogo Completo</a>
-    </div>
-  </div>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- Seção Depoimentos -->
-<section class="section testimonials-section">
-  <div class="container">
-    <h2 class="section-title-center">O que Nossos Clientes Dizem</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Os pães da ValePan revolucionaram nossa hamburgueria. A consistência e qualidade são incomparáveis, nossos clientes sempre elogiam o sabor!</p>
-        <div class="testimonial-author">
-          <strong>Patrick Bartholazi</strong>
-          <span>Proprietário da B3X Burger</span>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">"</div>
-        <p class="testimonial-text">Desde que começamos a usar os pães da ValePan, percebemos um aumento significativo na satisfação dos clientes. Um diferencial para nosso negócio!</p>
-        <div class="testimonial-author">
-          <strong>Ana Rodrigues</strong>
-          <span>Chef do Beef & Grill</span>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- 6) Produtos — cartões com overlay (gramaturas, diâmetro, embalagem) -->
+<section class="scroll-mt-28 bg-surface py-16 text-on-surface lg:py-24" id="produtos" aria-labelledby="produtos-heading">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto mb-12 max-w-2xl text-center lg:mb-16">
+<p class="mb-3 text-xs font-bold uppercase tracking-widest text-secondary">Catálogo</p>
+<h2 id="produtos-heading" class="mb-4 font-headline text-3xl font-extrabold tracking-tight text-primary sm:text-4xl md:text-5xl">Nossa linha de pães para hambúrguer e hot dog</h2>
+<p class="mb-4 text-base font-medium text-on-surface-variant md:text-lg">Linha completa de pães artesanais para hambúrguer e hot dog com qualidade premium e consistência em cada entrega.</p>
+<p class="text-base text-on-surface-variant md:text-lg">Cada card mostra as gramaturas disponíveis; passe o mouse (desktop) ou toque em <span class="whitespace-nowrap font-bold text-primary">“Ver detalhes”</span> para abrir diâmetro de referência e unidades por caixa.</p>
+</div>
+<div class="valepan-catalog-tabs mx-auto mb-10 max-w-xl sm:max-w-2xl lg:max-w-3xl" data-catalog-tab-root data-active-tab="0">
+<svg class="valepan-goo-svg" width="0" height="0" aria-hidden="true" focusable="false">
+<defs>
+<filter id="valepan-gooey" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+<feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+<feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"/>
+<feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+</filter>
+</defs>
+</svg>
+<div class="rounded-2xl border border-outline-variant/35 bg-surface-container-high/90 p-1 shadow-[inset_0_1px_0_rgba(255,255,255,0.65)]">
+<div class="relative h-[3.25rem] sm:h-14">
+<div class="valepan-catalog-tabs__goo-layer pointer-events-none absolute inset-0 z-0 overflow-visible rounded-xl p-1 sm:p-1.5" data-goo-filter-wrap style="filter:url(#valepan-gooey)">
+<div class="relative h-full w-full">
+<div class="valepan-catalog-tabs__pill" aria-hidden="true"></div>
+</div>
+</div>
+<div class="absolute inset-0 z-10 flex min-h-[3.25rem] sm:min-h-14" role="tablist" aria-label="Categorias do catálogo" data-catalog-tablist></div>
+</div>
+</div>
+</div>
+<div id="produtos-catalogo-panel" class="outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-surface" role="tabpanel" aria-labelledby="tab-catalog-hamb" tabindex="0" data-catalog-panel>
+<div id="produtos-catalogo" class="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3 xl:gap-10" role="list" data-product-catalog></div>
+</div>
+<noscript>
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container-high p-6 text-center text-sm text-on-surface-variant">
+Ative o JavaScript para ver o catálogo interativo com tabela de gramaturas, ou fale conosco pelo <a class="font-bold text-secondary underline underline-offset-4" href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Valepan%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp</a>.
+</div>
+</noscript>
+</div>
+</section>
+<!-- 7) Logística -->
+<section id="logistica" class="scroll-mt-28 bg-surface py-16 text-on-surface lg:py-20" aria-labelledby="logistica-heading">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<article class="overflow-hidden rounded-2xl border border-outline-variant/30 bg-white text-primary shadow-xl shadow-primary/[0.06] ring-1 ring-outline-variant/20 dark:bg-[#2a181c] dark:text-[#fff8f7] dark:ring-white/10">
+<div class="grid gap-0 lg:grid-cols-2 lg:items-stretch">
+<div class="relative aspect-[3/2] min-h-[220px] w-full lg:aspect-auto lg:min-h-[min(100%,420px)]">
+<img src="assets/img/sobre/frota-distribuidor-parceiro.webp" alt="Frota e distribuidores parceiros Valepan: entrega de pães para hamburguerias" width="1536" height="1024" loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover">
+<span class="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-transparent to-transparent lg:from-primary/35 dark:from-black/40" aria-hidden="true"></span>
+</div>
+<div class="flex flex-col justify-center gap-6 border-t border-outline-variant/20 p-8 md:p-10 lg:border-l lg:border-t-0 lg:p-12 dark:border-white/10">
+<div>
+<p class="text-xs font-bold uppercase tracking-widest text-secondary dark:text-secondary-container">Logística e rede de parceiros</p>
+<h2 id="logistica-heading" class="mt-2 font-headline text-2xl font-extrabold leading-tight tracking-tight md:text-3xl">Do nosso forno à porta da sua hamburgueria</h2>
+<div class="mt-4 flex flex-wrap items-center gap-2">
+<span class="inline-flex items-center rounded-full border border-primary/15 bg-primary/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary dark:border-white/20 dark:bg-white/10 dark:text-[#fff8f7]">RJ</span>
+<span class="inline-flex items-center rounded-full border border-primary/15 bg-primary/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary dark:border-white/20 dark:bg-white/10 dark:text-[#fff8f7]">SP</span>
+<span class="inline-flex items-center rounded-full border border-primary/15 bg-primary/[0.06] px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary dark:border-white/20 dark:bg-white/10 dark:text-[#fff8f7]">MG</span>
+<span class="inline-flex items-center gap-1 rounded-full border border-dashed border-secondary/40 bg-secondary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-secondary dark:border-secondary-container/50 dark:bg-secondary/20 dark:text-secondary-container"><span class="material-symbols-outlined text-base leading-none" aria-hidden="true">add_location_alt</span> Mais estados em breve</span>
+</div>
+</div>
+<div class="space-y-4 text-sm leading-relaxed text-on-surface-variant dark:text-[#ebe0e1]/90">
+<p class="flex gap-3 md:gap-4">
+<span class="material-symbols-outlined mt-0.5 shrink-0 text-secondary dark:text-secondary-container" aria-hidden="true">storefront</span>
+<span><strong class="font-bold text-primary dark:text-[#fff8f7]">Para hamburguerias:</strong> contamos com <strong class="text-primary dark:text-[#fff8f7]">distribuidores parceiros</strong> que levam pão fresco até a porta da sua operação, com o padrão e a cadência que o seu cardápio exige.</span>
+</p>
+<p class="flex gap-3 md:gap-4">
+<span class="material-symbols-outlined mt-0.5 shrink-0 text-secondary dark:text-secondary-container" aria-hidden="true">map</span>
+<span>Hoje já atendemos <strong class="text-primary dark:text-[#fff8f7]">Rio de Janeiro, São Paulo e Minas Gerais</strong>. Estamos ampliando a rede para chegar a novos estados em breve.</span>
+</p>
+<p class="flex gap-3 md:gap-4">
+<span class="material-symbols-outlined mt-0.5 shrink-0 text-secondary dark:text-secondary-container" aria-hidden="true">handshake</span>
+<span><strong class="font-bold text-primary dark:text-[#fff8f7]">Distribuidor em outro estado?</strong> Se você atua fora dessa área e quer conversar sobre parceria, <a class="font-bold text-secondary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary dark:text-secondary-container dark:hover:text-[#fff8f7]" href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Sou%20distribuidor%20em%20outro%20estado%20e%20gostaria%20de%20falar%20com%20a%20Valepan%20sobre%20parceria." target="_blank" rel="noopener">fale com a gente pelo WhatsApp</a> ou envie uma mensagem pela <a class="font-bold text-secondary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary dark:text-secondary-container dark:hover:text-[#fff8f7]" href="#contato">área de contato</a>.</span>
+</p>
+</div>
+</div>
+</div>
+</article>
+
+</div>
+</section>
+<!-- 9) Cases e depoimentos (grid com foto + citação) -->
+<section id="depoimentos" class="scroll-mt-28 w-full bg-background py-16 sm:py-24" aria-labelledby="depoimentos-heading">
+<div class="mx-auto max-w-6xl px-4 text-center sm:px-6 lg:px-8">
+<p class="mb-3 text-xs font-bold uppercase tracking-widest text-secondary">Por que Valepan</p>
+<h2 id="depoimentos-heading" class="font-headline text-3xl font-bold tracking-tight text-primary sm:text-4xl">Cases e depoimentos</h2>
+<p class="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-on-surface-variant md:text-lg">
+Parceiros contam o que mais valorizam no pão e no relacionamento: do delivery ao cuidado na loja.
+</p>
+<div class="valepan-testimonials-grid mt-12 grid grid-cols-1 gap-8 text-left md:grid-cols-2 lg:grid-cols-3" data-testimonials-grid>
+<article class="valepan-testimonial-card relative overflow-hidden rounded-lg bg-surface-container-lowest shadow-sm ring-1 ring-outline-variant/20">
+<div class="relative h-[22rem] w-full overflow-hidden sm:h-[24rem] lg:h-[26rem]">
+<img src="assets/img/depoimentos/sampa-burger.webp" alt="Giulio na frente da hamburgueria Sampa Burger" width="900" height="1200" loading="lazy" decoding="async" class="valepan-testimonial-card__photo h-full w-full">
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-transparent" aria-hidden="true"></div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+<span class="material-symbols-outlined mb-3 block text-5xl text-white/35" aria-hidden="true">format_quote</span>
+<blockquote class="text-base font-medium leading-relaxed">
+Padrão: a aparência se mantém sempre; o pão é estruturado para aguentar o delivery e a base segura quando cai o suco da carne.
+</blockquote>
+<figcaption class="mt-4">
+<p class="text-white">
+<span class="font-semibold">&mdash; Giulio,</span>
+<span class="ml-1 font-normal text-white/65">Sampa Burger</span>
+</p>
+</figcaption>
+</div>
+</article>
+<article class="valepan-testimonial-card relative overflow-hidden rounded-lg bg-surface-container-lowest shadow-sm ring-1 ring-outline-variant/20">
+<div class="relative h-[22rem] w-full overflow-hidden sm:h-[24rem] lg:h-[26rem]">
+<img src="assets/img/depoimentos/sanduba-do-careca.webp" alt="Equipe do Sanduba do Careca com aventais Valepan na fachada" width="900" height="1200" loading="lazy" decoding="async" class="valepan-testimonial-card__photo h-full w-full">
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-transparent" aria-hidden="true"></div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+<span class="material-symbols-outlined mb-3 block text-5xl text-white/35" aria-hidden="true">format_quote</span>
+<blockquote class="text-base font-medium leading-relaxed">
+Escolhemos pela agilidade de entrega, pelo padrão que vi nos processos ao visitar a fábrica e pelo pão que é leve, mas ao mesmo tempo resistente.
+</blockquote>
+<figcaption class="mt-4">
+<p class="text-white">
+<span class="font-semibold">&mdash; Careca,</span>
+<span class="ml-1 font-normal text-white/65">Sanduba do Careca</span>
+</p>
+</figcaption>
+</div>
+</article>
+<article class="valepan-testimonial-card relative overflow-hidden rounded-lg bg-surface-container-lowest shadow-sm ring-1 ring-outline-variant/20">
+<div class="relative h-[22rem] w-full overflow-hidden sm:h-[24rem] lg:h-[26rem]">
+<img src="assets/img/depoimentos/city-burger.webp" alt="Equipe na frente das bags de delivery City Burger" width="900" height="1200" loading="lazy" decoding="async" class="valepan-testimonial-card__photo h-full w-full">
+<div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/45 to-transparent" aria-hidden="true"></div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+<span class="material-symbols-outlined mb-3 block text-5xl text-white/35" aria-hidden="true">format_quote</span>
+<blockquote class="text-base font-medium leading-relaxed">
+Qualidade, facilidade na entrega e, principalmente, o trato: quando vieram na loja, tiveram todo o cuidado de trocar uma ideia e entender a nossa história. Não pretendo trocar de pão por nada!
+</blockquote>
+<figcaption class="mt-4">
+<p class="text-white">
+<span class="font-semibold">&mdash; Vini,</span>
+<span class="ml-1 font-normal text-white/65">City Burger</span>
+</p>
+</figcaption>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- 11) FAQ -->
+<section class="py-16 max-w-4xl mx-auto px-6 lg:py-24 lg:px-8" id="faq">
+<h2 class="text-3xl font-extrabold text-primary mb-12 text-center uppercase tracking-tighter">Dúvidas Frequentes</h2>
+<div class="space-y-2">
+<div class="border-b border-outline-variant/30 pb-2">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none py-6 font-extrabold text-primary uppercase tracking-tight group-open:text-secondary transition-colors">
+Qual a validade dos pães?
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">expand_more</span>
+</summary>
+<p class="text-on-surface-variant text-sm pb-6 leading-relaxed font-medium">21 dias em temperatura ambiente. 90 dias congelado + 5 dias após descongelar.</p>
+</details>
+</div>
+<div class="border-b border-outline-variant/30 pb-2">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none py-6 font-extrabold text-primary uppercase tracking-tight group-open:text-secondary transition-colors">
+Como é a entrega de caminhão?
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">expand_more</span>
+</summary>
+<p class="text-on-surface-variant text-sm pb-6 leading-relaxed font-medium">Carga batida (sem paletizar).</p>
+</details>
+</div>
+<div class="border-b border-outline-variant/30 pb-2">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none py-6 font-extrabold text-primary uppercase tracking-tight group-open:text-secondary transition-colors">
+Como é a paletização?
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">expand_more</span>
+</summary>
+<p class="text-on-surface-variant text-sm pb-6 leading-relaxed font-medium">No pallet, cada andar com 6 caixas — total de 42 a 48 caixas por pallet.</p>
+</details>
+</div>
+<div class="border-b border-outline-variant/30 pb-2">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none py-6 font-extrabold text-primary uppercase tracking-tight group-open:text-secondary transition-colors">
+Quantas unidades vêm em cada caixa?
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">expand_more</span>
+</summary>
+<p class="text-on-surface-variant text-sm pb-6 leading-relaxed font-medium">No geral, a caixa possui 48 pães; na gramatura 50&nbsp;g vêm 60 unidades.</p>
+</details>
+</div>
+<div class="border-b border-outline-variant/30 pb-2">
+<details class="group">
+<summary class="flex justify-between items-center cursor-pointer list-none py-6 font-extrabold text-primary uppercase tracking-tight group-open:text-secondary transition-colors">
+Qual o prazo de entrega (lead time)?
+<span class="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">expand_more</span>
+</summary>
+<p class="text-on-surface-variant text-sm pb-6 leading-relaxed font-medium">Para distribuidoras: 2 dias úteis. Para hamburgueria: depende da sua região — consulte o comercial.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- 12) Contato -->
+<section class="scroll-mt-28 bg-surface-container-low py-20 text-on-surface lg:py-24" id="contato" aria-labelledby="contato-heading">
+<div class="mx-auto max-w-7xl px-6 lg:px-8">
+<div class="mx-auto mb-12 max-w-3xl text-center lg:mb-14 lg:max-w-none lg:text-left">
+<p class="mb-3 text-xs font-bold uppercase tracking-widest text-secondary">Contato</p>
+<h2 id="contato-heading" class="font-headline text-3xl font-extrabold leading-tight tracking-tight text-primary sm:text-4xl md:text-5xl">Vamos conversar sobre seu negócio?</h2>
+<div class="mx-auto mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-secondary to-amber-200/80 lg:mx-0" aria-hidden="true"></div>
+<p class="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-on-surface-variant md:text-lg lg:mx-0">
+Orçamento, troca de fornecedor ou visita: nosso time responde em horário comercial, com o mesmo padrão que você viu no site.
+</p>
+<p class="mt-3 text-sm font-semibold text-primary dark:text-[#fff8f7]/90">RJ, SP e MG · Desde 1991</p>
+</div>
+<div class="grid grid-cols-1 items-stretch gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-14">
+<article class="overflow-hidden rounded-2xl border border-outline-variant/30 bg-white p-8 shadow-xl shadow-primary/[0.06] ring-1 ring-outline-variant/20 dark:bg-[#2a181c] dark:ring-white/10 md:p-10">
+<h3 class="sr-only">Dados de contato</h3>
+<div class="space-y-8">
+<div class="flex gap-4 md:gap-5">
+<span class="flex size-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-primary/15 bg-primary/[0.06] dark:border-white/15 dark:bg-white/10" aria-hidden="true">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-container">location_on</span>
+</span>
+<div class="min-w-0">
+<p class="mb-1 text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#fff8f7]">Endereço</p>
+<p class="text-sm font-medium leading-relaxed text-on-surface-variant dark:text-[#ebe0e1]/90">Rua Luiz de Camões, nº 266, Alambari, Resende - RJ</p>
+</div>
+</div>
+<div class="flex gap-4 md:gap-5">
+<span class="flex size-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-primary/15 bg-primary/[0.06] dark:border-white/15 dark:bg-white/10" aria-hidden="true">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-container">call</span>
+</span>
+<div class="min-w-0">
+<p class="mb-1 text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#fff8f7]">Canal de atendimento</p>
+<p class="text-sm font-medium leading-relaxed text-on-surface-variant dark:text-[#ebe0e1]/90"><a href="tel:+5524999784591" class="font-semibold text-secondary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-secondary-container dark:focus-visible:ring-offset-[#2a181c] dark:hover:text-[#fff8f7]">(24) 99978-4591</a> · Seg a Sex, 8h às 18h</p>
+</div>
+</div>
+<div class="flex gap-4 md:gap-5">
+<span class="flex size-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-primary/15 bg-primary/[0.06] dark:border-white/15 dark:bg-white/10" aria-hidden="true">
+<span class="material-symbols-outlined text-secondary dark:text-secondary-container">mail</span>
+</span>
+<div class="min-w-0">
+<p class="mb-1 text-xs font-extrabold uppercase tracking-widest text-primary dark:text-[#fff8f7]">E-mail comercial</p>
+<p class="text-sm font-medium leading-relaxed text-on-surface-variant dark:text-[#ebe0e1]/90"><a href="mailto:comercial@valepan.com" class="font-semibold text-secondary underline decoration-secondary/40 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary focus:outline-none focus-visible:rounded-sm focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-secondary-container dark:focus-visible:ring-offset-[#2a181c] dark:hover:text-[#fff8f7]">comercial@valepan.com</a></p>
+</div>
+</div>
+</div>
+</article>
+<article class="flex flex-col justify-center overflow-hidden rounded-2xl border border-outline-variant/25 bg-primary p-8 text-[#fff8f7] shadow-2xl shadow-primary/25 ring-1 ring-white/10 md:p-10 lg:p-12 dark:bg-[#1a0a0c]">
+<p class="text-center text-xs font-bold uppercase tracking-widest text-[#ffd573]/95">Fale direto com nosso especialista</p>
+<p class="mt-2 text-center text-sm leading-relaxed text-[#ebe0e1]/90">Resposta pelo WhatsApp em horário comercial.</p>
+<a href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Valepan%20e%20gostaria%20de%20falar%20com%20o%20atendimento." class="btn-shimmer btn-shimmer-whatsapp mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg px-6 py-4 text-base font-bold transition-[filter,transform] motion-safe:active:scale-[0.98] sm:min-h-14 sm:text-lg" target="_blank" rel="noopener">
+<span class="material-symbols-outlined text-2xl shrink-0" aria-hidden="true">chat_bubble</span>
+Falar com atendimento
+</a>
+</article>
+</div>
+</div>
 </section>
 
-<!-- Seção Clientes -->
-<section class="section clients-section">
-  <div class="container">
-    <h3 class="section-subtitle-center">Quem Confia em Nossos Produtos</h3>
-    <div class="clients-grid">
-      <div class="client-logo">
-        <img src="assets/logo/graal-logo.webp" alt="Rede Graal" loading="lazy">
-      </div>
-      <div class="client-logo">
-        <img src="assets/logo/royal-logo.webp" alt="Rede Royal" loading="lazy">
-      </div>
-      <div class="client-logo">
-        <img src="assets/logo/milani-logo.webp" alt="Milani" loading="lazy">
-      </div>
-      <div class="client-logo">
-        <img src="assets/logo/aman-logo.webp" alt="Aman" loading="lazy">
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção FAQ -->
-<section class="section faq-section" id="faq">
-  <div class="container">
-    <h2 class="section-title-center">Perguntas Frequentes</h2>
-    <p class="section-subtitle-center">Veja abaixo as dúvidas mais comuns sobre nossos pães e serviços</p>
-    
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span>Qual é o prazo de entrega dos pães?</span>
-          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq-answer">
-          <p>O prazo de entrega varia de acordo com a região. Para grandes centros urbanos, conseguimos entregar em até 48 horas após a confirmação do pedido. Para regiões mais distantes, o prazo pode ser de 3 a 5 dias úteis. Entre em contato conosco para verificar o prazo específico para sua localidade.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span>Qual é a quantidade mínima para pedidos?</span>
-          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq-answer">
-          <p>Trabalhamos com pedidos a partir de 1 caixa (48 unidades para a maioria dos nossos produtos). Para hamburguerias e restaurantes que consomem grandes volumes, oferecemos condições especiais e descontos progressivos para pedidos maiores.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span>Como devo armazenar os pães?</span>
-          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq-answer">
-          <p>Para maximizar a durabilidade, recomendamos que os pães sejam armazenados em freezer a -18°C, onde podem durar até 90 dias. Se precisar de utilização em curto prazo, mantenha em local seco e arejado em temperatura ambiente por até 5 dias, ou sob refrigeração por até 15 dias.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span>É possível personalizar os pães com a marca da minha hamburgueria?</span>
-          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq-answer">
-          <p>Sim! Oferecemos serviço de personalização para pedidos acima de 300 unidades. Podemos gravar sua marca no topo do pão ou criar formatos especiais. Entre em contato conosco para discutir as possibilidades e custos de personalização para sua hamburgueria.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span>Quais são as formas de pagamento aceitas?</span>
-          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq-answer">
-          <p>Aceitamos diversas formas de pagamento: PIX, transferência bancária, boleto e cartão de crédito (em até 3x sem juros). Para clientes recorrentes, oferecemos a possibilidade de pagamento a prazo mediante avaliação cadastral.</p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button">
-          <span>Os pães contêm conservantes artificiais?</span>
-          <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="faq-answer">
-          <p>Não. Nossos pães são produzidos com ingredientes selecionados e utilizamos processos naturais de fermentação que garantem maior durabilidade sem a necessidade de conservantes artificiais. Isso contribui para o sabor autêntico e a qualidade premium que só a ValePan oferece.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção Contato -->
-<section class="section contact-section" id="contato">
-  <div class="container">
-    <h2 class="section-title-center">Entre em Contato com a ValePan</h2>
-    
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <div class="contact-details">
-            <h3>Endereço</h3>
-            <p>Rua Luiz de Camões, nº 266<br>Alambari, Resende - RJ</p>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-details">
-            <h3>Telefone</h3>
-            <p><a href="https://wa.me/5524999784591" target="_blank" rel="noopener">(24) 99978-4591</a></p>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <div class="contact-details">
-            <h3>Email</h3>
-            <p><a href="mailto:comercial@valepan.com">comercial@valepan.com</a></p>
-          </div>
-        </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">🕒</div>
-          <div class="contact-details">
-            <h3>Horário Comercial</h3>
-            <p>Segunda a Sexta: 8h às 18h</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="contact-cta-box">
-        <h3>Faça seu Pedido</h3>
-        <p>Clique no botão abaixo para solicitar um orçamento diretamente pelo WhatsApp.</p>
-        <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="btn btn-whatsapp" target="_blank" rel="noopener">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          Enviar Mensagem via WhatsApp
-        </a>
-        <div class="contact-social">
-          <p>Siga-nos no Instagram</p>
-          <a href="https://instagram.com/valepan.oficial" target="_blank" rel="noopener">@valepan.oficial</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Final -->
-<section class="section cta-final-section">
-  <div class="container">
-    <h2 class="cta-title">Experimente a Diferença da ValePan</h2>
-    <p class="cta-subtitle">Hambúrguer bom começa pelo pão.</p>
-    <a href="https://wa.me/5524999784591?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn btn-primary-large" target="_blank" rel="noopener">Solicite um Orçamento</a>
-  </div>
-</section>
-
-</main>
-
-<!-- Footer -->
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <div class="footer-about">
-        <img src="assets/logo/valepan-logo-full.svg" alt="ValePan Logo" class="footer-logo" width="180" height="60">
-        <p class="footer-tagline">Hambúrguer bom começa pelo pão</p>
-        <div class="footer-social">
-          <a href="https://instagram.com/valepan.oficial" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Links Rápidos</h4>
-        <ul>
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#sobre">Sobre Nós</a></li>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#qualidade">Qualidade</a></li>
-          <li><a href="#contato">Contato</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-contact">
-        <h4>Contato</h4>
-        <ul>
-          <li>📍 Rua Luiz de Camões, nº 266<br>&nbsp;&nbsp;&nbsp;&nbsp;Alambari, Resende - RJ</li>
-          <li>📱 <a href="https://wa.me/5524999784591" target="_blank" rel="noopener">(24) 99978-4591</a></li>
-          <li>✉️ <a href="mailto:comercial@valepan.com">comercial@valepan.com</a></li>
-        </ul>
-        <a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan." class="footer-whatsapp-btn" target="_blank" rel="noopener">Envie mensagem via WhatsApp</a>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>&copy; 2025 ValePan - Todos os direitos reservados</p>
-      <p>Fornecendo para as melhores hamburguerias desde 1991</p>
-    </div>
-  </div>
+<!-- 13) Footer — layout estilo “pill + grid pontilhado” (HTML/CSS/JS, sem React) -->
+<footer id="site-footer" class="valepan-footer w-full border-t border-b border-[#230004]/15 bg-[#fdf1f2] dark:border-white/10 dark:bg-[#0d0d08]">
+<div class="relative mx-auto grid max-w-7xl items-center justify-center gap-6 p-10 pb-0 md:flex md:gap-10">
+<a href="#inicio" class="flex shrink-0 items-center justify-center rounded-full">
+<img src="assets/logo/valepan-logo.svg" alt="Valepan" width="40" height="40" decoding="async" class="h-10 w-10">
+</a>
+<p class="bg-transparent text-center text-xs leading-relaxed text-[#230004]/70 dark:text-[#ebe0e1]/80 md:text-left md:text-sm">
+Desde 1991 transformando a panificação industrial com alma artesanal.
+</p>
+</div>
+<div class="mx-auto max-w-7xl px-6 py-10">
+<div class="border-b border-dotted border-[#230004]/25 dark:border-white/20" aria-hidden="true"></div>
+<div class="grid grid-cols-2 gap-8 py-10 sm:grid-cols-3 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10 md:leading-6">
+<ul role="list" class="flex flex-col space-y-2" aria-label="Navegação">
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#inicio">Início</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#sobre">Sobre</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#produtos">Produtos</a></li>
+</ul>
+<ul role="list" class="flex flex-col space-y-2">
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#logistica">Logística</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#faq">FAQ</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#contato">Contato</a></li>
+</ul>
+<ul role="list" class="col-span-2 flex flex-col space-y-2 sm:col-span-1" aria-label="Institucional">
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#">Privacidade</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#">Termos de uso</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="mailto:rh@valepan.com">Trabalhe conosco</a></li>
+<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="https://pedidos.valepan.com" target="_blank" rel="noopener">Portal do revendedor</a></li>
+</ul>
+</div>
+<div class="border-b border-dotted border-[#230004]/25 dark:border-white/20" aria-hidden="true"></div>
+</div>
+<div class="flex flex-col flex-wrap items-center justify-center gap-y-6 px-4 pb-6 pt-2 sm:flex-row sm:gap-x-8">
+<div class="flex flex-wrap items-center justify-center gap-4 gap-y-4 sm:gap-6">
+<a class="valepan-footer__social-link" href="mailto:comercial@valepan.com" aria-label="E-mail comercial: comercial@valepan.com">
+<span class="material-symbols-outlined text-[22px]" aria-hidden="true">mail</span>
+</a>
+<a class="valepan-footer__social-link" href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Valepan%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener" aria-label="WhatsApp">
+<svg class="size-[22px] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a class="valepan-footer__social-link" href="https://www.instagram.com/valepan.oficial/" target="_blank" rel="noopener" aria-label="Instagram @valepan.oficial">
+<svg class="size-[22px] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14 1.4c-.753 1.003-1.154 2.183-1.214 3.465-.058 1.28-.072 1.688-.072 4.948 0 3.259.014 3.668.072 4.948.06 1.282.461 2.462 1.214 3.465.766 1.067 1.635 1.268 2.913 1.328 1.28.057 1.687.072 4.947.072 3.26 0 3.668-.015 4.948-.072 1.278-.06 2.147-.261 2.913-1.328.753-1.003 1.154-2.183 1.214-3.465.057-1.28.072-1.687.072-4.947 0-3.26-.015-3.668-.072-4.948-.06-1.282-.461-2.462-1.214-3.465C18.905.333 18.035.132 16.757.072 15.477.015 15.069 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 11-2.881.001 1.44 1.44 0 012.881-.001z"/></svg>
+</a>
+<a class="valepan-footer__social-link" href="https://www.tiktok.com/@valepan.oficial" target="_blank" rel="noopener" aria-label="TikTok @valepan.oficial">
+<svg class="size-[22px] shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+</a>
+</div>
+<div class="flex items-center justify-center">
+<div class="flex items-center rounded-full border border-dotted border-[#230004]/35 px-1 py-1 dark:border-white/25">
+<button type="button" id="footerThemeLight" class="footer-theme-btn footer-theme-btn--light mr-2 rounded-full p-2 text-[#fff8f7] transition-colors" aria-label="Tema claro" aria-pressed="false">
+<span class="material-symbols-outlined block text-xl" aria-hidden="true">light_mode</span>
+</button>
+<button type="button" class="rounded-full p-2 text-[#230004] transition-colors hover:bg-[#230004]/10 dark:text-[#ebe0e1] dark:hover:bg-white/10" data-back-to-top aria-label="Voltar ao topo">
+<span class="material-symbols-outlined block text-lg" aria-hidden="true">arrow_upward</span>
+</button>
+<button type="button" id="footerThemeDark" class="footer-theme-btn footer-theme-btn--dark ml-2 rounded-full p-2 text-[#230004] transition-colors dark:text-[#fff8f7]" aria-label="Tema escuro" aria-pressed="false">
+<span class="material-symbols-outlined block text-xl" aria-hidden="true">dark_mode</span>
+</button>
+</div>
+</div>
+</div>
+<div class="mx-auto mb-10 mt-4 flex max-w-7xl flex-col justify-between px-6 text-center text-xs text-[#230004]/60 dark:text-[#ebe0e1]/55">
+<p class="font-['Manrope'] leading-relaxed">© <span id="footerYear">2026</span> Valepan — Desde 1991 transformando a panificação industrial com alma artesanal.</p>
+</div>
 </footer>
 
-<!-- Botão WhatsApp Flutuante -->
-<a href="https://wa.me/5524999784591?text=Olá!%20Vim%20pelo%20site%20da%20ValePan%20e%20gostaria%20de%20mais%20informações." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-  <span class="whatsapp-tooltip">Falar no WhatsApp</span>
+<!-- Botões flutuantes: WhatsApp (fixo) + voltar ao topo -->
+<a href="https://wa.me/5524999784591?text=Ol%C3%A1%21%20Vim%20pelo%20site%20da%20Valepan%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+</svg>
+<span class="whatsapp-tooltip">Falar no WhatsApp</span>
 </a>
-
-<!-- Botão Voltar ao Topo -->
-<button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-    <polyline points="18 15 12 9 6 15"></polyline>
-  </svg>
+<button type="button" class="back-to-top" id="backToTop" data-back-to-top aria-label="Voltar ao topo">
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+<polyline points="18 15 12 9 6 15"></polyline>
+</svg>
 </button>
-
-<!-- Scripts -->
-<script src="script.js"></script>
-
-</body>
-</html>
+</main>
+</div>
+<script src="assets/js/new-index-unificado.js"></script>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="assets/js/hero-glsl-hills-unificado.js"></script>
+</body></html>

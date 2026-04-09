@@ -28,7 +28,7 @@ HEAD = """<!DOCTYPE html>
 <meta property="twitter:title" content="ValePan - Hambúrguer bom começa pelo pão">
 <meta property="twitter:description" content="Fornecendo qualidade premium desde 1991">
 <meta property="twitter:image" content="https://valepan.com/assets/logo/og-image.png">
-<link rel="canonical" href="https://valepan.com/new-index-unificado.html">
+<link rel="canonical" href="https://valepan.com/">
 <link rel="icon" type="image/svg+xml" href="assets/logo/valepan-logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
