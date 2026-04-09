@@ -2,6 +2,16 @@
 
 Landing page profissional da ValePan, fornecedora de pães premium para hamburguerias.
 
+## Documentação
+
+| Documento | Descrição |
+|-----------|------------|
+| [docs/site/GUIA-DEPLOY.md](docs/site/GUIA-DEPLOY.md) | Deploy (cPanel, Vercel, checklist) |
+| [docs/site/OTIMIZACAO-MIDIA.md](docs/site/OTIMIZACAO-MIDIA.md) | Otimização de imagens e vídeo |
+| [docs/site/README-SEO.md](docs/site/README-SEO.md) | Resumo SEO |
+| [docs/site/CRIAR-OG-IMAGE.md](docs/site/CRIAR-OG-IMAGE.md) | Criar imagem Open Graph |
+| [docs/site/CHANGELOG.md](docs/site/CHANGELOG.md) | Histórico de alterações |
+
 ## 🚀 Sobre o Site
 
 Site moderno e responsivo desenvolvido para apresentar os produtos e serviços da ValePan, com foco em conversão através de CTAs direcionados para WhatsApp.
@@ -32,9 +42,9 @@ Site moderno e responsivo desenvolvido para apresentar os produtos e serviços d
 ## 🛠️ Tecnologias
 
 - HTML5 semântico
-- CSS3 (Grid, Flexbox, Custom Properties, Animations)
-- JavaScript Vanilla (ES6+)
-- Google Fonts (Bebas Neue, Inter)
+- CSS (Tailwind via CDN + `assets/css/new-index.css`, `clientes-marquee.css`)
+- JavaScript (Vanilla + `assets/js/new-index-unificado.js`, Three.js no hero)
+- Google Fonts (Manrope, Material Symbols)
 - Google Analytics 4
 
 ## 📱 Contatos Configurados
@@ -115,21 +125,20 @@ Atualize no `<head>` do `index.html`:
 ## 📂 Estrutura de Arquivos
 
 ```
-site-valepan/
-├── index.html           # Página principal
-├── styles.css           # Estilos
-├── script.js            # JavaScript
+valepan/
+├── index.html           # Página principal (home unificada)
+├── robots.txt
+├── sitemap.xml
+├── .htaccess
 ├── README.md            # Este arquivo
+├── docs/site/           # Guias (deploy, SEO, mídia)
 └── assets/
+    ├── css/             # new-index.css, clientes-marquee.css
+    ├── js/              # tailwind-config, analytics, new-index-unificado, hero-glsl-hills-unificado
+    ├── data/            # Schema JSON (fonte / referência)
+    ├── img/             # Imagens da landing
     ├── logo/
-    │   ├── valepan-logo.svg
-    │   └── valepan-logo-full.svg
-    └── slides/
-        ├── 01-abertura/
-        ├── 02-quem-somos/
-        ├── 03-essencia/
-        ├── 04-produtos/
-        └── 06-encerramento/
+    └── slides/          # Vídeo hero (ex.: 01-abertura/)
 ```
 
 ## 🔧 Personalização
@@ -150,21 +159,11 @@ site-valepan/
 <a href="#nova">Nova Seção</a>
 ```
 
-3. Adicione estilos no `styles.css`
+3. Ajuste estilos em `assets/css/new-index.css` ou classes Tailwind no HTML
 
 ### Alterar Cores
 
-Edite as variáveis CSS no `styles.css` (linhas 6-11):
-
-```css
-:root {
-  --wine: #4a0b16;      /* Cor principal */
-  --gold: #c7a64d;      /* Destaque */
-  --ink: #111111;       /* Texto */
-  --paper: #ffffff;     /* Fundo */
-  --gray: #f4f4f5;      /* Neutro */
-}
-```
+Edite o tema em `assets/js/tailwind-config.js` e, se necessário, tokens em `assets/css/new-index.css`.
 
 ## 📊 Performance
 
@@ -189,8 +188,7 @@ Edite as variáveis CSS no `styles.css` (linhas 6-11):
 - Considere hospedar vídeos no Vimeo/YouTube se forem muito grandes
 
 **Menu mobile não abre?**
-- Verifique se o `script.js` está carregando
-- Confira o console do navegador para erros
+- Verifique o console do navegador; a home usa `assets/js/new-index-unificado.js`
 
 **Smooth scroll não funciona?**
 - Alguns navegadores antigos não suportam `scroll-behavior: smooth`
