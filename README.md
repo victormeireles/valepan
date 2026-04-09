@@ -136,9 +136,8 @@ valepan/
     ├── css/             # new-index.css, clientes-marquee.css
     ├── js/              # tailwind-config, analytics, new-index-unificado, hero-glsl-hills-unificado
     ├── data/            # Schema JSON (fonte / referência)
-    ├── img/             # Imagens da landing (ex.: hero/, depoimentos/, produtos/)
-    ├── logo/
-    └── slides/          # Outros assets legados da apresentação (se existirem)
+    ├── img/             # Imagens da landing (hero/, depoimentos/, produtos/, sobre/, …)
+    └── logo/
 ```
 
 ## 🔧 Personalização

@@ -27,31 +27,33 @@ Substitua os placeholders abaixo nos caminhos indicados. Resoluções mínimas: 
 - **Estilo:** Dinâmico, cores vivas, pode ter slow motion. Sem áudio necessário.
 - **IMPORTANTE:** Vídeo deve ser VERTICAL (9:16) como stories do Instagram.
 
-## 02 — Quem Somos (3 slides)
+> **Nota:** As pastas `assets/slides/02-quem-somos`, `03-essencia` e `04-produtos` foram **removidas do repositório** (não eram usadas pelo `index.html`). O briefing abaixo permanece como referência de conteúdo; mídia institucional e produtos na landing atual estão em `assets/img/sobre/`, `assets/img/produtos/`, etc.
+
+## 02 — Quem Somos (3 slides) *(referência — paths antigos)*
 
 ### Slide 4 - Fellipe
-**Local:** `assets/slides/02-quem-somos/fellipe-portrait.jpg`
+**Local (histórico):** `assets/slides/02-quem-somos/fellipe-portrait.jpg`
 - **Tipo:** Foto JPG (pode ser vertical 3:4 ou horizontal 16:9)
 - **Conteúdo:** Retrato profissional de Fellipe, em ambiente de fábrica com fundo desfocado.
 - **Estilo:** Expressão confiante, iluminação de estúdio (softbox) para um ar premium.
 
 ### Slide 5 - Victor
-**Local:** `assets/slides/02-quem-somos/victor-g4.jpg`
+**Local (histórico):** `assets/slides/02-quem-somos/victor-g4.jpg`
 - **Tipo:** Foto JPG (horizontal 16:9 ou 4:3)
 - **Conteúdo:** Você (Victor) dando aula/palestra no G4.
 - **Estilo:** Deve transmitir autoridade. Ângulo que mostre a audiência ou o logo do G4 ao fundo é um bônus.
 
 ### Slide 6 - Valepan
-**Local:** `assets/slides/02-quem-somos/valepan-team.jpg`
+**Local (histórico):** `assets/slides/02-quem-somos/valepan-team.jpg`
 - **Tipo:** Foto JPG (horizontal 16:9, panorâmica)
 - **Conteúdo:** Equipe na frente da fábrica, ou você e Fellipe na linha de produção.
 - **Estilo:** Passar a ideia de colaboração, escala e o lado humano da empresa. Luz natural ou da fábrica.
 
-## 03 — Essência
+## 03 — Essência *(referência — assets removidos do repo)*
 - embalagens.jpg: palete/caixas com marca legível e repetição (transmite padrão).
 - logistica.jpg: doca/expedição/caminhão carregando; ação/conteúdo central à direita ou esquerda.
 
-## 04 — Produtos
+## 04 — Produtos *(referência — assets removidos do repo; site usa `assets/img/produtos/`)*
 - brioche-01.jpg: pão de estúdio, fundo neutro, centrado, 16:9 com respiro.
 - brioche-gergelim.jpg: variação com gergelim, mesmo setup de luz e fundo.
 - tradicional.jpg: pão tradicional; manter coerência de iluminação.
