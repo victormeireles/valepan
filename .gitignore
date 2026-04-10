@@ -4,3 +4,6 @@ tools/__pycache__/
 
 # Editor / local
 .cursor/
+
+# App Next.js local (repositório aninhado; não versionar aqui)
+web/

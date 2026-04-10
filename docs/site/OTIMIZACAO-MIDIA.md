@@ -128,7 +128,6 @@ magick mogrify -resize 1920x -quality 85 -path ./output *.jpg
 | Vídeo | Localização | Uso | Peso Ideal |
 |-------|-------------|-----|------------|
 | hero-bg.mp4 | 01-abertura/ | Background hero | < 15MB |
-| montagem-lanche.mp4 | 01-abertura/ | Vertical (9:16) | < 5MB |
 | padrao-paes.mp4 | 03-essencia/ | Demonstração | < 10MB |
 | paes-saindo-do-forno.mp4 | 03-essencia/ | Background | < 15MB |
 | pao-saindo-forno.mp4 | 04-produtos/ | Background | < 15MB |

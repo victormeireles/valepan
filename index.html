@@ -113,7 +113,14 @@
 </script>
 </head>
 <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
-<div class="mx-auto w-full max-w-lg min-h-[max(884px,100dvh)] shadow-2xl lg:mx-0 lg:max-w-none lg:min-h-0 lg:shadow-none">
+<div id="hero-entry-splash" class="hero-entry-splash" role="status" aria-live="polite" aria-busy="true" aria-label="Carregando a página">
+<span class="sr-only">Carregando a página inicial</span>
+<div class="hero-entry-splash__inner">
+<img src="assets/logo/valepan-logo.svg" alt="" width="80" height="80" class="hero-entry-splash__mark" decoding="async">
+<p class="hero-entry-splash__tagline">Desde 1991</p>
+</div>
+</div>
+<div class="mx-auto w-full max-w-lg min-h-[max(884px,100dvh)] overflow-x-clip shadow-2xl lg:mx-0 lg:max-w-none lg:min-h-0 lg:shadow-none">
 <header id="site-nav" class="fixed top-0 left-0 right-0 z-50 w-full bg-[#fff8f7]/18 backdrop-blur-2xl backdrop-saturate-150 transition-colors duration-200 dark:bg-[#230004]/22 supports-[backdrop-filter]:bg-[#fff8f7]/12 supports-[backdrop-filter]:dark:bg-[#230004]/16">
 <div class="mx-auto flex w-full max-w-lg items-center justify-between gap-3 px-6 py-4 lg:max-w-[1440px] lg:px-8 lg:py-6">
 <div class="flex min-w-0 items-center gap-3">
@@ -137,13 +144,13 @@
 <!-- Hero -->
 <section id="inicio" class="relative flex min-h-[100dvh] items-center justify-center overflow-hidden lg:items-center">
 <div class="absolute inset-0 z-0 overflow-hidden">
-<video class="absolute inset-0 z-0 h-full w-full object-cover" autoplay muted loop playsinline preload="auto" poster="assets/img/hero/hero-bg.webp" aria-hidden="true">
+<video id="hero-bg-video" class="hero-cover-video" autoplay muted loop playsinline preload="auto" poster="assets/img/hero/hero-bg.webp" aria-hidden="true">
 <source src="assets/img/hero/hero-bg.mp4" type="video/mp4">
 </video>
-<div class="hero-gl-layer absolute inset-0 z-[1] pointer-events-none opacity-70 mix-blend-soft-light" aria-hidden="true">
+<div class="hero-gl-layer hero-media-bleed absolute top-0 bottom-0 z-[1] pointer-events-none opacity-70 mix-blend-soft-light" aria-hidden="true">
 <canvas id="hero-gl-canvas" class="block h-full w-full"></canvas>
 </div>
-<div class="absolute inset-0 z-[2] bg-gradient-to-t from-primary/75 via-primary/30 to-transparent pointer-events-none lg:bg-gradient-to-r lg:from-primary/65 lg:via-primary/28 lg:to-transparent"></div>
+<div class="hero-media-bleed absolute top-0 bottom-0 z-[2] bg-gradient-to-t from-primary/75 via-primary/30 to-transparent pointer-events-none lg:bg-gradient-to-r lg:from-primary/65 lg:via-primary/28 lg:to-transparent"></div>
 </div>
 <div class="relative z-10 mx-auto w-full max-w-5xl px-6 pb-28 pt-28 text-center sm:pt-32 lg:px-8 lg:pb-24">
 <div class="mx-auto max-w-4xl text-on-primary lg:text-white">
@@ -578,36 +585,36 @@ Falar com atendimento
 </section>
 
 <!-- 13) Footer — layout estilo “pill + grid pontilhado” (HTML/CSS/JS, sem React) -->
-<footer id="site-footer" class="valepan-footer w-full border-t border-b border-[#230004]/15 bg-[#fdf1f2] dark:border-white/10 dark:bg-[#0d0d08]">
+<footer id="site-footer" class="valepan-footer w-full border-t border-b border-[#ffd573]/25 bg-[#4a0b16] text-[#fff8f7] dark:border-[#ffd573]/20 dark:bg-[#4a0b16]">
 <div class="relative mx-auto grid max-w-7xl items-center justify-center gap-6 p-10 pb-0 md:flex md:gap-10">
 <a href="#inicio" class="flex shrink-0 items-center justify-center rounded-full">
 <img src="assets/logo/valepan-logo.svg" alt="Valepan" width="40" height="40" decoding="async" class="h-10 w-10">
 </a>
-<p class="bg-transparent text-center text-xs leading-relaxed text-[#230004]/70 dark:text-[#ebe0e1]/80 md:text-left md:text-sm">
+<p class="bg-transparent text-center text-xs leading-relaxed text-[#fff8f7]/90 md:text-left md:text-sm">
 Desde 1991 transformando a panificação industrial com alma artesanal.
 </p>
 </div>
 <div class="mx-auto max-w-7xl px-6 py-10">
-<div class="border-b border-dotted border-[#230004]/25 dark:border-white/20" aria-hidden="true"></div>
+<div class="border-b border-dotted border-[#ffd573]/35" aria-hidden="true"></div>
 <div class="grid grid-cols-2 gap-8 py-10 sm:grid-cols-3 md:flex md:flex-row md:flex-wrap md:justify-between md:gap-10 md:leading-6">
 <ul role="list" class="flex flex-col space-y-2" aria-label="Navegação">
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#inicio">Início</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#sobre">Sobre</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#produtos">Produtos</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#inicio">Início</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#sobre">Sobre</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#produtos">Produtos</a></li>
 </ul>
 <ul role="list" class="flex flex-col space-y-2">
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#logistica">Logística</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#faq">FAQ</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#contato">Contato</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#logistica">Logística</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#faq">FAQ</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#contato">Contato</a></li>
 </ul>
 <ul role="list" class="col-span-2 flex flex-col space-y-2 sm:col-span-1" aria-label="Institucional">
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#">Privacidade</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="#">Termos de uso</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="mailto:rh@valepan.com">Trabalhe conosco</a></li>
-<li><a class="text-sm text-[#230004]/80 transition-colors hover:text-[#775a00] dark:text-[#ebe0e1]/75 dark:hover:text-[#ffd573] md:text-xs" href="https://pedidos.valepan.com" target="_blank" rel="noopener">Portal do revendedor</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#">Privacidade</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="#">Termos de uso</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="mailto:rh@valepan.com">Trabalhe conosco</a></li>
+<li><a class="text-sm text-[#fff8f7]/85 transition-colors hover:text-[#ffd573] md:text-xs" href="https://pedidos.valepan.com" target="_blank" rel="noopener">Portal do revendedor</a></li>
 </ul>
 </div>
-<div class="border-b border-dotted border-[#230004]/25 dark:border-white/20" aria-hidden="true"></div>
+<div class="border-b border-dotted border-[#ffd573]/35" aria-hidden="true"></div>
 </div>
 <div class="flex flex-col flex-wrap items-center justify-center gap-y-6 px-4 pb-6 pt-2 sm:flex-row sm:gap-x-8">
 <div class="flex flex-wrap items-center justify-center gap-4 gap-y-4 sm:gap-6">
@@ -625,20 +632,20 @@ Desde 1991 transformando a panificação industrial com alma artesanal.
 </a>
 </div>
 <div class="flex items-center justify-center">
-<div class="flex items-center rounded-full border border-dotted border-[#230004]/35 px-1 py-1 dark:border-white/25">
+<div class="flex items-center rounded-full border border-dotted border-[#ffd573]/40 px-1 py-1">
 <button type="button" id="footerThemeLight" class="footer-theme-btn footer-theme-btn--light mr-2 rounded-full p-2 text-[#fff8f7] transition-colors" aria-label="Tema claro" aria-pressed="false">
 <span class="material-symbols-outlined block text-xl" aria-hidden="true">light_mode</span>
 </button>
-<button type="button" class="rounded-full p-2 text-[#230004] transition-colors hover:bg-[#230004]/10 dark:text-[#ebe0e1] dark:hover:bg-white/10" data-back-to-top aria-label="Voltar ao topo">
+<button type="button" class="rounded-full p-2 text-[#fff8f7] transition-colors hover:bg-white/10" data-back-to-top aria-label="Voltar ao topo">
 <span class="material-symbols-outlined block text-lg" aria-hidden="true">arrow_upward</span>
 </button>
-<button type="button" id="footerThemeDark" class="footer-theme-btn footer-theme-btn--dark ml-2 rounded-full p-2 text-[#230004] transition-colors dark:text-[#fff8f7]" aria-label="Tema escuro" aria-pressed="false">
+<button type="button" id="footerThemeDark" class="footer-theme-btn footer-theme-btn--dark ml-2 rounded-full p-2 text-[#fff8f7] transition-colors" aria-label="Tema escuro" aria-pressed="false">
 <span class="material-symbols-outlined block text-xl" aria-hidden="true">dark_mode</span>
 </button>
 </div>
 </div>
 </div>
-<div class="mx-auto mb-10 mt-4 flex max-w-7xl flex-col justify-between px-6 text-center text-xs text-[#230004]/60 dark:text-[#ebe0e1]/55">
+<div class="mx-auto mb-10 mt-4 flex max-w-7xl flex-col justify-between px-6 text-center text-xs text-[#ebe0e1]/75">
 <p class="font-['Manrope'] leading-relaxed">© <span id="footerYear">2026</span> Valepan — Desde 1991 transformando a panificação industrial com alma artesanal.</p>
 </div>
 </footer>

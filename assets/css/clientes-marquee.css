@@ -1,0 +1,176 @@
+/**
+ * Carrossel infinito de logos + desfoque progressivo nas bordas
+ * (equivalente funcional a InfiniteSlider + ProgressiveBlur, sem React)
+ */
+.clientes-marquee {
+  position: relative;
+  --clientes-surface: #fdf1f2;
+}
+
+.clientes-marquee__viewport {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+  min-height: 6.25rem;
+}
+
+@media (min-width: 768px) {
+  .clientes-marquee__viewport {
+    min-height: 7.25rem;
+  }
+}
+
+.clientes-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: clientes-marquee-x 45s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clientes-marquee__track {
+    animation: none;
+    transform: none;
+  }
+}
+
+@keyframes clientes-marquee-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.clientes-marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  padding: 0 clamp(1rem, 3vw, 1.5rem);
+}
+
+.clientes-marquee__logo {
+  display: flex;
+  height: 3.5rem;
+  width: 9.5rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .clientes-marquee__logo {
+    height: 4.25rem;
+    width: 11rem;
+  }
+}
+
+.clientes-marquee__logo img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: grayscale(1);
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+
+.clientes-marquee:hover .clientes-marquee__logo img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+/* Desfoque progressivo nas laterais (máscara + backdrop-filter em camadas) */
+.clientes-marquee__blur {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: min(200px, 28vw);
+  pointer-events: none;
+}
+
+.clientes-marquee__blur--left {
+  left: 0;
+}
+
+.clientes-marquee__blur--right {
+  right: 0;
+}
+
+.clientes-marquee__blur-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+/* Esquerda: gradiente 270deg ≈ máscara da esquerda para a direita */
+.clientes-marquee__blur--left .clientes-marquee__blur-layer:nth-child(1) {
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 100%);
+  mask-image: linear-gradient(90deg, #000 0%, transparent 100%);
+  -webkit-backdrop-filter: blur(0.5px);
+  backdrop-filter: blur(0.5px);
+}
+
+.clientes-marquee__blur--left .clientes-marquee__blur-layer:nth-child(2) {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 15%, transparent 55%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 15%, transparent 55%);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.clientes-marquee__blur--left .clientes-marquee__blur-layer:nth-child(3) {
+  -webkit-mask-image: linear-gradient(90deg, transparent 20%, #000 45%, transparent 85%);
+  mask-image: linear-gradient(90deg, transparent 20%, #000 45%, transparent 85%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.clientes-marquee__blur--left .clientes-marquee__blur-layer:nth-child(4) {
+  -webkit-mask-image: linear-gradient(90deg, transparent 40%, #000 75%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 40%, #000 75%, transparent 100%);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.clientes-marquee__blur--left .clientes-marquee__blur-layer:nth-child(5) {
+  background: linear-gradient(90deg, var(--clientes-surface) 0%, transparent 92%);
+  opacity: 0.35;
+}
+
+/* Direita: espelho */
+.clientes-marquee__blur--right .clientes-marquee__blur-layer:nth-child(1) {
+  -webkit-mask-image: linear-gradient(270deg, #000 0%, transparent 100%);
+  mask-image: linear-gradient(270deg, #000 0%, transparent 100%);
+  -webkit-backdrop-filter: blur(0.5px);
+  backdrop-filter: blur(0.5px);
+}
+
+.clientes-marquee__blur--right .clientes-marquee__blur-layer:nth-child(2) {
+  -webkit-mask-image: linear-gradient(270deg, transparent 0%, #000 15%, transparent 55%);
+  mask-image: linear-gradient(270deg, transparent 0%, #000 15%, transparent 55%);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.clientes-marquee__blur--right .clientes-marquee__blur-layer:nth-child(3) {
+  -webkit-mask-image: linear-gradient(270deg, transparent 20%, #000 45%, transparent 85%);
+  mask-image: linear-gradient(270deg, transparent 20%, #000 45%, transparent 85%);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.clientes-marquee__blur--right .clientes-marquee__blur-layer:nth-child(4) {
+  -webkit-mask-image: linear-gradient(270deg, transparent 40%, #000 75%, transparent 100%);
+  mask-image: linear-gradient(270deg, transparent 40%, #000 75%, transparent 100%);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.clientes-marquee__blur--right .clientes-marquee__blur-layer:nth-child(5) {
+  background: linear-gradient(270deg, var(--clientes-surface) 0%, transparent 92%);
+  opacity: 0.35;
+}

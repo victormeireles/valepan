@@ -2,12 +2,21 @@
  * Estilos complementares da landing new-index.html
  * (Tailwind via CDN; tokens em assets/js/tailwind-config.js)
  */
+
+/* Evita faixa lateral (cor do body) por subpixel / overflow em mobile */
+html {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 body {
   font-family: "Manrope", sans-serif;
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 /* Título só para leitores de ecrã (se a utilitária Tailwind sr-only não carregar) */
@@ -21,6 +30,126 @@ body {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Splash de entrada (hero): bordô + crossfade para o vídeo */
+body.hero-entry-splash-active {
+  overflow: hidden;
+  /* Mesma base do splash: evita qualquer filete do fundo claro nas laterais */
+  background-color: #230004;
+}
+
+.hero-entry-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+  /* Cor sólida obrigatória: fora da elipse o radial é transparente — senão aparece o body (#fff8f7) nas bordas */
+  background-color: #230004;
+  background-image: radial-gradient(
+    ellipse 145% 100% at 50% 36%,
+    #3a0d14 0%,
+    #230004 48%,
+    #100002 100%
+  );
+  transition: opacity 320ms ease-out;
+}
+
+.hero-entry-splash::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 213, 115, 0.55) 45%,
+    rgba(255, 213, 115, 0.85) 50%,
+    rgba(255, 213, 115, 0.55) 55%,
+    transparent 100%
+  );
+  opacity: 0.9;
+}
+
+.hero-entry-splash__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  animation: hero-entry-splash-in 0.42s ease-out both;
+}
+
+@keyframes hero-entry-splash-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-entry-splash__mark {
+  width: 5rem;
+  height: 5rem;
+  filter: brightness(0) invert(1);
+  opacity: 0.96;
+}
+
+.hero-entry-splash__tagline {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 247, 0.72);
+}
+
+.hero-entry-splash--exiting {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-entry-splash {
+    transition-duration: 90ms;
+    transition-timing-function: ease-out;
+  }
+
+  .hero-entry-splash__inner {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Hero: vídeo centralizado + cobertura total; overlays com bleed horizontal contra faixas de 1px */
+#inicio .hero-cover-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 0;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+#inicio .hero-media-bleed {
+  left: -3px;
+  right: -3px;
+  width: auto;
 }
 
 /* Navbar mais opaco depois de sair da hero (classe aplicada via new-index.js) */
@@ -98,4 +227,1093 @@ html.dark #site-nav.nav-past-hero {
 
 .btn-shimmer-catalog:focus-visible {
   outline-color: rgba(255, 248, 247, 0.85);
+}
+
+/* --- Seção problema/solução: layout “diced hero” (referência DicedHeroSection, HTML puro) --- */
+.problema-diced__shell {
+  font-family: "Manrope", sans-serif;
+}
+
+.problema-diced__title-gradient {
+  display: inline-block;
+  /* Evita corte de descendentes (g, p, y) com background-clip: text + line-height apertado */
+  padding-bottom: 0.1em;
+  line-height: 1.2;
+  background-image: linear-gradient(
+    120deg,
+    #ffd573 0%,
+    #fff8f7 45%,
+    #e9c262 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.problema-diced__sep {
+  width: 6.25rem;
+  height: 0.25rem;
+  background: #775a00;
+  border-radius: 999px;
+}
+
+.problema-diced__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: min(100%, 560px);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .problema-diced__grid {
+    margin-inline: 0;
+    margin-left: auto;
+    max-width: 100%;
+  }
+}
+
+.problema-diced__cell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  aspect-ratio: 1 / 1;
+}
+
+.problema-diced__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: default;
+}
+
+.problema-diced__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.65rem 1rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 248, 247, 0.92);
+  text-shadow: 0 1px 2px rgba(35, 0, 4, 0.45);
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(35, 0, 4, 0.58) 0%,
+    rgba(35, 0, 4, 0.22) 55%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .problema-diced__label {
+    font-size: 0.75rem;
+    padding: 0.75rem 1.25rem 1.5rem;
+  }
+}
+
+/* Linha de baixo do grid: rótulo na base (evita recorte central “comendo” o topo) */
+.problema-diced__label--bottom {
+  top: auto;
+  bottom: 0;
+  padding: 1.25rem 1rem 0.65rem;
+  background: linear-gradient(
+    to top,
+    rgba(35, 0, 4, 0.58) 0%,
+    rgba(35, 0, 4, 0.22) 55%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .problema-diced__label--bottom {
+    padding: 1.5rem 1.25rem 0.75rem;
+  }
+}
+
+/* Máscaras do recorte central (cruz) — mesmo raciocínio do componente React */
+.problema-diced .warped-image {
+  --r: 20px;
+  --s: 40px;
+  --x: 25px;
+  --y: 5px;
+}
+
+.problema-diced .warped-image.top-right {
+  --_m: / calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 70%, #0000 72%);
+  --_g: conic-gradient(at calc(100% - var(--r)) var(--r), #0000 25%, #000 0);
+  --_d: calc(var(--s) + var(--r));
+  -webkit-mask: calc(100% - var(--_d) - var(--x)) 0 var(--_m),
+    100% calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 0, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  mask: calc(100% - var(--_d) - var(--x)) 0 var(--_m),
+    100% calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 0, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.problema-diced .warped-image.top-left {
+  --_m: / calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 70%, #0000 72%);
+  --_g: conic-gradient(at var(--r) var(--r), #000 75%, #0000 0);
+  --_d: calc(var(--s) + var(--r));
+  -webkit-mask: calc(var(--_d) + var(--x)) 0 var(--_m),
+    0 calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 0 0, #0000 99%, #000 calc(100% + 1px))
+      calc(var(--r) + var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(var(--_d) + var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  mask: calc(var(--_d) + var(--x)) 0 var(--_m),
+    0 calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 0 0, #0000 99%, #000 calc(100% + 1px))
+      calc(var(--r) + var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(var(--_d) + var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.problema-diced .warped-image.bottom-left {
+  --_m: / calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 70%, #0000 72%);
+  --_g: conic-gradient(
+    from 180deg at var(--r) calc(100% - var(--r)),
+    #0000 25%,
+    #000 0
+  );
+  --_d: calc(var(--s) + var(--r));
+  -webkit-mask: calc(var(--_d) + var(--x)) 100% var(--_m),
+    0 calc(100% - var(--_d) - var(--y)) var(--_m),
+    radial-gradient(var(--s) at 0 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(var(--r) + var(--x)) calc(-1 * var(--r) - var(--y)),
+    var(--_g) calc(var(--_d) + var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d) - var(--y));
+  mask: calc(var(--_d) + var(--x)) 100% var(--_m),
+    0 calc(100% - var(--_d) - var(--y)) var(--_m),
+    radial-gradient(var(--s) at 0 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(var(--r) + var(--x)) calc(-1 * var(--r) - var(--y)),
+    var(--_g) calc(var(--_d) + var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d) - var(--y));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+.problema-diced .warped-image.bottom-right {
+  --_m: / calc(2 * var(--r)) calc(2 * var(--r))
+    radial-gradient(#000 70%, #0000 72%);
+  --_g: conic-gradient(
+    from 90deg at calc(100% - var(--r)) calc(100% - var(--r)),
+    #0000 25%,
+    #000 0
+  );
+  --_d: calc(var(--s) + var(--r));
+  -webkit-mask: calc(100% - var(--_d) - var(--x)) 100% var(--_m),
+    100% calc(100% - var(--_d) - var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r) - var(--y)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d) - var(--y));
+  mask: calc(100% - var(--_d) - var(--x)) 100% var(--_m),
+    100% calc(100% - var(--_d) - var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 100%, #0000 99%, #000 calc(100% + 1px))
+      calc(-1 * var(--r) - var(--x)) calc(-1 * var(--r) - var(--y)),
+    var(--_g) calc(-1 * var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(-1 * var(--_d) - var(--y));
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/* Botão estilo Chronicle (texto duplicado + flip 3D no hover) */
+.problema-diced .chronicle-btn {
+  --cb-bg: #ffd573;
+  --cb-fg: #230004;
+  --cb-hover-bg: #775a00;
+  --cb-hover-fg: #fff8f7;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  line-height: 1;
+  padding: 1rem 1.35rem;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+  font-family: inherit;
+  text-decoration: none;
+  background: var(--cb-bg);
+  color: var(--cb-fg);
+  border-radius: 2rem;
+  transition: background 0.4s linear, color 0.4s linear;
+  will-change: background, color;
+  min-width: 12rem;
+}
+
+.problema-diced .chronicle-btn:hover {
+  background: var(--cb-hover-bg);
+  color: var(--cb-hover-fg);
+}
+
+.problema-diced .chronicle-btn:focus-visible {
+  outline: 2px solid #ffd573;
+  outline-offset: 3px;
+}
+
+.problema-diced .chronicle-btn__layer {
+  position: relative;
+  display: block;
+  perspective: 108px;
+}
+
+.problema-diced .chronicle-btn__layer--ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problema-diced .chronicle-btn__text {
+  font-style: normal;
+  display: inline-block;
+  font-size: 1.025rem;
+  color: inherit;
+  will-change: transform, opacity, color;
+  transition: transform 0.55s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.35s linear 0.2s, color 0.4s linear;
+}
+
+.problema-diced .chronicle-btn__layer:first-of-type .chronicle-btn__text {
+  transform-origin: top;
+}
+
+.problema-diced .chronicle-btn__layer--ghost .chronicle-btn__text {
+  opacity: 0;
+  transform: rotateX(-90deg) scaleX(0.9) translate3d(0, 10px, 0);
+  transform-origin: bottom;
+}
+
+.problema-diced .chronicle-btn:hover .chronicle-btn__layer:first-of-type .chronicle-btn__text {
+  opacity: 0;
+  transform: rotateX(90deg) scaleX(0.9) translate3d(0, -10px, 0);
+}
+
+.problema-diced .chronicle-btn:hover .chronicle-btn__layer--ghost .chronicle-btn__text {
+  opacity: 1;
+  transform: rotateX(0deg) scaleX(1) translateZ(0);
+  transition: transform 0.75s cubic-bezier(0.645, 0.045, 0.355, 1),
+    opacity 0.35s linear 0.3s, color 0.4s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .problema-diced .chronicle-btn__text {
+    transition: none;
+  }
+  .problema-diced .chronicle-btn:hover .chronicle-btn__layer:first-of-type .chronicle-btn__text,
+  .problema-diced .chronicle-btn:hover .chronicle-btn__layer--ghost .chronicle-btn__text {
+    opacity: 1;
+    transform: none;
+  }
+  .problema-diced .chronicle-btn__layer--ghost .chronicle-btn__text {
+    opacity: 0;
+  }
+  .problema-diced .chronicle-btn:hover .chronicle-btn__layer--ghost .chronicle-btn__text {
+    opacity: 1;
+  }
+}
+
+/* --- Catálogo de produtos: cartões “reveal” (HTML/CSS/JS, inspirado em ProductRevealCard) --- */
+.product-reveal-card {
+  --pr-radius: 1rem;
+  touch-action: manipulation;
+}
+
+.product-reveal-card__shell {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--pr-radius);
+  border: 1px solid rgba(219, 192, 192, 0.55);
+  background: #fff;
+  color: #201a1b;
+  box-shadow: 0 10px 40px -12px rgba(35, 0, 4, 0.12);
+}
+
+.product-reveal-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(145deg, #f1e5e6 0%, #ebe0e1 100%);
+}
+
+.product-reveal-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-reveal-card__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 12rem;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(35, 0, 4, 0.45);
+  background: linear-gradient(135deg, #f7ebec, #ebe0e1);
+}
+
+.product-reveal-card__gradient {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(35, 0, 4, 0.35), transparent 55%);
+}
+
+.product-reveal-card__cut-badge {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  max-width: min(11rem, calc(100% - 1.5rem));
+  padding: 0.45rem 0.65rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(35, 0, 4, 0.72);
+  color: #fff8f7;
+  font-size: 0.625rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  text-wrap: balance;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 14px rgba(35, 0, 4, 0.2);
+  cursor: default;
+}
+
+.product-reveal-card__body {
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+
+.product-reveal-card__title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #230004;
+}
+
+.product-reveal-card__grams {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.product-reveal-card__gram {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(35, 0, 4, 0.12);
+  background: rgba(241, 229, 230, 0.65);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #230004;
+}
+
+.product-reveal-card__toggle {
+  margin-top: 1rem;
+  width: 100%;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(35, 0, 4, 0.18);
+  background: #fff8f7;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #230004;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.product-reveal-card__toggle:hover {
+  background: #f1e5e6;
+  border-color: rgba(119, 90, 0, 0.35);
+}
+
+.product-reveal-card__toggle:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 2px;
+}
+
+.product-reveal-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  background: rgba(255, 248, 247, 0.96);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  backdrop-filter: blur(14px) saturate(1.1);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease,
+    visibility 0s linear 0.35s;
+}
+
+.product-reveal-card.is-open .product-reveal-card__overlay,
+.product-reveal-card:focus-within .product-reveal-card__overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s, 0s, 0s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-reveal-card:hover .product-reveal-card__overlay {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0s, 0s, 0s;
+  }
+
+  .product-reveal-card:hover .product-reveal-card__media img {
+    transform: scale(1.08);
+  }
+}
+
+.product-reveal-card__overlay-inner {
+  max-height: min(72vh, 100%);
+  overflow-y: auto;
+  padding-bottom: 0.25rem;
+}
+
+.product-reveal-card__overlay h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #230004;
+}
+
+.product-reveal-card__overlay-desc {
+  margin: 0 0 0.65rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: #554243;
+}
+
+.product-reveal-card__spec-wrap {
+  margin-bottom: 0.85rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(219, 192, 192, 0.5);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.product-reveal-card__spec {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 0.6875rem;
+}
+
+.product-reveal-card__spec caption {
+  padding: 0;
+}
+
+.product-reveal-card__spec thead th {
+  padding: 0.35rem 0.3rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+  background: rgba(241, 229, 230, 0.55);
+  border-bottom: 1px solid rgba(219, 192, 192, 0.5);
+}
+
+.product-reveal-card__spec-ico {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.35rem;
+  line-height: 1;
+  color: #230004;
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.product-reveal-card__spec tbody td {
+  padding: 0.4rem 0.35rem;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 700;
+  color: #230004;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid rgba(219, 192, 192, 0.35);
+}
+
+.product-reveal-card__spec tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.product-reveal-card__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-reveal-card__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: filter 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.product-reveal-card__actions .product-reveal-card__btn {
+  width: 100%;
+}
+
+.product-reveal-card__btn--primary {
+  background: linear-gradient(90deg, #230004, #4d0011);
+  color: #fff;
+  box-shadow: 0 10px 28px -8px rgba(35, 0, 4, 0.35);
+}
+
+.product-reveal-card__btn--primary:hover {
+  filter: brightness(1.06);
+}
+
+.product-reveal-card__btn--primary:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 2px;
+}
+
+.product-reveal-card__btn--outline {
+  background: #fff;
+  border-color: rgba(35, 0, 4, 0.2);
+  color: #230004;
+}
+
+.product-reveal-card__btn--outline:hover {
+  background: #f7ebec;
+}
+
+.product-reveal-card__btn--outline:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 2px;
+}
+
+.product-reveal-card__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  z-index: 5;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 9999px;
+  background: rgba(35, 0, 4, 0.06);
+  color: #230004;
+  cursor: pointer;
+}
+
+.product-reveal-card__close:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-reveal-card__close {
+    display: none;
+  }
+
+  .product-reveal-card.is-open .product-reveal-card__close {
+    display: inline-flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-reveal-card__media img {
+    transition: none;
+    transform: none;
+  }
+
+  .product-reveal-card__overlay {
+    transform: none;
+    transition: opacity 0.15s ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) and (hover: hover) and (pointer: fine) {
+  .product-reveal-card:hover .product-reveal-card__media img {
+    transform: none;
+  }
+}
+
+/* --- Catálogo: abas estilo “gooey” (filtro SVG + pílula deslizante) --- */
+.valepan-catalog-tabs {
+  position: relative;
+}
+
+.valepan-goo-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.valepan-catalog-tabs__goo-layer {
+  border-radius: 0.75rem;
+}
+
+.valepan-catalog-tabs__pill {
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.25rem;
+  width: calc((100% - 0.5rem) / 3);
+  border-radius: 0.6rem;
+  background: #fff8f7;
+  box-shadow: 0 2px 10px rgba(35, 0, 4, 0.07);
+  transform: translateX(0);
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.valepan-catalog-tabs[data-active-tab="0"] .valepan-catalog-tabs__pill {
+  transform: translateX(0);
+}
+
+.valepan-catalog-tabs[data-active-tab="1"] .valepan-catalog-tabs__pill {
+  transform: translateX(calc(100% + 0px));
+}
+
+.valepan-catalog-tabs[data-active-tab="2"] .valepan-catalog-tabs__pill {
+  transform: translateX(calc(200% + 0px));
+}
+
+.valepan-catalog-tabs__tab {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.35rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(35, 0, 4, 0.48);
+  cursor: pointer;
+  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 480px) {
+  .valepan-catalog-tabs__tab {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .valepan-catalog-tabs__tab {
+    font-size: 0.8125rem;
+  }
+}
+
+.valepan-catalog-tabs__tab[aria-selected="true"] {
+  color: #230004;
+}
+
+.valepan-catalog-tabs__tab:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 2px;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .valepan-catalog-tabs__goo-layer {
+    filter: none !important;
+  }
+
+  .valepan-catalog-tabs__pill {
+    transition: none;
+  }
+}
+
+/* Depoimentos: recorte “mais alto” que o centro puro — rostos ficam acima do texto */
+.valepan-testimonial-card__photo {
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+/* Depoimentos: entrada ao scroll (equivalente a framer-motion whileInView) */
+.valepan-testimonials-grid .valepan-testimonial-card {
+  opacity: 0;
+  transform: translate3d(0, 1.25rem, 0);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.valepan-testimonials-grid.is-in-view .valepan-testimonial-card:nth-child(1) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0ms;
+}
+
+.valepan-testimonials-grid.is-in-view .valepan-testimonial-card:nth-child(2) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.15s;
+}
+
+.valepan-testimonials-grid.is-in-view .valepan-testimonial-card:nth-child(3) {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .valepan-testimonials-grid .valepan-testimonial-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   Botões flutuantes (WhatsApp + voltar ao topo)
+   ============================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 6.25rem;
+  width: 4rem;
+  height: 4rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 60;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  animation: whatsapp-float-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  background: #1fb855;
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-float:focus-visible {
+  outline: 2px solid #230004;
+  outline-offset: 3px;
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 4.375rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(13, 13, 8, 0.88);
+  color: #fff8f7;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  pointer-events: none;
+}
+
+.whatsapp-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: rgba(13, 13, 8, 0.88);
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes whatsapp-float-pulse {
+  0%,
+  100% {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 8px 24px rgba(37, 211, 102, 0.35),
+      0 0 0 10px rgba(37, 211, 102, 0.12);
+  }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: #230004;
+  color: #ffd573;
+  border: 2px solid #ffd573;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease, color 0.3s ease,
+    transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 60;
+  box-shadow: 0 8px 24px rgba(35, 0, 4, 0.25);
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background: #ffd573;
+  color: #230004;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(119, 90, 0, 0.35);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid #775a00;
+  outline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .whatsapp-float {
+    width: 3.5rem;
+    height: 3.5rem;
+    bottom: 1.25rem;
+    right: 5rem;
+  }
+
+  .whatsapp-float svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .whatsapp-tooltip {
+    display: none;
+  }
+
+  .back-to-top {
+    width: 3rem;
+    height: 3rem;
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .back-to-top svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float {
+    animation: none;
+  }
+}
+
+/* Footer (new-index-unificado): links sociais pontilhados + toggle de tema */
+.valepan-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dotted rgba(35, 0, 4, 0.35);
+  border-radius: 0.75rem;
+  padding: 0.625rem;
+  color: #230004;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dark .valepan-footer__social-link {
+  border-color: rgba(255, 248, 247, 0.28);
+  color: #ebe0e1;
+}
+
+.valepan-footer__social-link:hover {
+  transform: translateY(-4px);
+  color: #775a00;
+  border-color: rgba(119, 90, 0, 0.45);
+}
+
+.dark .valepan-footer__social-link:hover {
+  color: #ffd573;
+  border-color: rgba(255, 213, 115, 0.4);
+}
+
+/* Footer fundo bordô — contraste (sobrescreve regras acima no #site-footer) */
+#site-footer.valepan-footer .valepan-footer__social-link {
+  color: #ebe0e1;
+  border-color: rgba(255, 248, 247, 0.35);
+}
+
+#site-footer.valepan-footer .valepan-footer__social-link:hover {
+  color: #ffd573;
+  border-color: rgba(255, 213, 115, 0.45);
+}
+
+html.dark #site-footer.valepan-footer .valepan-footer__social-link {
+  color: #ebe0e1;
+  border-color: rgba(255, 248, 247, 0.28);
+}
+
+html.dark #site-footer.valepan-footer .valepan-footer__social-link:hover {
+  color: #ffd573;
+  border-color: rgba(255, 213, 115, 0.4);
+}
+
+.footer-theme-btn {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.footer-theme-btn--light {
+  background: #230004;
+  color: #fff8f7;
+}
+
+.dark .footer-theme-btn--light {
+  background: transparent;
+  color: #ebe0e1;
+}
+
+.footer-theme-btn--light:hover {
+  opacity: 0.92;
+}
+
+.footer-theme-btn--dark {
+  color: #230004;
+}
+
+.dark .footer-theme-btn--dark {
+  background: #230004;
+  color: #fff8f7;
+}
+
+.footer-theme-btn--dark:hover {
+  opacity: 0.92;
+}
+
+/* Botões de tema no footer bordô */
+#site-footer.valepan-footer .footer-theme-btn--light {
+  background: rgba(255, 248, 247, 0.12);
+  color: #fff8f7;
+}
+
+#site-footer.valepan-footer .footer-theme-btn--dark {
+  color: #fff8f7;
+}
+
+html.dark #site-footer.valepan-footer .footer-theme-btn--light {
+  background: transparent;
+  color: #ebe0e1;
+}
+
+html.dark #site-footer.valepan-footer .footer-theme-btn--dark {
+  background: rgba(0, 0, 0, 0.22);
+  color: #fff8f7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .valepan-footer__social-link:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  .whatsapp-float,
+  .back-to-top {
+    display: none !important;
+  }
 }

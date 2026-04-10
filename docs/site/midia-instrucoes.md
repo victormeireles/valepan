@@ -11,22 +11,6 @@ Substitua os placeholders abaixo nos caminhos indicados. Resoluções mínimas: 
 - **Enquadramento:** Horizontal, pode ser levemente de cima (bird's eye) ou lateral.
 - **Tratamento:** Cores vibrantes, bem iluminada. A imagem receberá overlay vinho/dourado + efeito Ken Burns (zoom lento).
 
-### Slide 2 - Problema
-**Local:** `assets/img/hero/pao-ruim.jpg`
-- **Tipo:** Foto JPG (1920x1080+, pode ser 3:2 ou 4:3)
-- **Conteúdo:** Pão de má qualidade - pode ser mal cortado, esfarelando, encharcado, ou desmontando o lanche.
-- **Enquadramento:** Close 3/4, foco no problema, fundo neutro ou desfocado.
-- **Iluminação:** Natural ou estúdio, contraste médio-alto para destacar o defeito.
-
-### Slide 3 - Solução (Vídeo vertical)
-**Local:** `assets/img/hero/montagem-lanche.mp4`
-- **Tipo:** Vídeo MP4 VERTICAL (9:16 - formato stories/reels)
-- **Resolução:** 1080x1920 (vertical)
-- **Duração:** 6-12s em loop
-- **Conteúdo:** Montagem de lanche com pão Valepan - mãos montando, ingredientes caindo, corte mostrando o interior suculento.
-- **Estilo:** Dinâmico, cores vivas, pode ter slow motion. Sem áudio necessário.
-- **IMPORTANTE:** Vídeo deve ser VERTICAL (9:16) como stories do Instagram.
-
 > **Nota:** As pastas `assets/slides/02-quem-somos`, `03-essencia` e `04-produtos` foram **removidas do repositório** (não eram usadas pelo `index.html`). O briefing abaixo permanece como referência de conteúdo; mídia institucional e produtos na landing atual estão em `assets/img/sobre/`, `assets/img/produtos/`, etc.
 
 ## 02 — Quem Somos (3 slides) *(referência — paths antigos)*

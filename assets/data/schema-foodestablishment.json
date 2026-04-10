@@ -1,0 +1,20 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "ValePan",
+  "description": "Pães Premium para Hamburguerias",
+  "url": "https://valepan.com",
+  "telephone": "+5524999784591",
+  "email": "comercial@valepan.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua Luiz de Camões, nº 266",
+    "addressLocality": "Resende",
+    "addressRegion": "RJ",
+    "addressCountry": "BR"
+  },
+  "foundingDate": "1991",
+  "sameAs": [
+    "https://instagram.com/valepan.oficial"
+  ]
+}

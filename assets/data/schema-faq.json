@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qual a validade dos pães?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "21 dias em temperatura ambiente. 90 dias congelado + 5 dias após descongelar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como é a entrega de caminhão?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Carga batida (sem paletizar)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como é a paletização?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No pallet, cada andar com 6 caixas — total de 42 a 48 caixas por pallet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quantas unidades vêm em cada caixa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No geral, a caixa possui 48 pães; na gramatura 50 g vêm 60 unidades."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qual o prazo de entrega (lead time)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para distribuidoras: 2 dias úteis. Para hamburgueria: depende da sua região — consulte o comercial."
+      }
+    }
+  ]
+}
