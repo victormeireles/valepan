@@ -393,6 +393,13 @@
       desc:
         "Mini brioche de 20 g para sliders, eventos e degustações — mesmo padrão Valepan em tamanho compacto.",
     },
+    {
+      name: "Mini Cortado",
+      grams: [20],
+      img: "assets/img/produtos/mini-cortado.webp",
+      desc:
+        "Mini brioche de 20 g já cortado — mesmo padrão Valepan, pronto para montagem rápida em sliders, eventos e degustações.",
+    },
   ];
 
   var CATALOG_TABS = [
